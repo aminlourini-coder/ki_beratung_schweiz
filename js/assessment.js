@@ -1,126 +1,315 @@
-// Enhanced Assessment Form Handler
-const form = document.getElementById('assessment-form');
-const modal = document.getElementById('assessment-modal');
-const closeBtn = document.getElementById('assessment-close');
-const steps = document.querySelectorAll('.step');
-let currentStep = 1;
+/**
+ * KI.NETIC Assessment - Schweizer KMU Edition
+ * Dynamische Berechnung basierend auf: MA-Anzahl × Stunden × Lohnkosten
+ * Ziel: Realistische, glaubwürdige Zahlen für den CH-Markt
+ */
 
-// Initialize
-document.querySelectorAll('[data-action]').forEach(btn => {
-  btn.addEventListener('click', handleStepNavigation);
-});
+document.addEventListener('DOMContentLoaded', () => {
+  // === DOM ELEMENTS ===
+  const form = document.getElementById('assessment-form');
+  const modal = document.getElementById('assessment-modal');
+  const closeBtn = document.getElementById('assessment-close');
+  const steps = document.querySelectorAll('.step');
+  const progressBar = document.getElementById('progress-bar');
+  
+  let currentStep = 1;
 
-form.addEventListener('submit', handleSubmit);
-closeBtn.addEventListener('click', closeModal);
+  // === KONFIGURATION: SCHWEIZER MARKT ===
 
-// Industry-based scoring
-const industryScores = {
-  'Buchhaltung': 95, 'Immobilien': 85, 'Handwerk': 80, 'Versicherung': 90,
-  'Finanzen': 98, 'Industrie': 88, 'Handel': 92, 'Gesundheit': 87,
-  'Energie': 84, 'Sonstiges': 70
-};
+  // Durchschnittliche Mitarbeiterzahl pro Kategorie (konservativ)
+  const COMPANY_SIZE_AVG = {
+    'micro': 1.5,    // 1-5 MA
+    'small': 10,     // 6-20 MA
+    'medium': 40,    // 21-100 MA
+    'large': 140     // 100+ MA
+  };
 
-const sizeBoosts = { 'micro': 20, 'small': 15, 'medium': 10, 'large': 5 };
+  // Kalkulatorischer Stundensatz (Lohn + Lohnnebenkosten 42% + Arbeitsplatz)
+  const HOURLY_RATES_CHF = {
+    'Buchhaltung': 100,
+    'Immobilien': 95,
+    'Handwerk': 70,
+    'Versicherung': 115,
+    'Finanzen': 125,
+    'Industrie': 90,
+    'Handel': 75,
+    'Gesundheit': 85,
+    'Energie': 100,
+    'Sonstiges': 85
+  };
 
-const savingsByIndustry = {
-  'Buchhaltung': 45000, 'Immobilien': 38000, 'Handwerk': 32000, 'Versicherung': 52000,
-  'Finanzen': 58000, 'Industrie': 48000, 'Handel': 42000, 'Gesundheit': 36000,
-  'Energie': 40000, 'Sonstiges': 25000
-};
+  // Gesparte Stunden pro Woche pro Mitarbeiter (konservativ)
+  const PAIN_POINT_SAVINGS_HOURS = {
+    'Belegverarbeitung': 3.5,
+    'Kundenanfragen': 2.5,
+    'Datenanalyse': 1.8,
+    'Angebotserstellung': 2.0,
+    'Prozess-Dokumentation': 1.2,
+    'Datenstrategie': 0.7
+  };
 
-const recommendations = {
-  'Belegverarbeitung': 'Intelligent Document Processing - Spart 85% Zeit',
-  'Kundenanfragen': 'KI-Chatbot 24/7 Support - Senkt Kosten um 70%',
-  'Datenanalyse': 'Predictive Analytics - Erhöht Umsatz um 15-25%',
-  'Angebotserstellung': 'AI-Angebotsgenerator - 10x schneller',
-  'Prozess-Dokumentation': 'Auto-Dokumentation - Eliminiert manuelle Arbeit',
-  'Datenstrategie': 'Datengovernance - Neue Einnahmequellen'
-};
+  // Text-Empfehlungen
+  const RECOMMENDATIONS = {
+    'Belegverarbeitung': 'Automatisches Document Processing mit OCR & RPA',
+    'Kundenanfragen': 'KI-Agenten für Chatbot & E-Mail-Verarbeitung 24/7',
+    'Datenanalyse': 'Automatisierte Dashboards mit Predictive Analytics',
+    'Angebotserstellung': 'Generative KI für Template-basierte Offerten',
+    'Prozess-Dokumentation': 'Auto-Erfassung von Prozessen während der Arbeit',
+    'Datenstrategie': 'Data Warehouse Aufbau & Governance-Framework'
+  };
 
-function handleStepNavigation(e) {
-  const action = e.target.dataset.action;
-  const step = parseInt(e.target.closest('.step').dataset.step);
-  if (action === 'next' && validateStep(step)) goToStep(step + 1);
-  else if (action === 'back') goToStep(step - 1);
-}
+  // Implementierungskosten (für ROI-Berechnung)
+  const IMPLEMENTATION_COSTS = {
+    'Buchhaltung': 35000,
+    'Immobilien': 32000,
+    'Handwerk': 28000,
+    'Versicherung': 45000,
+    'Finanzen': 50000,
+    'Industrie': 42000,
+    'Handel': 30000,
+    'Gesundheit': 28000,
+    'Energie': 40000,
+    'Sonstiges': 25000
+  };
 
-function validateStep(step) {
-  const stepEl = document.querySelector(`[data-step="${step}"]`);
-  const inputs = stepEl.querySelectorAll('input[required]');
-  let valid = true;
-  inputs.forEach(input => {
-    if (input.type === 'radio') {
-      const group = form.querySelectorAll(`[name="${input.name}"]`);
-      if (!Array.from(group).some(i => i.checked)) { valid = false; }
-    } else if (!input.value) { valid = false; }
+  // === EVENT LISTENERS ===
+
+  document.querySelectorAll('[data-action]').forEach(btn => {
+    btn.addEventListener('click', handleStepNavigation);
   });
-  return valid;
-}
 
-function goToStep(step) {
-  if (step < 1 || step > 4) return;
-  currentStep = step;
-  steps.forEach(s => s.hidden = true);
-  document.querySelector(`[data-step="${step}"]`).hidden = false;
-  document.getElementById('progress-bar').style.width = ((step - 1) / 3 * 100) + '%';
-}
+  if (form) form.addEventListener('submit', handleSubmit);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
-function handleSubmit(e) {
-  e.preventDefault();
-  if (!validateStep(3)) return;
-  
-  const branche = form.querySelector('input[name="branche"]:checked').value;
-  const size = form.querySelector('input[name="company_size"]:checked').value;
-  const pains = Array.from(form.querySelectorAll('input[name="pain"]:checked')).map(i => i.value);
-  const name = form.querySelector('input[name="name"]').value;
-  const email = form.querySelector('input[name="email"]').value;
+  document.querySelectorAll('#cta-primary, #open-assessment').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
 
-  const baseScore = industryScores[branche] || 70;
-  const totalScore = Math.min(baseScore + (sizeBoosts[size] || 0) + Math.min(pains.length * 8, 24), 100);
-  const baseSavings = savingsByIndustry[branche] || 25000;
-  const sizeMultiplier = {micro: 0.3, small: 0.6, medium: 1, large: 1.5}[size] || 1;
-  const totalSavings = Math.round(baseSavings * sizeMultiplier);
-  
-  displayResults(totalScore, branche, totalSavings, pains.map(p => recommendations[p]).slice(0, 3), {name, email});
-}
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
 
-function displayResults(score, branche, savings, recList, contact) {
-  let [level, color] = score >= 85 ? ['Sehr Hoch - KRITISCH! ', '#00FF88'] :
-                       score >= 70 ? ['Hoch - Grosses Potenzial! ', '#00FFFF'] :
-                       score >= 55 ? ['Moderat ', '#8B5CF6'] : ['Niedrig ', '#FFD700'];
-  
-  document.getElementById('result-score').textContent = score;
-  document.getElementById('result-score').style.color = color;
-  document.getElementById('result-summary').innerHTML = `<strong style="color: ${color};">${branche} - ${level}</strong><p style="margin-top: 1rem;">Enormes Potenzial zur Automatisierung und Effizienzsteigerung. KI-Einsatz ist notwendig.</p>`;
-  document.getElementById('result-savings').textContent = 'CHF ' + savings.toLocaleString('de-CH');
-  
-  const recEl = document.getElementById('result-recommendations');
-  recEl.innerHTML = '';
-  recList.forEach(r => { const li = document.createElement('li'); li.textContent = r; li.style.marginBottom = '0.75rem'; recEl.appendChild(li); });
-  
-  window.assessmentData = { score, branche, savings, contact };
-  goToStep(4);
-}
+  const bookBtn = document.getElementById('book-meet');
+  const closeResBtn = document.getElementById('close-result');
 
-function closeModal() {
-  modal.setAttribute('aria-hidden', 'true');
-  modal.style.display = 'none';
-  form.reset();
-  goToStep(1);
-}
+  if (bookBtn) {
+    bookBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const contact = window.assessmentData?.contact || {};
+      window.location.href = `pages/kontakt.html?name=${encodeURIComponent(contact.name || '')}&email=${encodeURIComponent(contact.email || '')}`;
+    });
+  }
 
-document.getElementById('book-meet').addEventListener('click', () => {
-  const {contact} = window.assessmentData;
-  window.location.href = `pages/kontakt.html?name=${encodeURIComponent(contact.name)}&email=${encodeURIComponent(contact.email)}`;
-});
+  if (closeResBtn) {
+    closeResBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  }
 
-document.getElementById('close-result').addEventListener('click', closeModal);
-document.querySelectorAll('#cta-primary, #open-assessment').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
+  // === FUNKTIONEN ===
+
+  function openModal() {
+    if (!modal) return;
     modal.setAttribute('aria-hidden', 'false');
     modal.style.display = 'flex';
-  });
-});
+    const firstInput = modal.querySelector('input');
+    if (firstInput) firstInput.focus();
+  }
 
-modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute('aria-hidden', 'true');
+    modal.style.display = 'none';
+    setTimeout(() => {
+      form.reset();
+      goToStep(1);
+    }, 300);
+  }
+
+  function handleStepNavigation(e) {
+    const action = e.target.dataset.action;
+    const stepContainer = e.target.closest('.step');
+    const stepNum = parseInt(stepContainer.dataset.step);
+
+    if (action === 'next') {
+      if (validateStep(stepNum)) {
+        goToStep(stepNum + 1);
+      }
+    } else if (action === 'back') {
+      goToStep(stepNum - 1);
+    }
+  }
+
+  function validateStep(step) {
+    const stepEl = document.querySelector(`.step[data-step="${step}"]`);
+    const inputs = stepEl.querySelectorAll('input[required]');
+    let isValid = true;
+    let firstError = null;
+
+    inputs.forEach(input => {
+      let inputValid = true;
+
+      if (input.type === 'radio') {
+        const groupName = input.name;
+        const checked = stepEl.querySelector(`input[name="${groupName}"]:checked`);
+        if (!checked) inputValid = false;
+      } else if (input.type === 'email') {
+        if (!input.value.trim() || !input.value.includes('@')) inputValid = false;
+      } else {
+        if (!input.value.trim()) inputValid = false;
+      }
+
+      if (!inputValid) {
+        isValid = false;
+        input.classList.add('error');
+        if (!firstError) firstError = input;
+
+        input.addEventListener('input', () => input.classList.remove('error'), { once: true });
+        input.addEventListener('change', () => input.classList.remove('error'), { once: true });
+      }
+    });
+
+    if (!isValid && firstError) {
+      firstError.focus();
+    }
+
+    return isValid;
+  }
+
+  function goToStep(step) {
+    if (step < 1 || step > 4) return;
+
+    currentStep = step;
+
+    steps.forEach(s => {
+      s.hidden = true;
+      s.style.display = 'none';
+    });
+
+    const currentEl = document.querySelector(`.step[data-step="${step}"]`);
+    if (currentEl) {
+      currentEl.hidden = false;
+      currentEl.style.display = 'block';
+    }
+
+    if (progressBar) {
+      const percent = ((step - 1) / 3) * 100;
+      progressBar.style.width = `${percent}%`;
+    }
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!validateStep(3)) return;
+
+    const formData = new FormData(form);
+    const branche = formData.get('branche');
+    const size = formData.get('company_size');
+    const pains = formData.getAll('pain');
+    const name = formData.get('name');
+    const email = formData.get('email');
+
+    // === THE SWISS FORMULA ===
+    const employeeCount = COMPANY_SIZE_AVG[size] || 10;
+    const hourlyRate = HOURLY_RATES_CHF[branche] || 85;
+
+    let hoursSavedPerEmployee = 0;
+    pains.forEach(pain => {
+      hoursSavedPerEmployee += (PAIN_POINT_SAVINGS_HOURS[pain] || 0.5);
+    });
+    hoursSavedPerEmployee = Math.min(hoursSavedPerEmployee, 12);
+
+    // Jahresersparnis: MA × h/Wo × 48 Wochen × CHF/h × 0.75 (Effizienzfaktor)
+    const annualSavings = employeeCount * hoursSavedPerEmployee * 48 * hourlyRate * 0.75;
+    const totalSavings = Math.max(Math.round(annualSavings / 1000) * 1000, 5000);
+
+    // Score (0-95)
+    let score = 45;
+    score += pains.length * 12;
+    if (size === 'medium') score += 8;
+    if (size === 'large') score += 20;
+    score = Math.min(score, 95);
+
+    const recommendations = pains.slice(0, 3).map(p => RECOMMENDATIONS[p] || 'KI-Integration');
+
+    // ROI berechnen
+    const implCost = IMPLEMENTATION_COSTS[branche] || 35000;
+    const roiMonths = Math.round((implCost / (totalSavings / 12)) * 10) / 10;
+
+    window.assessmentData = {
+      score,
+      branche,
+      totalSavings,
+      roiMonths,
+      implCost,
+      contact: { name, email }
+    };
+
+    displayResults(score, branche, totalSavings, roiMonths, implCost, recommendations);
+  }
+
+  function displayResults(score, branche, savings, roiMonths, implCost, recList) {
+    let levelText = 'Moderat';
+    let color = '#8B5CF6';
+
+    if (score >= 85) {
+      levelText = 'KRITISCH';
+      color = '#00FF88';
+    } else if (score >= 70) {
+      levelText = 'SEHR HOCH';
+      color = '#00FFFF';
+    } else if (score >= 55) {
+      levelText = 'HOCH';
+      color = '#FFB347';
+    }
+
+    const scoreEl = document.getElementById('result-score');
+    const summaryEl = document.getElementById('result-summary');
+    const savingsEl = document.getElementById('result-savings');
+    const roiEl = document.getElementById('result-roi');
+    const recUl = document.getElementById('result-recommendations');
+
+    if (scoreEl) {
+      scoreEl.textContent = `${score}/100`;
+      scoreEl.style.color = color;
+    }
+
+    if (summaryEl) {
+      summaryEl.innerHTML = `
+        <strong style="color: ${color}; font-size: 1.1rem;">KI-Potenzial: ${levelText}</strong>
+        <p style="margin-top: 0.75rem; font-size: 0.9rem; color: #ccc;">
+          Basierend auf KMU-Durchschnitte in <span style="color:#fff">${branche}</span>. Reale Einsparungen hängen von Implementierung & Prozessreife ab.
+        </p>
+      `;
+    }
+
+    if (savingsEl) {
+      savingsEl.innerHTML = `<strong style="font-size: 1.3rem;">CHF ${savings.toLocaleString('de-CH')}</strong> <span style="font-size: 0.9rem; color: #888;">pro Jahr</span>`;
+    }
+
+    if (roiEl && roiMonths) {
+      roiEl.innerHTML = `<small style="color: #888;">Amortisation nach ~${roiMonths} Monaten (kalkuliert mit CHF ${implCost.toLocaleString('de-CH')} Implementierung)</small>`;
+    }
+
+    if (recUl) {
+      recUl.innerHTML = '';
+      if (recList.length === 0) recList.push('Allgemeine KI-Strategie-Analyse');
+
+      recList.forEach(rec => {
+        const li = document.createElement('li');
+        li.textContent = rec;
+        li.style.marginBottom = '0.5rem';
+        li.style.color = '#fff';
+        recUl.appendChild(li);
+      });
+    }
+
+    goToStep(4);
+  }
+});
