@@ -69,6 +69,29 @@ body {
   z-index: 0;
 }
 
+/* Mobile image optimizations */
+@media (max-width: 768px) {
+  .hero.hero--overlay .hero-bg {
+    opacity: 0.12;
+    object-position: center center;
+  }
+  
+  .card-bg {
+    opacity: 0.1;
+    object-position: center center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero.hero--overlay .hero-bg {
+    opacity: 0.15;
+  }
+  
+  .card-bg {
+    opacity: 0.12;
+  }
+}
+
 /* Typography */
 h1, h2, h3 {
   font-weight: 600;
@@ -463,6 +486,8 @@ a:hover {
   border-radius: var(--radius-lg);
   padding: 2rem;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -1057,10 +1082,19 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
 
   .cards, .grid-3 {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
   }
 
   .ai-demo-card {
     grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    height: 300px;
   }
 
   .trust-inner {
@@ -1384,6 +1418,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
   .hero-copy .sub {
     font-size: 1rem;
     margin-top: 0.5rem;
+  }
+
+  .hero-visual {
+    height: 250px;
   }
 
   .cta-cluster button,
