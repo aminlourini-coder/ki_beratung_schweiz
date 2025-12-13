@@ -63,7 +63,7 @@
 
 - [ ] **Mobile Menu-Performance**
   - Testen: Hamburger-Menü auf iOS Safari
-  - Testen: Menü-Schließen nach Link-Klick
+  - Testen: Menü-Schliessen nach Link-Klick
 
 - [ ] **Form Validation UI**
   - Fehlermeldungen unter falschen Feldern anzeigen
@@ -307,7 +307,7 @@ Sofort umzusetzen:
 - [ ] Alle Änderungen testen auf Mobile (iPhone + Android)
 - [ ] Alle Links auf Broken Links checken
 - [ ] Alle Formulare testen (Submit, Validation, Email)
-- [ ] Performance-Test nach jeder größeren Änderung
+- [ ] Performance-Test nach jeder groesseren Änderung
 - [ ] Git-Commits bei jeder Änderung (nicht in Bulk committen)
 
 ---

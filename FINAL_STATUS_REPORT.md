@@ -39,7 +39,7 @@
 | Aspekt | Status | Details |
 |--------|--------|---------|
 | Telefonnummer | ✅ Konsistent | +41 31 333 00 01 (29 Instanzen) |
-| Character Encoding | ✅ UTF-8 | Alle Umlaute korrekt (ä, ö, ü, ß) |
+| Character Encoding | ✅ UTF-8 | Alle Umlaute korrekt (ä, ö, ü, ss) |
 | German Grammar | ✅ Verifiziert | Alle 25 Seiten überprüft |
 | Email Adressen | ✅ Korrekt | info@ki-schweiz.ch konsistent |
 | Links | ✅ Funktional | Keine Pfad-Fehler gefunden |
@@ -90,7 +90,7 @@
 - ✅ 4-Step Form funktional
 - ✅ Scoring-Algorithmus vollständig
 - ✅ 10 Industrien mit Basiscores
-- ✅ Größen-Multiplikatoren
+- ✅ Grossen-Multiplikatoren
 - ✅ Automatische Empfehlungen
 - ✅ Modal-Popup funktioniert
 
@@ -210,7 +210,7 @@ ki-schweiz-ag/
    - Google Analytics verifizieren
 
 ### Laufend (POST-LAUNCH)
-- Blog-Artikel regelmäßig aktualisieren
+- Blog-Artikel regelmaessig aktualisieren
 - Assessment-Submissions überwachen
 - Customer Testimonials sammeln
 - SEO Performance in Google Search Console überprüfen

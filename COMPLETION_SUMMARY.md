@@ -159,7 +159,7 @@ Folgende Punkte sind vorbereitet aber noch nicht aktiviert:
 
 4. **CSS/JS Minification (optional für weitere Performance)**
    - Tools: cssnano, terser
-   - Spart ~30% Dateigröße
+  - Spart ~30% Dateigroesse
 
 5. **Performance Testing**
    - Google PageSpeed Insights
@@ -195,7 +195,7 @@ Folgende Punkte sind vorbereitet aber noch nicht aktiviert:
 
 **Compression:**
 - ✓ Gzip für HTML/CSS/JS
-- ✓ Reduziert Dateigröße um ~60%
+- ✓ Reduziert Dateigroesse um ~60%
 
 **Ergebnis:** Website sollte LCP <2.5s erreichen bei DSL
 
@@ -219,7 +219,7 @@ Folgende Punkte sind vorbereitet aber noch nicht aktiviert:
 ## 💡 TIPPS FÜR WEITERES WACHSTUM
 
 1. **Content Marketing**
-   - Blog regelmäßig aktualisieren (mind. 2x/Monat)
+  - Blog regelmaessig aktualisieren (mind. 2x/Monat)
    - SEO-optimiert schreiben (H1, Meta, Internal Links)
 
 2. **Analytics**

@@ -8,7 +8,7 @@
 - **Gesamtseiten:** 25 HTML-Dateien
 - **CSS-Dateien:** 1 (style.css - 2065 Zeilen)
 - **JS-Dateien:** 2 (script.js - 267 Zeilen, assessment.js - 127 Zeilen)
-- **Gesamtgröße:** 0.34 MB
+- **Gesamtgroesse:** 0.34 MB
 
 ---
 
@@ -144,10 +144,10 @@
 | HTML-Dateien | 25 |
 | CSS-Dateien | 1 |
 | JS-Dateien | 2 |
-| Gesamtgröße | 0.34 MB |
+| Gesamtgroesse | 0.34 MB |
 | Encoding | UTF-8 |
-| CSS-Größe | ~35 KB |
-| JS-Größe | ~5 KB |
+| CSS-Groesse | ~35 KB |
+| JS-Groesse | ~5 KB |
 
 ---
 
@@ -155,7 +155,7 @@
 
 1. **Produktiv-Telefonnummer hinzufügen** - [pages/kontakt.html](pages/kontakt.html#L68)
 2. **SSL-Zertifikat prüfen** - HTTPS überall aktivieren
-3. **Regelmäßige Link-Audits** durchführen (monatlich)
+3. **Regelmaessige Link-Audits** durchführen (monatlich)
 4. **Analytics implementieren** - Google Analytics hinzufügen
 5. **Sitemap.xml erstellen** - Für SEO
 6. **robots.txt konfigurieren** - Suchmaschinen-Crawling

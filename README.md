@@ -58,7 +58,7 @@ python -m http.server 8000
 ```bash
 # 1. Installiere FTP Client (z.B. FileZilla)
 # 2. Stelle Verbindung her mit Hosting-Credentials
-# 3. Lade alle Dateien außer .git/ hoch:
+# 3. Lade alle Dateien ausser .git/ hoch:
 #    - index.html
 #    - pages/
 #    - css/
@@ -159,7 +159,7 @@ terser js/assessment.js -o js/assessment.min.js
 
 ## Sicherheit
 
-### Implementierte Sicherheitsmaßnahmen
+### Implementierte Sicherheitsmassnahmen
 
 ✅ **HTTPS Only**
 - Alle Requests werden zu HTTPS weitergeleitet
