@@ -163,6 +163,83 @@
 
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+    /* Print CSS - PDF & A4 Optimization */
+    @media print {
+      * { margin: 0; padding: 0; }
+      html, body { background: white !important; color: #000 !important; }
+      .bg { display: none !important; }
+      .header, .footer, .progress-container, .loading-overlay, .button-group, .booking-section, .calendly-embed, .lead-form, .header-cta { display: none !important; }
+      .booking-grid { display: none !important; }
+      .scenario-section { display: none !important; }
+      main { max-width: 100%; padding: 0; }
+      .container { max-width: 100%; padding: 1rem; }
+      
+      /* Card styling for print */
+      .metric-box, .chart-card, .roadmap-section, .solutions-section { 
+        background: white !important; 
+        border: 1px solid #ccc !important; 
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem;
+      }
+      
+      .dashboard-hero { border-bottom: 2px solid #000; page-break-after: avoid; }
+      .dashboard-title { color: #000 !important; font-size: 2.2rem; margin-bottom: 0.5rem; }
+      .dashboard-title span { color: #000 !important; }
+      .dashboard-meta { color: #333 !important; }
+      
+      /* Disclaimer prominent */
+      .disclaimer-box { 
+        background: #fff5e6 !important; 
+        border: 2px solid #ff9800 !important; 
+        color: #e65100 !important;
+        page-break-inside: avoid;
+      }
+      .disclaimer-title { color: #e65100 !important; }
+      
+      /* Metric boxes */
+      .metric-label { color: #666 !important; }
+      .metric-value { color: #000 !important; font-size: 1.8rem; }
+      .metric-detail { color: #666 !important; }
+      
+      /* Charts - keep visible but optimize */
+      .chart-container svg { max-width: 100%; }
+      
+      /* Grid adjustments */
+      .dashboard-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      @page { size: A4; margin: 1cm; }
+      
+      /* Timeline & Solutions */
+      .roadmap-timeline { grid-template-columns: 1fr; }
+      .timeline-item { page-break-inside: avoid; }
+      .solutions-grid { grid-template-columns: 1fr; }
+      .solution-item { page-break-inside: avoid; }
+      
+      /* Text optimization */
+      body { font-size: 11pt; line-height: 1.4; }
+      h1 { font-size: 20pt; }
+      h2 { font-size: 16pt; page-break-after: avoid; }
+      p { orphans: 2; widows: 2; }
+      
+      /* Social proof & testimonials */
+      section[style*="grid"] { page-break-inside: avoid; }
+      
+      /* Remove colors, use B&W for print */
+      .btn-primary, .btn-secondary { display: none !important; }
+      a { color: #000; text-decoration: underline; }
+      
+      /* QR Code placeholder */
+      body::after { 
+        content: "www.ki-netic.ch | info@ki-netic.ch | +41 31 333 00 01"; 
+        display: block; 
+        text-align: center; 
+        border-top: 1px solid #ccc; 
+        margin-top: 2rem; 
+        padding-top: 1rem;
+        font-size: 10pt;
+        color: #666;
+      }
+    }
   </style>
 </head>
 <body>
@@ -393,6 +470,30 @@
         <div class="step-dot active" id="step-1">1</div>
         <div class="step-dot" id="step-2">2</div>
         <div class="step-dot" id="step-3">3</div>
+      </div>
+
+      <!-- Your Advisor Profile -->
+      <div style="background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.25); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; text-align: center;">
+        <div style="font-size: 3.5rem; width: 100px; height: 100px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #00ff88, #00ffcc); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);">👨‍💼</div>
+        <div style="font-size: 1.4rem; font-weight: 700; color: #e0e7ff; margin-bottom: 0.3rem;">Amin Lourini</div>
+        <div style="color: #00ff88; font-weight: 600; margin-bottom: 0.8rem;">KI-Strategie-Berater</div>
+        <p style="color: #a0a0a0; font-size: 0.95rem; max-width: 400px; margin: 0 auto; line-height: 1.6;">
+          Über 10 Jahre IT-Erfahrung & 5 Jahre spezialisierte KI-Implementierungen in der Schweiz. 120+ erfolgreiche Projekte mit KMU-Fokus. ISO 27001 zertifiziert.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap;">
+          <div style="background: rgba(0, 255, 136, 0.15); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 8px; padding: 0.7rem 1.2rem;">
+            <div style="font-size: 1.4rem; font-weight: 700; color: #00ff88;">120+</div>
+            <div style="font-size: 0.8rem; color: #a0a0a0;">Projekte</div>
+          </div>
+          <div style="background: rgba(0, 255, 136, 0.15); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 8px; padding: 0.7rem 1.2rem;">
+            <div style="font-size: 1.4rem; font-weight: 700; color: #00ff88;">8.2/10</div>
+            <div style="font-size: 0.8rem; color: #a0a0a0;">Zufriedenheit</div>
+          </div>
+          <div style="background: rgba(0, 255, 136, 0.15); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 8px; padding: 0.7rem 1.2rem;">
+            <div style="font-size: 1.4rem; font-weight: 700; color: #00ff88;">6-12M</div>
+            <div style="font-size: 0.8rem; color: #a0a0a0;">Avg. ROI</div>
+          </div>
+        </div>
       </div>
 
       <div class="booking-grid">
