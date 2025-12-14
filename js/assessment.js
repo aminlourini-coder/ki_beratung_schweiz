@@ -24,38 +24,98 @@ document.addEventListener('DOMContentLoaded', () => {
     'large': 140     // 100+ MA
   };
 
-  // Kalkulatorischer Stundensatz (Lohn + Lohnnebenkosten 42% + Arbeitsplatz)
-  const HOURLY_RATES_CHF = {
-    'Buchhaltung': 100,
-    'Immobilien': 95,
-    'Handwerk': 70,
-    'Versicherung': 115,
-    'Finanzen': 125,
-    'Industrie': 90,
-    'Handel': 75,
-    'Gesundheit': 85,
-    'Energie': 100,
-    'Sonstiges': 85
-  };
-
-  // Gesparte Stunden pro Woche pro Mitarbeiter (konservativ)
-  const PAIN_POINT_SAVINGS_HOURS = {
-    'Belegverarbeitung': 3.5,
-    'Kundenanfragen': 2.5,
-    'Datenanalyse': 1.8,
-    'Angebotserstellung': 2.0,
-    'Prozess-Dokumentation': 1.2,
-    'Datenstrategie': 0.7
-  };
-
-  // Text-Empfehlungen
-  const RECOMMENDATIONS = {
-    'Belegverarbeitung': 'Automatisches Document Processing mit OCR & RPA',
-    'Kundenanfragen': 'KI-Agenten für Chatbot & E-Mail-Verarbeitung 24/7',
-    'Datenanalyse': 'Automatisierte Dashboards mit Predictive Analytics',
-    'Angebotserstellung': 'Generative KI für Template-basierte Offerten',
-    'Prozess-Dokumentation': 'Auto-Erfassung von Prozessen während der Arbeit',
-    'Datenstrategie': 'Data Warehouse Aufbau & Governance-Framework'
+  // === ENTERPRISE: INDUSTRY DATA (9 Branchen) ===
+  const INDUSTRY_DATA = {
+    'Buchhaltung': {
+      rate: 115,
+      pains: [
+        { id: 'belege', label: 'Belege abtippen & Kreditoren erfassen', hours: 5.5, rec: 'OCR-Pipeline & Auto-Verbuchung' },
+        { id: 'kommunikation', label: 'Rückfragen an Mandanten ("Beleg fehlt")', hours: 3.0, rec: 'Automatisierte E-Mail-Workflows' },
+        { id: 'abstimmung', label: 'Bankabgleich & Differenzen suchen', hours: 2.5, rec: 'KI-Abstimmungs-Agent' },
+        { id: 'jahresabschluss', label: 'Jahresabschluss-Plausibilisierung', hours: 4.0, rec: 'Anomalie-Erkennung & Checklisten' }
+      ]
+    },
+    'Immobilien': {
+      rate: 100,
+      pains: [
+        { id: 'schaden', label: 'Schadensmeldungen (Telefon/Mail-Flut)', hours: 6.0, rec: 'KI-Ticket-Triage & Handwerker-Beauftragung' },
+        { id: 'inserate', label: 'Inserate schreiben & Bilder optimieren', hours: 3.0, rec: 'Generative KI für Exposés' },
+        { id: 'besichtigungen', label: 'Termin-Koordination Besichtigungen', hours: 4.0, rec: '24/7 Termin-Bot & Kalender-Sync' },
+        { id: 'admin', label: 'Mietvertrags-Erstellung & NK-Abrechnung', hours: 2.5, rec: 'Dokumenten-Automation' }
+      ]
+    },
+    'Handwerk': {
+      rate: 90,
+      pains: [
+        { id: 'offerten', label: 'Offerten schreiben am Samstagabend', hours: 5.0, rec: 'Voice-to-Offerte (Sprache zu PDF)' },
+        { id: 'rapporte', label: 'Unleserliche Rapporte abtippen', hours: 3.5, rec: 'Foto-zu-Text Erfassung per App' },
+        { id: 'terminplanung', label: 'Einsatzplanung & Notfall-Koordination', hours: 4.0, rec: 'Intelligente Dispo-Planung' },
+        { id: 'material', label: 'Materialbestellung & Lager-Chaos', hours: 2.0, rec: 'Bestellvorschläge via Bilderkennung' }
+      ]
+    },
+    'Versicherung': {
+      rate: 120,
+      pains: [
+        { id: 'triage', label: 'Schadensfall-Prüfung & Triage', hours: 6.0, rec: 'KI-Schadensanalyse & Dunkelverarbeitung' },
+        { id: 'policen', label: 'Policen-Vergleich (Kleingedrucktes)', hours: 3.5, rec: 'Semantische Dokumenten-Suche' },
+        { id: 'emails', label: 'E-Mail Flut im Innendienst', hours: 5.0, rec: 'Auto-Drafting für Kundenantworten' },
+        { id: 'compliance', label: 'GWG-Prüfung & Compliance', hours: 2.0, rec: 'Auto-KYC Prüfung' }
+      ]
+    },
+    'Finanzen': {
+      rate: 130,
+      pains: [
+        { id: 'reporting', label: 'Manuelles Reporting & Excel-Merge', hours: 5.5, rec: 'Automatisierte BI-Dashboards' },
+        { id: 'kyc', label: 'KYC-Prozesse & Onboarding', hours: 4.0, rec: 'Dokumenten-Check via KI' },
+        { id: 'analyse', label: 'Marktanalyse & Research', hours: 3.0, rec: 'KI-Research-Assistent' },
+        { id: 'support', label: 'First-Level Support Anfragen', hours: 3.5, rec: 'Secure Banking Chatbot' }
+      ]
+    },
+    'Industrie': {
+      rate: 95,
+      pains: [
+        { id: 'wartung', label: 'Ungeplante Maschinenstillstände', hours: 4.0, rec: 'Predictive Maintenance (IoT)' },
+        { id: 'qm', label: 'Manuelle Qualitätskontrolle', hours: 3.5, rec: 'Computer Vision Fehlererkennung' },
+        { id: 'schicht', label: 'Komplexe Schichtplanung', hours: 3.0, rec: 'KI-Personaleinsatzplanung' },
+        { id: 'zertifikate', label: 'Verwaltung von Materialzeugnissen', hours: 2.5, rec: 'Zertifikats-Scanner & Ablage' }
+      ]
+    },
+    'Handel': {
+      rate: 85,
+      pains: [
+        { id: 'content', label: 'Produkttexte schreiben (SEO)', hours: 5.0, rec: 'Massenerstellung von Produktbeschreibungen' },
+        { id: 'support', label: 'Support-Tickets ("Wo ist mein Paket")', hours: 6.0, rec: 'E-Commerce Support-Bot' },
+        { id: 'retouren', label: 'Retouren-Klassifizierung', hours: 3.0, rec: 'Retouren-Analyse-Tool' },
+        { id: 'preise', label: 'Konkurrenz-Preisanalyse', hours: 2.0, rec: 'Dynamic Pricing Agent' }
+      ]
+    },
+    'Gesundheit': {
+      rate: 110,
+      pains: [
+        { id: 'berichte', label: 'Arztberichte schreiben nach Feierabend', hours: 6.0, rec: 'Whisper-Med (Diktat zu Text)' },
+        { id: 'noshows', label: 'Terminausfälle & Nachrücker', hours: 2.5, rec: 'Auto-Recall & Wartelisten-Bot' },
+        { id: 'abrechnung', label: 'TARMED/Abrechnungs-Rückweisungen', hours: 3.5, rec: 'Abrechnungs-Validierungs-KI' },
+        { id: 'anamnese', label: 'Manuelle Datenübernahme (Anamnese)', hours: 2.0, rec: 'Formular-Digitalisierung' }
+      ]
+    },
+    'Energie': {
+      rate: 105,
+      pains: [
+        { id: 'zaehler', label: 'Zählerdaten validieren (Plausibilisierung)', hours: 4.5, rec: 'Anomalie-Erkennung Verbrauch' },
+        { id: 'kundenservice', label: 'Anfragen zu Rechnungen/Abschlägen', hours: 5.0, rec: 'Self-Service Kundenportal mit KI' },
+        { id: 'prognose', label: 'Lastprognose & Einkaufsplanung', hours: 3.0, rec: 'Predictive Energy Analytics' },
+        { id: 'netz', label: 'Wartungsplanung Netzinfrastruktur', hours: 3.5, rec: 'Infrastruktur-Monitoring' }
+      ]
+    },
+    'Sonstiges': {
+      rate: 90,
+      pains: [
+        { id: 'excel', label: 'Manuelle Datenpflege in Excel', hours: 4.0, rec: 'Prozess-Automatisierung (RPA)' },
+        { id: 'emails', label: 'Standard-E-Mails beantworten', hours: 3.5, rec: 'Smart Reply Assistant' },
+        { id: 'suche', label: 'Interne Informationen suchen', hours: 2.5, rec: 'Enterprise Knowledge Base (RAG)' },
+        { id: 'meeting', label: 'Meeting-Protokolle schreiben', hours: 2.0, rec: 'Meeting-Transkription & Summary' }
+      ]
+    }
   };
 
   // Implementierungskosten (für ROI-Berechnung)
@@ -214,44 +274,93 @@ document.addEventListener('DOMContentLoaded', () => {
     const pains = formData.getAll('pain');
     const name = formData.get('name');
     const email = formData.get('email');
+    
+    // NEUE FELDER (aus Step 2)
+    const digitalLevel = formData.get('digital_level') || 'mid';
+    const errorRate = formData.get('error_rate') || 'mid';
 
-    // === THE SWISS FORMULA ===
+    // === THE SWISS FORMULA (ERWEITERT) ===
     const employeeCount = COMPANY_SIZE_AVG[size] || 10;
-    const hourlyRate = HOURLY_RATES_CHF[branche] || 85;
+    const industryData = INDUSTRY_DATA[branche] || INDUSTRY_DATA['Sonstiges'];
+    const hourlyRate = industryData.rate || 90;
 
+    // 1. BASIS: ZEITERSPARNIS
     let hoursSavedPerEmployee = 0;
     pains.forEach(pain => {
-      hoursSavedPerEmployee += (PAIN_POINT_SAVINGS_HOURS[pain] || 0.5);
+      const painData = industryData.pains.find(p => p.id === pain);
+      if (painData) {
+        hoursSavedPerEmployee += painData.hours;
+      }
     });
-    hoursSavedPerEmployee = Math.min(hoursSavedPerEmployee, 12);
+    hoursSavedPerEmployee = Math.min(hoursSavedPerEmployee, 15);
 
-    // Jahresersparnis: MA × h/Wo × 48 Wochen × CHF/h × 0.75 (Effizienzfaktor)
-    const annualSavings = employeeCount * hoursSavedPerEmployee * 48 * hourlyRate * 0.75;
-    const totalSavings = Math.max(Math.round(annualSavings / 1000) * 1000, 5000);
+    const annualTimeSavings = employeeCount * hoursSavedPerEmployee * 48 * hourlyRate * 0.85;
 
-    // Score (0-95)
-    let score = 45;
-    score += pains.length * 12;
-    if (size === 'medium') score += 8;
-    if (size === 'large') score += 20;
-    score = Math.min(score, 95);
+    // 2. NEU: FEHLERKOSTEN-REDUKTION (Quality Impact)
+    // Annahme: Ein Fehler kostet im Schnitt 150 CHF
+    const errorFactors = { 'low': 0.5, 'mid': 1.5, 'high': 3.0 };
+    const errorsPerWeek = (errorFactors[errorRate] || 1.0) * employeeCount;
+    // KI reduziert Fehler um 80%
+    const annualErrorSavings = errorsPerWeek * 150 * 48 * 0.80;
 
-    const recommendations = pains.slice(0, 3).map(p => RECOMMENDATIONS[p] || 'KI-Integration');
+    // 3. NEU: OPPORTUNITÄTSKOSTEN (Growth Impact)
+    // Gewonnene Stunden für wertschöpfende Arbeit (50% der Zeit, 1.5x Marge)
+    const growthPotential = (hoursSavedPerEmployee * employeeCount * 48) * 0.5 * (hourlyRate * 1.5);
 
-    // ROI berechnen
-    const implCost = IMPLEMENTATION_COSTS[branche] || 35000;
-    const roiMonths = Math.round((implCost / (totalSavings / 12)) * 10) / 10;
+    // TOTAL SAVINGS (Zeit + Fehler)
+    const totalSavings = Math.round((annualTimeSavings + annualErrorSavings) / 1000) * 1000;
+    const errorSavingsRounded = Math.round(annualErrorSavings);
 
+    // Score (mit Digital-Level & Error-Rate Boost)
+    let score = 50;
+    score += pains.length * 10;
+    
+    let readinessScore = 0;
+    if (digitalLevel === 'high') readinessScore = 20;
+    if (digitalLevel === 'mid') readinessScore = 10;
+    if (digitalLevel === 'low') readinessScore = 5;
+    score += readinessScore;
+    
+    if (errorRate === 'high') score += 10;
+    score = Math.min(score, 98);
+
+    // Implementierungskosten (Digital-Level Faktor)
+    let implCost = IMPLEMENTATION_COSTS[branche] || 30000;
+    if (digitalLevel === 'low') implCost *= 1.5;   // Digitalisierung nötig → teurer
+    if (digitalLevel === 'high') implCost *= 0.8;  // Cloud-ready → günstiger
+
+    // ROI berechnen (mit Growth-Faktor)
+    const roiMonths = Math.round((implCost / ((totalSavings + (growthPotential * 0.2)) / 12)) * 10) / 10;
+
+    // Recommendations
+    const recommendations = pains.slice(0, 3).map(p => {
+      const painData = industryData.pains.find(x => x.id === p);
+      return painData ? painData.rec : 'KI-Integration';
+    });
+
+    // Speichern für Dashboard
     window.assessmentData = {
       score,
       branche,
-      totalSavings,
+      branchLabel: branche,
+      savings: totalSavings,
+      errorSavings: errorSavingsRounded,
+      growth: Math.round(growthPotential),
       roiMonths,
       implCost,
-      contact: { name, email }
+      weeklyHours: hoursSavedPerEmployee,
+      co2Saved: Math.round((totalSavings / hourlyRate) * 0.05), // Grobe Schätzung
+      pains: pains,
+      branchData: industryData,
+      contact: { name, email },
+      readiness: digitalLevel,
+      errorRate: errorRate,
+      color: score >= 85 ? '#00FF88' : score >= 70 ? '#00FFFF' : score >= 55 ? '#FFB347' : '#8B5CF6',
+      level: score >= 85 ? 'KRITISCH' : score >= 70 ? 'SEHR HOCH' : score >= 55 ? 'HOCH' : 'Moderat'
     };
 
-    displayResults(score, branche, totalSavings, roiMonths, implCost, recommendations);
+    // Redirect to Dashboard
+    window.location.href = 'landing-draft/dashboard.html';
   }
 
   function displayResults(score, branche, savings, roiMonths, implCost, recList) {

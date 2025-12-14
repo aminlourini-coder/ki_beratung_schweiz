@@ -925,10 +925,40 @@
           </div>
         </div>
 
-        <!-- Step 2: Branchen-spezifische Fragen -->
+        <!-- Step 2: Branchen-spezifische Fragen & Digital Readiness -->
         <div class="step-container" data-step="2">
           <label class="step-label" id="step2-label">Fragen zur Ihrer Situation</label>
           <div id="step2-questions"></div>
+          
+          <!-- NEU: Digital Level & Error Rate -->
+          <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;">
+            
+            <div class="form-group">
+              <label class="form-label" style="color:#00FFFF;">Wie digital arbeiten Sie heute? (KI-Readiness)</label>
+              <select name="digital_level" required style="width:100%; padding:1rem; background:rgba(0,0,0,0.3); border:1px solid #333; color:#fff; border-radius:8px; margin-bottom:1.5rem; font-family: inherit;">
+                <option value="" disabled selected>Bitte wählen...</option>
+                <option value="low">🗂️ Viel Papier & physische Ordner</option>
+                <option value="mid">💻 Excel, E-Mail & lokale Server</option>
+                <option value="high">☁️ Cloud-Software (SaaS) & Apps</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" style="color:#FFD700;">Wie oft passieren Flüchtigkeitsfehler? (Qualitäts-Faktor)</label>
+              <div class="radios" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <label style="flex:1; min-width:100px; padding:0.8rem; background:rgba(255,255,255,0.05); border-radius:6px; cursor:pointer; font-size:0.9rem; text-align:center; border: 2px solid transparent; transition: all 0.2s;">
+                  <input type="radio" name="error_rate" value="low" required style="margin-right:0.5rem;"> Selten
+                </label>
+                <label style="flex:1; min-width:100px; padding:0.8rem; background:rgba(255,255,255,0.05); border-radius:6px; cursor:pointer; font-size:0.9rem; text-align:center; border: 2px solid transparent; transition: all 0.2s;">
+                  <input type="radio" name="error_rate" value="mid" required style="margin-right:0.5rem;"> Ab & zu
+                </label>
+                <label style="flex:1; min-width:100px; padding:0.8rem; background:rgba(255,255,255,0.05); border-radius:6px; cursor:pointer; font-size:0.9rem; text-align:center; border: 2px solid transparent; transition: all 0.2s;">
+                  <input type="radio" name="error_rate" value="high" required style="margin-right:0.5rem;"> Oft
+                </label>
+              </div>
+            </div>
+          </div>
+          
           <div class="modal-actions">
             <button type="button" class="btn-modal btn-back" onclick="prevStep()">← Zurück</button>
             <button type="button" class="btn-modal btn-next" onclick="nextStep()">Weiter →</button>
@@ -1496,6 +1526,12 @@
       const formData = new FormData(e.target);
       const branche = selectedBranch;
       const pains = formData.getAll('pain');
+      const name = formData.get('name') || 'Besucher';
+      const email = formData.get('email') || '';
+      
+      // NEUE FELDER
+      const digitalLevel = formData.get('digital_level') || 'mid';
+      const errorRate = formData.get('error_rate') || 'mid';
       
       if (!industryData[branche]) {
         alert('Ungültige Branche.');
@@ -1511,7 +1547,6 @@
       branchData.questions.forEach(q => {
         if (q.type === 'slider' && q.varName) {
           const val = parseFloat(formData.get(q.varName)) || q.default;
-          // Einfache Heuristik: Slider-Wert × Pain-Weight des dominanten Pain Points
           const primaryPain = pains[0];
           if (primaryPain && branchData.painPoints[primaryPain]) {
             totalHoursSaved += (val * branchData.painPoints[primaryPain].weight) / 100;
@@ -1519,7 +1554,6 @@
         }
       });
 
-      // Fallback wenn keine Slider berechnet wurden
       if (totalHoursSaved === 0) {
         pains.forEach(p => {
           if (branchData.painPoints[p]) {
@@ -1533,40 +1567,67 @@
       const sizeVal = formData.get('size') || 'small';
       const employees = sizeMap[sizeVal] || 10;
 
-      const savings = Math.max(
-        Math.round((employees * totalHoursSaved * 48 * hourlyRate * 0.75) / 1000) * 1000, 
+      // ERWEITERTE BERECHNUNG (wie in assessment.js)
+      // 1. Zeitersparnis
+      const timeSavings = Math.max(
+        Math.round((employees * totalHoursSaved * 48 * hourlyRate * 0.85) / 1000) * 1000, 
         5000
       );
+      
+      // 2. Fehlerkosten-Reduktion
+      const errorFactors = { 'low': 0.5, 'mid': 1.5, 'high': 3.0 };
+      const errorsPerWeek = (errorFactors[errorRate] || 1.0) * employees;
+      const errorSavings = Math.round(errorsPerWeek * 150 * 48 * 0.80);
+      
+      // 3. Wachstumspotenzial
+      const growthPotential = (totalHoursSaved * employees * 48) * 0.5 * (hourlyRate * 1.5);
+      
+      const savings = timeSavings + errorSavings;
       const weeklyHours = Math.max(4, Math.round(employees * totalHoursSaved));
       const co2SavedKg = Math.round(weeklyHours * 52 * 0.35);
       
-      let score = 45 + (pains.length * 12);
-      if (sizeVal === 'medium') score += 8;
-      if (sizeVal === 'large') score += 20;
-      score = Math.min(score, 95);
+      let score = 50 + (pains.length * 10);
+      if (digitalLevel === 'high') score += 20;
+      if (digitalLevel === 'mid') score += 10;
+      if (digitalLevel === 'low') score += 5;
+      if (errorRate === 'high') score += 10;
+      score = Math.min(score, 98);
 
-      const roiMonths = Math.round((implCost / (savings / 12)) * 10) / 10;
+      let implCostAdj = implCost;
+      if (digitalLevel === 'low') implCostAdj *= 1.5;
+      if (digitalLevel === 'high') implCostAdj *= 0.8;
+
+      const roiMonths = Math.round((implCostAdj / ((savings + (growthPotential * 0.2)) / 12)) * 10) / 10;
 
       let level = 'Moderat', color = '#8B5CF6';
       if (score >= 85) { level = 'KRITISCH'; color = '#00FF88'; }
       else if (score >= 70) { level = 'SEHR HOCH'; color = '#00FFFF'; }
       else if (score >= 55) { level = 'HOCH'; color = '#FFB347'; }
 
-      document.getElementById('dashboard-branch').textContent = branchData.label;
-      document.getElementById('dashboard-note').textContent = `Branche: ${branchData.label} | Team: ${sizeVal}`;
-      document.getElementById('level-badge').textContent = `KI-Potenzial: ${level}`;
-      document.getElementById('level-badge').style.borderColor = color;
-      document.getElementById('metric-score').textContent = `${score}/100`;
-      document.getElementById('metric-score').style.color = color;
-      document.getElementById('metric-level').textContent = level;
-      document.getElementById('metric-savings').textContent = 'CHF ' + savings.toLocaleString('de-CH');
-      document.getElementById('metric-monthly').textContent = '~CHF ' + Math.round(savings / 12).toLocaleString('de-CH') + ' / Monat';
-      document.getElementById('metric-roi').textContent = `${roiMonths} Monate`;
-      document.getElementById('metric-impl').textContent = `Implementierung: CHF ${implCost.toLocaleString('de-CH')}`;
-      document.getElementById('metric-start').textContent = score >= 80 ? '14 Tage' : '21 Tage';
-      document.getElementById('metric-confidence').textContent = `${Math.min(98, 60 + pains.length * 8)}%`;
-      document.getElementById('metric-hours').textContent = `${weeklyHours.toLocaleString('de-CH')} Std/Woche`;
-      document.getElementById('metric-co2').textContent = `${(co2SavedKg / 1000).toFixed(1)} t/Jahr`;
+      // SPEICHERE IN SESSIONSTORAGE FÜR DASHBOARD
+      sessionStorage.setItem('assessmentData', JSON.stringify({
+        score,
+        branche,
+        branchLabel: branche,
+        savings,
+        errorSavings,
+        growth: Math.round(growthPotential),
+        roiMonths,
+        implCost: implCostAdj,
+        weeklyHours,
+        co2Saved: co2SavedKg,
+        pains,
+        branchData,
+        contact: { name, email },
+        readiness: digitalLevel,
+        errorRate,
+        color,
+        level
+      }));
+
+      // Redirect zu Dashboard
+      window.location.href = 'landing-draft/dashboard.html';
+    });
 
       // Save to sessionStorage für Dashboard-Seite
       const assessmentData = {
