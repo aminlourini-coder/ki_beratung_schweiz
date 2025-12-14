@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F5F7"/>
+      <stop offset="50%" stop-color="#FAFAFA"/>
+      <stop offset="100%" stop-color="#F5F5F7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Accent blobs -->
+  <g opacity="0.18">
+    <circle cx="1040" cy="120" r="220" fill="#007AFF"/>
+    <circle cx="120" cy="520" r="200" fill="#34C759"/>
+  </g>
+  <!-- Card -->
+  <g filter="url(#shadow)">
+    <rect x="140" y="140" rx="28" ry="28" width="920" height="350" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" stroke-width="2"/>
+  </g>
+  <!-- Title -->
+  <text x="180" y="230" font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="56" font-weight="700" fill="#1C1C1E">
+    KI-Automatisierung für Schweizer KMU
+  </text>
+  <!-- Subtitle -->
+  <text x="180" y="290" font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="28" font-weight="400" fill="#3A3A3C">
+    Sparen Sie CHF 45'000–180'000 jährlich. DSG-konform. Swiss Made.
+  </text>
+  <!-- CTA pill -->
+  <g>
+    <rect x="180" y="340" rx="24" ry="24" width="380" height="70" fill="#007AFF"/>
+    <text x="210" y="385" font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">
+      Gratis Audit in 3 Minuten →
+    </text>
+  </g>
+  <!-- Branding -->
+  <text x="180" y="450" font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" font-size="24" font-weight="700" fill="#1C1C1E">
+    KI.NETIC
+  </text>
+</svg>
