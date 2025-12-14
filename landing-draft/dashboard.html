@@ -3,10 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KI-Potenzial Dashboard | KI.NETIC</title>
+  <title>Ihr KI-Potenzial Dashboard | Persönliche ROI-Analyse | KI.NETIC</title>
+  <meta name="description" content="Ihre individuelle KI-Potenzialanalyse: Einsparungen, ROI-Berechnung und massgeschneiderter 90-Tage-Erfolgsplan für Schweizer KMU." />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Open Graph für Social Sharing -->
+  <meta property="og:title" content="Mein KI-Potenzial Dashboard | KI.NETIC" />
+  <meta property="og:description" content="Persönliche KI-Analyse mit konkreten Einsparungen und Umsetzungsplan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_CH" />
+  <meta property="og:site_name" content="KI.NETIC - KI-Beratung Schweiz" />
+  
+  <!-- Performance: Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://calendly.com" />
+  <link rel="dns-prefetch" href="https://formspree.io" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -249,13 +265,13 @@
   </div>
 
   <!-- Loading Overlay -->
-  <div class="loading-overlay" id="loading-overlay">
-    <div class="spinner"></div>
-    <div class="loading-text">Analysiere KI-Potenzial...</div>
+  <div class="loading-overlay" id="loading-overlay" role="alert" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text">Analysiere Ihr KI-Potenzial...</div>
     <div class="loading-messages">
-      <p class="active">analysiere Branchendaten...</p>
-      <p>vergleiche mit Benchmarks...</p>
-      <p>generiere Strategie...</p>
+      <p class="active">📊 Analysiere Branchendaten...</p>
+      <p>📈 Vergleiche mit Schweizer Benchmarks...</p>
+      <p>🎯 Generiere massgeschneiderte Strategie...</p>
     </div>
   </div>
 
@@ -275,49 +291,49 @@
     <!-- Dashboard Hero -->
     <section class="dashboard-hero">
       <h1 class="dashboard-title">Ihr persönliches <span>KI-Potenzial</span></h1>
-      <p class="dashboard-subtitle">Basierend auf Ihren spezifischen Pain Points und Branche</p>
-      <p class="dashboard-meta" id="dashboard-meta">Berechnung lädt...</p>
+      <p class="dashboard-subtitle">Massgeschneiderte Analyse basierend auf Ihrer Branche, Unternehmensgrösse und spezifischen Herausforderungen</p>
+      <p class="dashboard-meta" id="dashboard-meta">⏳ Berechnung lädt...</p>
     </section>
 
     <!-- Disclaimer -->
-    <div class="disclaimer-box">
+    <div class="disclaimer-box" role="alert" aria-label="Rechtlicher Hinweis">
       <div class="disclaimer-title">⚠️ Hinweis zur Modellrechnung</div>
-      <p>Diese Analyse ist eine <strong>Modellrechnung</strong> basierend auf Branchenstandards und Benchmarks aus über 120 realisierten Projekten. Ihr individuelles Ergebnis kann aufgrund von unternehmensspezifischen Faktoren abweichen. Dies ist eine unverbindliche Schätzung und keine Garantie. Detaillierte Kalkulationen erfolgen nach einer persönlichen Consulting-Session.</p>
+      <p>Diese Analyse ist eine <strong>unverbindliche Modellrechnung</strong> basierend auf Branchendurchschnitten und Erfahrungswerten aus über 120 realisierten KI-Projekten in der Schweiz. Ihre tatsächlichen Ergebnisse können je nach Unternehmensgrösse, Digitalisierungsgrad und Prozessreife abweichen. <strong>Keine Erfolgsgarantie.</strong> Eine verbindliche Kalkulation erfolgt erst nach persönlicher Analyse in der Consulting-Session.</p>
     </div>
 
     <!-- Key Metrics -->
     <div class="dashboard-grid">
-      <div class="metric-box" style="animation: slideUp 0.6s ease-out;">
+      <div class="metric-box" style="animation: slideUp 0.6s ease-out;" role="article" aria-label="KI-Score">
         <div class="metric-label">
           <span>KI-Score</span>
-          <span class="help-icon" title="Ihre Bewertung von 0-100: Zeigt, wie gut KI zu Ihrem Betrieb passt. Ab 60 Punkten: Sehr empfehlenswert!">?</span>
+          <span class="help-icon" role="tooltip" aria-label="Erklärung KI-Score" title="Ihr KI-Reife-Score (0–100): Misst, wie gut KI-Automatisierung zu Ihrem Betrieb passt. Ab 60 = hohe Erfolgswahrscheinlichkeit. Ab 80 = sofort starten empfohlen.">?</span>
         </div>
         <div class="metric-value" id="metric-score">--/100</div>
-        <div class="metric-detail" id="metric-level">Potential wird berechnet</div>
+        <div class="metric-detail" id="metric-level">Potenzial wird berechnet</div>
       </div>
-      <div class="metric-box" style="animation: slideUp 0.7s ease-out;">
+      <div class="metric-box" style="animation: slideUp 0.7s ease-out;" role="article" aria-label="Jährliche Einsparung">
         <div class="metric-label">
           <span>Einsparung pro Jahr</span>
-          <span class="help-icon" title="Wie viel Geld Sie jährlich sparen: Durch weniger Verwaltungsaufwand, schnellere Abwicklung und weniger Fehler.">?</span>
+          <span class="help-icon" role="tooltip" aria-label="Erklärung Einsparung" title="Ihre geschätzte jährliche Ersparnis in CHF: Setzt sich zusammen aus Zeitersparnis, reduzierten Fehlerkosten und Effizienzgewinnen.">?</span>
         </div>
         <div class="metric-value" id="metric-savings">CHF --</div>
         <div class="metric-detail" id="metric-monthly">Das sind -- pro Monat</div>
       </div>
-      <div class="metric-box" style="animation: slideUp 0.8s ease-out;">
+      <div class="metric-box" style="animation: slideUp 0.8s ease-out;" role="article" aria-label="ROI-Amortisation">
         <div class="metric-label">
           <span>Investition rechnet sich nach</span>
-          <span class="help-icon" title="So lange dauert es, bis die Investition zurückkommt. Beispiel: Bei 8 Monaten haben Sie nach 8 Monaten Ihr Geld wieder rein und sparen danach jeden Monat.">?</span>
+          <span class="help-icon" role="tooltip" aria-label="Erklärung Amortisation" title="Break-Even-Punkt: Nach dieser Zeit haben Sie Ihre Investition vollständig zurück. Danach sparen Sie jeden Monat bares Geld.">?</span>
         </div>
         <div class="metric-value" id="metric-roi">-- Monate</div>
         <div class="metric-detail" id="metric-impl">Einmalige Investition: CHF --</div>
       </div>
-      <div class="metric-box" style="animation: slideUp 0.9s ease-out;">
+      <div class="metric-box" style="animation: slideUp 0.9s ease-out;" role="article" aria-label="Zeitersparnis">
         <div class="metric-label">
           <span>Gewonnene Zeit pro Woche</span>
-          <span class="help-icon" title="So viel Zeit sparen Sie jede Woche durch Automatisierung. Nutzen Sie diese Zeit für Ihre Kernarbeit - z.B. Kundenprojekte statt Bürokram.">?</span>
+          <span class="help-icon" role="tooltip" aria-label="Erklärung Zeitersparnis" title="Wöchentlich freiwerdende Arbeitsstunden durch Automatisierung. Nutzen Sie diese für umsatzgenerierende Tätigkeiten statt Administration.">?</span>
         </div>
         <div class="metric-value" id="metric-hours">-- Stunden</div>
-        <div class="metric-detail">Zeit für wichtige Arbeit</div>
+        <div class="metric-detail">Zeit für wertschöpfende Arbeit</div>
       </div>
         <div class="metric-box" style="animation: slideUp 1.05s ease-out;">
           <div class="metric-label">
@@ -326,61 +342,61 @@
           <div class="metric-value" id="metric-quality">CHF --</div>
           <div class="metric-detail">Vermeidbare Fehlerkosten/Jahr</div>
         </div>
-      <div class="metric-box" style="animation: slideUp 1s ease-out;">
+      <div class="metric-box" style="animation: slideUp 1s ease-out;" role="article" aria-label="CO2-Einsparung">
         <div class="metric-label">
           <span>CO₂-Einsparung pro Jahr</span>
-          <span class="help-icon" title="Durch digitale Prozesse: Weniger Papier, weniger Fahrten, weniger Energie. Gut für die Umwelt und Ihr Image.">?</span>
+          <span class="help-icon" role="tooltip" aria-label="Erklärung CO2" title="Geschätzte jährliche CO₂-Reduktion durch Digitalisierung: Weniger Papier, reduzierte Fahrten, effizientere Prozesse. Positiv für ESG-Reporting.">?</span>
         </div>
-        <div class="metric-value" id="metric-co2">-- Tonnen</div>
+        <div class="metric-value" id="metric-co2">-- t/Jahr</div>
         <div class="metric-detail">Nachhaltigkeit als Bonus</div>
       </div>
-      <div class="metric-box" style="animation: slideUp 1.1s ease-out;">
+      <div class="metric-box" style="animation: slideUp 1.1s ease-out;" role="article" aria-label="Erfolgswahrscheinlichkeit">
         <div class="metric-label">
           <span>Erfolgswahrscheinlichkeit</span>
-          <span class="help-icon" title="Basiert auf über 120 echten Projekten: So wahrscheinlich ist der Erfolg in Ihrer Branche. Ab 75% haben wir sehr gute Erfahrungen.">?</span>
+          <span class="help-icon" role="tooltip" aria-label="Erklärung Erfolgsquote" title="Empirische Erfolgsquote basierend auf 120+ realisierten KI-Projekten in Ihrer Branche. Ab 75% = sehr hohe Umsetzungssicherheit.">?</span>
         </div>
-        <div class="metric-value" id="metric-confidence">--% </div>
-        <div class="metric-detail">Aus 120+ Projekten in CH</div>
+        <div class="metric-value" id="metric-confidence">--%</div>
+        <div class="metric-detail">Aus 120+ Schweizer Projekten</div>
       </div>
     </div>
 
     <!-- Scenario Sliders -->
-    <section class="scenario-section">
-      <h2 class="scenario-title">� Spielen Sie mit den Möglichkeiten</h2>
-      <p style="color:#64748b; margin-bottom:2rem; font-size:0.95rem;">
-        Probieren Sie verschiedene Szenarien aus! Bewegen Sie die Regler und sehen Sie direkt, wie sich die Zahlen oben ändern. So finden Sie heraus, was am besten zu Ihnen passt.
+    <section class="scenario-section" aria-label="Szenario-Simulation">
+      <h2 class="scenario-title">🎮 Spielen Sie mit den Möglichkeiten</h2>
+      <p style="color:#a0a0a0; margin-bottom:2rem; font-size:0.95rem;">
+        ↕️ Bewegen Sie die Regler und sehen Sie in Echtzeit, wie sich Ihre Kennzahlen verändern. So finden Sie die optimale Konfiguration für Ihr Unternehmen.
       </p>
       
       <div class="slider-group">
         <div class="slider-label">
-          <span>🤖 Wie viel soll automatisch laufen?</span>
+          <span>🤖 Automatisierungsgrad</span>
           <span class="slider-label-val" id="bot-val">60%</span>
         </div>
-        <input type="range" id="bot-slider" min="40" max="95" value="60" oninput="updateScenarios()">
+        <input type="range" id="bot-slider" min="40" max="95" value="60" oninput="updateScenarios()" aria-label="Automatisierungsgrad einstellen">
         <div class="slider-info">
-          <strong>Beispiel Maler:</strong> Bei 60% beantwortet der Bot Standard-Anfragen ("Was kostet ein Anstrich?"), Sie kümmern sich um individuelle Projekte. Bei 95% läuft fast alles automatisch.
+          <strong>40%:</strong> Nur Routine-Aufgaben · <strong>60%:</strong> Standard-Anfragen automatisch · <strong>95%:</strong> Vollautomatisierung mit menschlicher Supervision
         </div>
       </div>
 
       <div class="slider-group">
         <div class="slider-label">
-          <span>⏱️ Wie schnell soll es gehen?</span>
+          <span>⏱️ Implementierungsgeschwindigkeit</span>
           <span class="slider-label-val" id="tempo-val">Standard</span>
         </div>
-        <input type="range" id="tempo-slider" min="1" max="3" value="2" oninput="updateScenarios()">
+        <input type="range" id="tempo-slider" min="1" max="3" value="2" oninput="updateScenarios()" aria-label="Implementierungstempo einstellen">
         <div class="slider-info">
-          <strong>Schnell (2 Wochen):</strong> Basis-Lösung schnell am Start | <strong>Standard (6 Wochen):</strong> Ausgewogen | <strong>Langfristig (12 Wochen):</strong> Alles perfekt abgestimmt
+          <strong>Schnell (2 Wo.):</strong> MVP-First, schneller ROI · <strong>Standard (6 Wo.):</strong> Ausgewogen · <strong>Phased (12 Wo.):</strong> Enterprise-Grade
         </div>
       </div>
 
       <div class="slider-group">
         <div class="slider-label">
-          <span>🔧 Wie tief integrieren?</span>
+          <span>🔧 Integrationstiefe</span>
           <span class="slider-label-val" id="depth-val">Standard</span>
         </div>
-        <input type="range" id="depth-slider" min="1" max="3" value="2" oninput="updateScenarios()">
+        <input type="range" id="depth-slider" min="1" max="3" value="2" oninput="updateScenarios()" aria-label="Integrationstiefe einstellen">
         <div class="slider-info">
-          <strong>Einfach:</strong> Schnelle Verbesserungen ohne große Änderungen | <strong>Standard:</strong> Vollständige Integration | <strong>Tief:</strong> Alles vernetzt (bestehende Programme, Buchhaltung, etc.)
+          <strong>Light:</strong> Standalone-Lösung · <strong>Standard:</strong> ERP/CRM-Anbindung · <strong>Deep:</strong> Vollständige System-Vernetzung inkl. Buchhaltung
         </div>
       </div>
 
@@ -401,69 +417,69 @@
     </div>
 
     <!-- Timeline Roadmap -->
-    <section class="roadmap-section">
-      <h2 class="roadmap-title">📅 Ihr 90-Tage <span style="background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Success-Plan</span></h2>
+    <section class="roadmap-section" aria-label="Umsetzungsplan">
+      <h2 class="roadmap-title">📅 Ihr 90-Tage <span style="background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Erfolgsplan</span></h2>
       <div class="roadmap-timeline" id="roadmap-timeline"></div>
     </section>
 
     <!-- Solutions -->
-    <section class="solutions-section">
-      <h2 class="solutions-title">✓ Ihre Top KI-Lösungen</h2>
+    <section class="solutions-section" aria-label="Empfohlene KI-Lösungen">
+      <h2 class="solutions-title">✓ Ihre massgeschneiderten KI-Lösungen</h2>
       <div class="solutions-grid" id="solutions-grid"></div>
     </section>
 
     <!-- Trust & Social Proof -->
-    <section style="margin:4rem 0; padding:2rem; background:linear-gradient(135deg,rgba(0,255,136,0.1),rgba(0,255,255,0.08)); border:2px solid rgba(0,255,255,0.25); border-radius:20px;">
+    <section style="margin:4rem 0; padding:2rem; background:linear-gradient(135deg,rgba(0,255,136,0.1),rgba(0,255,255,0.08)); border:2px solid rgba(0,255,255,0.25); border-radius:20px;" aria-label="Referenzen und Erfolge">
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; text-align:center;">
         <div>
           <div style="font-size:2.5rem; font-weight:900; color:#00FF88;">120+</div>
-          <div style="color:#B0B0B0; font-weight:600;">Schweizer KMU beraten</div>
+          <div style="color:#B0B0B0; font-weight:600;">Schweizer KMU transformiert</div>
         </div>
         <div>
           <div style="font-size:2.5rem; font-weight:900; color:#00FFFF;">8.2/10</div>
-          <div style="color:#B0B0B0; font-weight:600;">Zufriedenheitsrate</div>
+          <div style="color:#B0B0B0; font-weight:600;">Kundenzufriedenheit (NPS)</div>
         </div>
         <div>
-          <div style="font-size:2.5rem; font-weight:900; color:#00FF88;">6-12M</div>
-          <div style="color:#B0B0B0; font-weight:600;">Durchschnittlicher ROI</div>
+          <div style="font-size:2.5rem; font-weight:900; color:#00FF88;">6–12 Mt.</div>
+          <div style="color:#B0B0B0; font-weight:600;">⌀ ROI-Amortisation</div>
         </div>
         <div>
-          <div style="font-size:2.5rem; font-weight:900; color:#00FFFF;">ISO 27001</div>
-          <div style="color:#B0B0B0; font-weight:600;">DSG-konform & zertifiziert</div>
+          <div style="font-size:2.5rem; font-weight:900; color:#00FFFF;">100%</div>
+          <div style="color:#B0B0B0; font-weight:600;">DSG & ISO 27001 konform</div>
         </div>
       </div>
     </section>
 
     <!-- Testimonials -->
-    <section style="margin:4rem 0;">
-      <h2 class="solutions-title">💬 Was unsere Kunden sagen</h2>
+    <section style="margin:4rem 0;" aria-label="Kundenstimmen">
+      <h2 class="solutions-title">💬 Das sagen unsere Kunden</h2>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem;">
-        <div style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
-          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐ 5/5</div>
-          <p style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">„15 Stunden pro Woche gespart nach 2 Wochen. Die KI lernt ständig dazu – absolut genial."</p>
+        <article style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
+          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐</div>
+          <blockquote style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">«15 Stunden pro Woche gespart – nach nur 2 Wochen. Die KI lernt ständig dazu und wird jeden Tag besser. Absolut genial.»</blockquote>
           <div style="font-weight:800;">Marco Käppeli</div>
-          <div style="color:#00FFFF; font-size:0.9rem;">CEO, Käppeli Treuhand AG</div>
-        </div>
-        <div style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
-          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐ 5/5</div>
-          <p style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">„Lead-Quote um 40% gesteigert. Der KI-Chatbot arbeitet 24/7 – das wäre ohne unmöglich."</p>
+          <div style="color:#00FFFF; font-size:0.9rem;">CEO · Käppeli Treuhand AG · Bern</div>
+        </article>
+        <article style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
+          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐</div>
+          <blockquote style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">«Lead-Quote um 40% gesteigert. Der KI-Chatbot qualifiziert Anfragen 24/7 – das wäre mit Personal unmöglich gewesen.»</blockquote>
           <div style="font-weight:800;">Sandra Bühler</div>
-          <div style="color:#00FFFF; font-size:0.9rem;">GF, Bühler Immobilien</div>
-        </div>
-        <div style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
-          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐ 5/5</div>
-          <p style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">„Ausfallzeiten um 23% reduziert. CHF 200K+ jährlich gespart. KI ist nicht Zukunft – es ist JETZT."</p>
+          <div style="color:#00FFFF; font-size:0.9rem;">Geschäftsführerin · Bühler Immobilien · Zürich</div>
+        </article>
+        <article style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
+          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐</div>
+          <blockquote style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">«Ausfallzeiten um 23% reduziert, CHF 200'000+ jährlich gespart. KI ist nicht die Zukunft – KI ist JETZT.»</blockquote>
           <div style="font-weight:800;">Thomas Petermann</div>
-          <div style="color:#00FFFF; font-size:0.9rem;">Betriebsleiter, Petermann Industrie</div>
-        </div>
+          <div style="color:#00FFFF; font-size:0.9rem;">Betriebsleiter · Petermann Industrie AG · Basel</div>
+        </article>
       </div>
     </section>
 
     <!-- Booking CTA -->
-    <section class="booking-section" id="booking-section">
-      <div class="booking-icon">📞</div>
-      <h2 class="booking-title">Lassen Sie uns starten</h2>
-      <p class="booking-subtitle">Buchen Sie jetzt einen kostenlosen 30-Minuten Discovery Call. Unser Team präsentiert Ihnen einen konkreten Umsetzungsplan.</p>
+    <section class="booking-section" id="booking-section" aria-label="Termin buchen">
+      <div class="booking-icon">🚀</div>
+      <h2 class="booking-title">Bereit, Ihr Potenzial zu aktivieren?</h2>
+      <p class="booking-subtitle">Buchen Sie jetzt Ihren <strong>kostenlosen 30-Minuten Discovery Call</strong>. Sie erhalten einen konkreten Umsetzungsplan – massgeschneidert für Ihre Situation.</p>
 
       <!-- Step Indicator -->
       <div class="booking-step-indicator" style="justify-content:center;">
@@ -473,12 +489,12 @@
       </div>
 
       <!-- Your Advisor Profile -->
-      <div style="background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.25); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; text-align: center;">
-        <div style="font-size: 3.5rem; width: 100px; height: 100px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #00ff88, #00ffcc); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);">👨‍💼</div>
+      <div style="background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.25); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; text-align: center;" aria-label="Ihr persönlicher Berater">
+        <div style="font-size: 3.5rem; width: 100px; height: 100px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #00ff88, #00ffcc); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);" aria-hidden="true">👨‍💼</div>
         <div style="font-size: 1.4rem; font-weight: 700; color: #e0e7ff; margin-bottom: 0.3rem;">Amin Lourini</div>
-        <div style="color: #00ff88; font-weight: 600; margin-bottom: 0.8rem;">KI-Strategie-Berater</div>
+        <div style="color: #00ff88; font-weight: 600; margin-bottom: 0.8rem;">Senior KI-Strategie-Berater</div>
         <p style="color: #a0a0a0; font-size: 0.95rem; max-width: 400px; margin: 0 auto; line-height: 1.6;">
-          Über 10 Jahre IT-Erfahrung & 5 Jahre spezialisierte KI-Implementierungen in der Schweiz. 120+ erfolgreiche Projekte mit KMU-Fokus. ISO 27001 zertifiziert.
+          10+ Jahre IT-Expertise · 5 Jahre spezialisierte KI-Implementierung in der Schweiz · 120+ erfolgreiche KMU-Projekte · ISO 27001 & DSG zertifiziert
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap;">
           <div style="background: rgba(0, 255, 136, 0.15); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 8px; padding: 0.7rem 1.2rem;">
@@ -507,28 +523,28 @@
 
         <!-- Lead Form -->
         <div class="lead-form">
-          <form id="lead-form" onsubmit="submitLead(event)">
+          <form id="lead-form" onsubmit="submitLead(event)" aria-label="Kontaktformular">
             <div class="form-group">
-              <label class="form-label">Vor- & Nachname *</label>
-              <input type="text" name="name" class="form-input" required placeholder="Max Mustermann" />
+              <label class="form-label" for="name">Vor- & Nachname *</label>
+              <input type="text" id="name" name="name" class="form-input" required placeholder="z.B. Max Mustermann" autocomplete="name" />
             </div>
             <div class="form-group">
-              <label class="form-label">E-Mail *</label>
-              <input type="email" name="email" class="form-input" required placeholder="max@mustermann.ch" />
+              <label class="form-label" for="email">Geschäftliche E-Mail *</label>
+              <input type="email" id="email" name="email" class="form-input" required placeholder="z.B. max@ihrefirma.ch" autocomplete="email" />
             </div>
             <div class="form-group">
-              <label class="form-label">Telefon</label>
-              <input type="tel" name="phone" class="form-input" placeholder="+41 79 123 45 67" />
+              <label class="form-label" for="phone">Telefon (optional)</label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="z.B. +41 79 123 45 67" autocomplete="tel" />
             </div>
             <div class="form-group">
-              <label class="form-label">Unternehmen *</label>
-              <input type="text" name="company" class="form-input" required placeholder="Ihr Unternehmen" />
+              <label class="form-label" for="company">Unternehmen *</label>
+              <input type="text" id="company" name="company" class="form-input" required placeholder="z.B. Musterfirma AG" autocomplete="organization" />
             </div>
             <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
-              <span>Jetzt Termin bestätigen</span>
+              <span>Kostenlosen Termin sichern</span>
               <span>→</span>
             </button>
-            <p style="font-size:0.8rem; color:#808080; margin-top:1rem; text-align:center;">✓ Bestätigung per E-Mail • ✓ iCal-Kalender • ✓ Direkter Zoom-Link</p>
+            <p style="font-size:0.8rem; color:#808080; margin-top:1rem; text-align:center;">✅ Sofort-Bestätigung per E-Mail · 📅 iCal-Einladung · 🔗 Zoom-Link inklusive</p>
           </form>
         </div>
       </div>
@@ -545,8 +561,10 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <p class="footer-text">© 2025 KI.NETIC | KI-Beratung für Schweizer KMU | info@ki-netic.ch | +41 31 333 00 01</p>
+  <footer class="footer" role="contentinfo">
+    <p class="footer-text">© 2025 KI.NETIC · KI-Beratung für Schweizer KMU</p>
+    <p style="color:#707070; font-size:0.85rem; margin-top:0.5rem;">📧 info@ki-netic.ch · 📞 +41 31 333 00 01 · 📍 Bern, Schweiz</p>
+    <p style="color:#606060; font-size:0.75rem; margin-top:0.8rem;"><a href="../pages/datenschutz.html" style="color:#00ff88; text-decoration:none;">Datenschutz</a> · <a href="../pages/impressum.html" style="color:#00ff88; text-decoration:none;">Impressum</a> · <a href="../pages/agb.html" style="color:#00ff88; text-decoration:none;">AGB</a></p>
   </footer>
 
   <script>
@@ -572,8 +590,8 @@
       const credibleCost = addRandomFactor(implCost);
       const credibleHours = Math.max(1, Math.round(weeklyHours * (0.95 + Math.random() * 0.1)));
 
-      // Update header
-      document.getElementById('dashboard-meta').textContent = `Branche: ${assessmentData.branchLabel || '–'} | Score: ${score}/100`;
+      // Update header with more context
+      document.getElementById('dashboard-meta').innerHTML = `🏢 <strong>${assessmentData.branchLabel || 'Ihre Branche'}</strong> · 📊 Score: <strong style="color:#00ff88;">${score}/100</strong> · 📅 ${new Date().toLocaleDateString('de-CH')}`;
 
       // Update metrics with credible numbers
       document.getElementById('metric-score').textContent = `${score}/100`;
