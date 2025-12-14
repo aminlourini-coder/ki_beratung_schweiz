@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Voicebots im Support: 3 Wochen Setup — KI.NETIC</title>
+  <meta name="description" content="24/7 Kundenservice mit Voicebots: Call-Intents verstehen, weiterleiten oder lösen – live in 3 Wochen, DSG-konform in der Schweiz." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Voicebots im Support: 24/7 Service mit 3 Wochen Setup",
+    "description": "Wie KMUs Voicebots einsetzen: Intent-Erkennung, Übergabe an Agents, DSG-konforme Aufzeichnung und Reporting.",
+    "author": {"@type": "Organization", "name": "KI.NETIC"},
+    "publisher": {"@type": "Organization", "name": "KI.NETIC", "logo": {"@type": "ImageObject", "url": "https://ki-netic.ch/assets/logo.png"}},
+    "datePublished": "2025-12-11",
+    "dateModified": "2025-12-11",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://ki-netic.ch/pages/blog/voicebots-support.html"},
+    "keywords": "Voicebot, Kundenservice, Callcenter Automation, Speech AI"
+  }
+  </script>
+    <meta property="og:title" content="Voicebots im Support: 3 Wochen Setup — KI.NETIC" />
+  <meta property="og:description" content="24/7 Kundenservice mit Voicebots: Call-Intents verstehen, weiterleiten oder lösen – live in 3 Wochen, DSG-konform in der Schweiz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ki-netic.ch/pages/blog/voicebots-support.html" />
+  <meta property="og:site_name" content="KI.NETIC" />
+    <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Voicebots im Support: 3 Wochen Setup — KI.NETIC" />
+  <meta name="twitter:description" content="24/7 Kundenservice mit Voicebots: Call-Intents verstehen, weiterleiten oder lösen – live in 3 Wochen, DSG-konform in der Schweiz." />
+    <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-0000000000');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <nav class="main-nav" id="main-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../dienstleistungen.html">Dienstleistungen</a>
+        <a href="../branchen.html">Branchen</a>
+        <a href="../projekte.html">Projekte</a>
+        <a href="../ueber-uns.html">Über Uns</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../kontakt.html">Kontakt</a>
+      </nav>
+      <button id="cta-primary" class="btn btn-glow">Kostenlosen Ersttermin sichern</button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+
+    <section class="hero hero--overlay">
+      <picture>
+        <source srcset="../../assets/images/Kundenservice (Chatbots).webp" type="image/webp">
+        <img class="hero-bg" src="../../assets/images/Kundenservice (Chatbots).png" alt="Voice Support Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
+      </picture>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="sub" style="color: #8B5CF6;">🎧 Voice</p>
+          <h1>Voicebots im Support: 24/7 erreichbar</h1>
+          <p class="sub">Intent erkennen, richtig routen, wiederkehrende Anliegen direkt lösen – mit einem DSG-konformen Voicebot.</p>
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; color: #AAAAAA; font-size: 0.9rem;">
+            <span>📅 11. Dezember 2025</span>
+            <span>👤 Von KI.NETIC Team</span>
+            <span>⏱️ 5 Min. Lesezeit</span>
+          </div>
+          <div class="cta-cluster" style="margin-top: 2rem;">
+            <a class="btn btn-primary" href="../kontakt.html">Voicebot-Pilot starten</a>
+            <a class="btn btn-secondary" href="../blog.html">Zurück zur Übersicht</a>
+            <a class="btn btn-ghost" href="../blog-archiv.html">Alle Artikel</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin: 3rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+      <article class="card" style="background: var(--bg-tertiary);">
+        <h2>So funktioniert der Voicebot</h2>
+        <ul style="color: #CCCCCC; line-height: 1.8; margin-left: 1.2rem;">
+          <li>Spracherkennung (DE/FR/IT) mit Live-Transkription</li>
+          <li>Intent-Erkennung & Business-Regeln (z.B. VIP-Kunden)</li>
+          <li>Selbstbedienung: Lieferstatus, Terminverschiebung, FAQ</li>
+          <li>Handover an Agents inkl. Kontext & Protokoll</li>
+        </ul>
+
+        <h3 style="margin-top: 2rem;">Go-Live in 3 Wochen</h3>
+        <ol style="color: #CCCCCC; line-height: 1.8; margin-left: 1.2rem;">
+          <li>Intent-Liste & Sample Calls sammeln</li>
+          <li>Flows entwerfen, Guardrails definieren</li>
+          <li>Telefonie-Anschluss & CRM/ERP-APIs anbinden</li>
+          <li>Pilot mit 200 Calls fahren, KPIs reviewen</li>
+        </ol>
+
+        <h3 style="margin-top: 2rem;">Messbarer Nutzen</h3>
+        <p><strong style="color:#8B5CF6;">-35% Wartezeit</strong> in Piloten, <strong style="color:#00FFFF;">+18% CSAT</strong> durch sofortige Antworten, <strong style="color:#00FF88;">24/7</strong> erreichbar ohne zusätzliches Personal.</p>
+      </article>
+
+      <aside class="card" style="background: var(--bg-secondary);">
+        <h3>Key Facts</h3>
+        <p><strong>Branchen:</strong> Energie, Telco, Handel, Healthcare</p>
+        <p><strong>Tools:</strong> Speech-to-Text, LLM-Orchestrierung, IVR/SIP, CRM</p>
+        <p><strong>Sicherheit:</strong> Aufzeichnung optional, CH-Hosting möglich</p>
+        <p><strong>Next step:</strong> 10 häufigste Call-Intents definieren</p>
+      </aside>
+    </section>
+
+    <section class="container" style="margin: 3rem 0;">
+      <div class="card" style="display: flex; flex-direction: column; gap: 1rem; background: var(--bg-secondary);">
+        <h3>Support sofort entlasten</h3>
+        <p>Wir setzen einen Voicebot-Pilot auf Ihrer Nummer auf und tracken Abbrecherquote, First-Call-Resolution und CSAT.</p>
+        <div class="cta-cluster">
+          <a class="btn btn-primary" href="../kontakt.html">Pilot anfragen</a>
+          <a class="btn btn-secondary" href="../branchen.html">Branchenlösungen ansehen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="../impressum.html">Impressum</a>
+        <a href="../datenschutz.html">Datenschutz</a>
+        <a href="../agb.html">AGB</a>
+        <a href="../blog-archiv.html">Blog-Archiv</a>
+      </div>
+      <div class="footer-contact"><span>Email: info@ki-netic.ch</span><span>Telefon: +41 31 333 00 01</span></div>
+      <div class="footer-note">2025: Kein KI-Einsatz = Verzicht auf Profit</div>
+    </div>
+  </footer>
+
+  <script src="../../js/script.js"></script>
+  <script src="../../js/cookie-consent.js"></script>
+</body>
+</html>

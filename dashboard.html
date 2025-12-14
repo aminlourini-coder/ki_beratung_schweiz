@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KI-Potenzial Dashboard | KI.NETIC</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* Background Animation */
+    .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); mix-blend-mode: screen; }
+    .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%); top: -10%; right: -5%; animation: float 30s ease-in-out infinite; }
+    .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,255,136,0.1), transparent 70%); bottom: -5%; left: 10%; animation: float 35s ease-in-out infinite reverse; }
+    @keyframes float { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px,-40px); } }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Header */
+    .header { background: rgba(10,10,15,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,255,255,0.2); padding: 1.2rem 0; position: sticky; top: 0; z-index: 50; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.6rem; font-weight: 900; color: #fff; text-decoration: none; }
+    .logo-dot { color: #00FFFF; }
+    .header-cta { background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(0,255,136,0.1)); color: #00FFFF; border: 2px solid rgba(0,255,255,0.4); padding: 0.7rem 1.5rem; border-radius: 50px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-size: 0.85rem; }
+    .header-cta:hover { background: linear-gradient(135deg, rgba(0,255,255,0.3), rgba(0,255,136,0.15)); box-shadow: 0 10px 30px rgba(0,255,255,0.3); }
+
+    /* Progress Bar */
+    .progress-container { position: fixed; top: 0; left: 0; right: 0; height: 4px; background: rgba(0,255,255,0.1); z-index: 100; }
+    .progress-bar { height: 100%; background: linear-gradient(90deg, #00FF88, #00FFFF); width: 0%; transition: width 0.3s; box-shadow: 0 0 20px rgba(0,255,255,0.6); }
+
+    /* Main Dashboard */
+    .dashboard-hero { padding: 4rem 0 2rem; text-align: center; }
+    .dashboard-title { font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .dashboard-title span { background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .dashboard-subtitle { font-size: 1.25rem; color: #B0B0B0; margin-bottom: 0.5rem; }
+    .dashboard-meta { font-size: 0.95rem; color: #808080; }
+
+    /* Video Section */
+    .video-section { margin: 4rem 0; }
+    .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; border: 3px solid rgba(0,255,255,0.3); box-shadow: 0 30px 80px rgba(0,255,255,0.2); }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .video-label { text-align: center; color: #808080; font-size: 0.9rem; margin-top: 0.8rem; }
+
+    /* Grid Layout */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .metric-box { background: linear-gradient(135deg, rgba(0,255,255,0.15), rgba(0,255,136,0.08)); border: 2px solid rgba(0,255,255,0.3); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 20px 60px rgba(0,255,255,0.15); transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .metric-box:hover { transform: translateY(-12px); box-shadow: 0 35px 90px rgba(0,255,255,0.3); border-color: rgba(0,255,255,0.6); }
+    .metric-label { font-size: 0.9rem; color: #9cc; font-weight: 700; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+    .metric-value { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; filter: drop-shadow(0 0 20px rgba(0,255,136,0.5)); }
+    .metric-detail { font-size: 0.85rem; color: #B0B0B0; }
+
+    /* Scenario Sliders */
+    .scenario-section { margin: 4rem 0; background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,255,136,0.05)); border: 2px solid rgba(0,255,255,0.25); border-radius: 20px; padding: 3rem; }
+    .scenario-title { font-size: 1.8rem; font-weight: 900; margin-bottom: 2rem; }
+    .slider-group { margin-bottom: 2.5rem; }
+    .slider-label { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .slider-label-val { color: #00FFFF; font-size: 1.2rem; }
+    input[type="range"] { width: 100%; height: 6px; background: rgba(0,255,255,0.2); border-radius: 10px; outline: none; -webkit-appearance: none; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: linear-gradient(135deg, #00FFFF, #00FF88); border-radius: 50%; cursor: pointer; box-shadow: 0 0 20px rgba(0,255,255,0.6); }
+    input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; background: linear-gradient(135deg, #00FFFF, #00FF88); border-radius: 50%; cursor: pointer; border: none; box-shadow: 0 0 20px rgba(0,255,255,0.6); }
+    .slider-info { font-size: 0.85rem; color: #B0B0B0; margin-top: 0.4rem; }
+
+    .scenario-button { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2rem; background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0a0a0f; font-weight: 900; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s; }
+    .scenario-button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,255,255,0.4); }
+
+    /* Charts Section */
+    .charts-section { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 4rem 0; }
+    .chart-card { background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,255,255,0.05)); border: 2px solid rgba(0,255,255,0.25); border-radius: 20px; padding: 2rem; }
+    .chart-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; color: #fff; }
+    .chart-container { height: 300px; position: relative; }
+
+    /* Timeline Roadmap */
+    .roadmap-section { margin: 4rem 0; }
+    .roadmap-title { font-size: 2rem; font-weight: 900; margin-bottom: 2rem; text-align: center; }
+    .roadmap-timeline { display: flex; justify-content: space-between; gap: 1rem; }
+    .timeline-item { flex: 1; background: rgba(0,255,255,0.08); border: 2px solid rgba(0,255,255,0.25); border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.4s; position: relative; }
+    .timeline-item:hover { background: rgba(0,255,255,0.15); transform: translateY(-8px); }
+    .timeline-item::before { content: ''; position: absolute; top: -30px; left: 50%; width: 50px; height: 50px; background: linear-gradient(135deg, #00FFFF, #00FF88); border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 30px rgba(0,255,255,0.5); }
+    .timeline-num { font-size: 2.5rem; font-weight: 900; color: #00FFFF; margin-bottom: 0.5rem; }
+    .timeline-label { font-weight: 700; margin-bottom: 0.5rem; }
+    .timeline-text { font-size: 0.85rem; color: #B0B0B0; }
+
+    /* Solutions Grid */
+    .solutions-section { margin: 4rem 0; }
+    .solutions-title { font-size: 2rem; font-weight: 900; margin-bottom: 2rem; }
+    .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .solution-item { background: rgba(0,255,255,0.08); border: 2px solid rgba(0,255,255,0.25); border-radius: 16px; padding: 1.8rem; transition: all 0.4s; }
+    .solution-item:hover { border-color: rgba(0,255,255,0.6); background: rgba(0,255,255,0.12); transform: translateY(-6px); }
+    .solution-check { color: #00FF88; font-weight: 900; margin-right: 0.5rem; }
+    .solution-name { font-weight: 800; margin-bottom: 0.6rem; font-size: 1.1rem; }
+    .solution-impact { color: #B0B0B0; font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .solution-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .tag { background: rgba(0,255,255,0.15); border: 1px solid rgba(0,255,255,0.35); color: #00FFFF; padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+
+    /* Booking Section */
+    .booking-section { margin: 5rem 0; background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,255,255,0.15)); border: 3px solid rgba(0,255,136,0.4); border-radius: 28px; padding: 4rem 3rem; text-align: center; position: relative; overflow: hidden; }
+    .booking-icon { font-size: 5rem; margin-bottom: 1.5rem; filter: drop-shadow(0 0 40px rgba(0,255,136,0.6)); }
+    .booking-title { font-size: 2.8rem; font-weight: 900; margin-bottom: 1rem; }
+    .booking-subtitle { font-size: 1.1rem; color: #B0B0B0; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; align-items: start; }
+
+    .calendar-widget { background: rgba(0,0,0,0.3); border: 2px solid rgba(0,255,255,0.3); border-radius: 16px; padding: 2rem; }
+    .calendar-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 1.5rem; text-align: left; }
+    .calendly-embed { width: 100%; height: 400px; border-radius: 10px; overflow: hidden; }
+
+    .lead-form { background: rgba(0,0,0,0.3); border: 2px solid rgba(0,255,255,0.3); border-radius: 16px; padding: 2rem; }
+    .form-group { margin-bottom: 1.2rem; text-align: left; }
+    .form-label { display: block; color: #00FFFF; font-weight: 700; margin-bottom: 0.5rem; font-size: 0.85rem; }
+    .form-input { width: 100%; padding: 0.9rem 1rem; background: rgba(0,255,255,0.08); border: 1.5px solid rgba(0,255,255,0.3); border-radius: 10px; color: #fff; font-family: inherit; font-size: 0.95rem; transition: all 0.3s; }
+    .form-input:focus { outline: none; border-color: rgba(0,255,255,0.7); background: rgba(0,255,255,0.12); box-shadow: 0 0 25px rgba(0,255,255,0.2); }
+    .form-input::placeholder { color: #707070; }
+
+    .booking-step-indicator { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .step-dot { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,255,255,0.15); border: 2px solid rgba(0,255,255,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; transition: all 0.3s; }
+    .step-dot.active { background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0a0a0f; border-color: #00FF88; }
+    .step-dot.completed { background: #00FF88; color: #0a0a0f; border-color: #00FF88; }
+
+    /* CTA Buttons */
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.7rem; padding: 1.3rem 2.8rem; background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0a0a0f; font-weight: 900; font-size: 1rem; border: none; border-radius: 14px; cursor: pointer; text-decoration: none; transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 20px 50px rgba(0,255,255,0.4); }
+    .btn-primary:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 30px 70px rgba(0,255,255,0.6); }
+    .btn-secondary { padding: 1rem 2rem; background: rgba(255,255,255,0.1); border: 2px solid rgba(0,255,255,0.4); color: #00FFFF; font-weight: 700; border-radius: 12px; cursor: pointer; transition: all 0.3s; }
+    .btn-secondary:hover { background: rgba(0,255,255,0.15); border-color: rgba(0,255,255,0.7); }
+
+    .button-group { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap; }
+
+    /* Footer */
+    .footer { background: rgba(0,0,0,0.4); border-top: 1px solid rgba(0,255,255,0.2); padding: 3rem 0 2rem; margin-top: 6rem; text-align: center; }
+    .footer-text { color: #808080; font-weight: 600; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .dashboard-title { font-size: 2.5rem; }
+      .charts-section { grid-template-columns: 1fr; }
+      .roadmap-timeline { flex-direction: column; }
+      .booking-grid { grid-template-columns: 1fr; }
+      .metric-value { font-size: 2.2rem; }
+    }
+
+    @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <button class="header-cta" onclick="smoothScroll('booking-section')">Termin buchen ↓</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Dashboard Hero -->
+    <section class="dashboard-hero">
+      <h1 class="dashboard-title">Ihr persönliches <span>KI-Potenzial</span></h1>
+      <p class="dashboard-subtitle">Basierend auf Ihren spezifischen Pain Points und Branche</p>
+      <p class="dashboard-meta" id="dashboard-meta">Berechnung lädt...</p>
+    </section>
+
+    <!-- Video Intro -->
+    <section class="video-section">
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1" title="KI-Potenzial Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="video-label">💡 Erfahren Sie in 2 Minuten, wie KI Ihr Unternehmen transformiert</p>
+    </section>
+
+    <!-- Key Metrics -->
+    <div class="dashboard-grid">
+      <div class="metric-box" style="animation: slideUp 0.6s ease-out;">
+        <div class="metric-label">KI-Score</div>
+        <div class="metric-value" id="metric-score">--/100</div>
+        <div class="metric-detail" id="metric-level">Potential wird berechnet</div>
+      </div>
+      <div class="metric-box" style="animation: slideUp 0.7s ease-out;">
+        <div class="metric-label">Einsparung/Jahr</div>
+        <div class="metric-value" id="metric-savings">CHF --</div>
+        <div class="metric-detail" id="metric-monthly">-- / Monat</div>
+      </div>
+      <div class="metric-box" style="animation: slideUp 0.8s ease-out;">
+        <div class="metric-label">ROI Amortisation</div>
+        <div class="metric-value" id="metric-roi">-- Monate</div>
+        <div class="metric-detail" id="metric-impl">Implementierung: CHF --</div>
+      </div>
+      <div class="metric-box" style="animation: slideUp 0.9s ease-out;">
+        <div class="metric-label">Freigesetzte Zeit</div>
+        <div class="metric-value" id="metric-hours">-- Std/Woche</div>
+        <div class="metric-detail">für hochwertige Arbeit</div>
+      </div>
+      <div class="metric-box" style="animation: slideUp 1s ease-out;">
+        <div class="metric-label">CO₂ Einsparung</div>
+        <div class="metric-value" id="metric-co2">-- t/Jahr</div>
+        <div class="metric-detail">Nachhaltigkeit & Effizienz</div>
+      </div>
+      <div class="metric-box" style="animation: slideUp 1.1s ease-out;">
+        <div class="metric-label">Erfolgschance</div>
+        <div class="metric-value" id="metric-confidence">--% </div>
+        <div class="metric-detail">Basierend auf 120+ Projekten</div>
+      </div>
+    </div>
+
+    <!-- Scenario Sliders -->
+    <section class="scenario-section">
+      <h2 class="scenario-title">🎚️ Szenarios individualisieren</h2>
+      <p style="color:#B0B0B0; margin-bottom:2rem; font-size:0.95rem;">Ziehen Sie die Slider, um verschiedene Implementierungs-Szenarien zu erkunden. Die Metriken oben aktualisieren sich live!</p>
+      
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Bot-Automatisierungs-Grad</span>
+          <span class="slider-label-val" id="bot-val">60%</span>
+        </div>
+        <input type="range" id="bot-slider" min="40" max="95" value="60" oninput="updateScenarios()">
+        <div class="slider-info">Wie viel % der Kundenanfragen soll der Bot automatisiert bearbeiten? (40–95%)</div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Implementierungs-Tempo</span>
+          <span class="slider-label-val" id="tempo-val">Standard</span>
+        </div>
+        <input type="range" id="tempo-slider" min="1" max="3" value="2" oninput="updateScenarios()">
+        <div class="slider-info">Schnell (2 Wochen), Standard (6 Wochen), oder Phased (12 Wochen)</div>
+      </div>
+
+      <div class="slider-group">
+        <div class="slider-label">
+          <span>Prozess-Integrations-Tiefe</span>
+          <span class="slider-label-val" id="depth-val">Standard</span>
+        </div>
+        <input type="range" id="depth-slider" min="1" max="3" value="2" oninput="updateScenarios()">
+        <div class="slider-info">Oberflächlich (Quick Wins), Standard (vollständig), oder Tiefintegration (ERP, CRM, etc.)</div>
+      </div>
+
+      <button class="scenario-button" onclick="downloadScenario()">📊 Szenario-Vergleich als PDF</button>
+      <button class="scenario-button" style="background: rgba(255,255,255,0.1); color:#00FFFF; margin-left:0.8rem;" onclick="resetScenario()">↻ Zurücksetzen</button>
+    </section>
+
+    <!-- Charts -->
+    <div class="charts-section">
+      <div class="chart-card">
+        <div class="chart-title">💰 Einsparungs-Roadmap</div>
+        <div class="chart-container" id="roi-chart"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">🎯 Einsparungs-Breakdown</div>
+        <div class="chart-container" id="breakdown-chart"></div>
+      </div>
+    </div>
+
+    <!-- Timeline Roadmap -->
+    <section class="roadmap-section">
+      <h2 class="roadmap-title">📅 Ihr 90-Tage <span style="background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Success-Plan</span></h2>
+      <div class="roadmap-timeline" id="roadmap-timeline"></div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="solutions-section">
+      <h2 class="solutions-title">✓ Ihre Top KI-Lösungen</h2>
+      <div class="solutions-grid" id="solutions-grid"></div>
+    </section>
+
+    <!-- Trust & Social Proof -->
+    <section style="margin:4rem 0; padding:2rem; background:linear-gradient(135deg,rgba(0,255,136,0.1),rgba(0,255,255,0.08)); border:2px solid rgba(0,255,255,0.25); border-radius:20px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; text-align:center;">
+        <div>
+          <div style="font-size:2.5rem; font-weight:900; color:#00FF88;">120+</div>
+          <div style="color:#B0B0B0; font-weight:600;">Schweizer KMU beraten</div>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; font-weight:900; color:#00FFFF;">8.2/10</div>
+          <div style="color:#B0B0B0; font-weight:600;">Zufriedenheitsrate</div>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; font-weight:900; color:#00FF88;">6-12M</div>
+          <div style="color:#B0B0B0; font-weight:600;">Durchschnittlicher ROI</div>
+        </div>
+        <div>
+          <div style="font-size:2.5rem; font-weight:900; color:#00FFFF;">ISO 27001</div>
+          <div style="color:#B0B0B0; font-weight:600;">DSG-konform & zertifiziert</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="margin:4rem 0;">
+      <h2 class="solutions-title">💬 Was unsere Kunden sagen</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem;">
+        <div style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
+          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐ 5/5</div>
+          <p style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">„15 Stunden pro Woche gespart nach 2 Wochen. Die KI lernt ständig dazu – absolut genial."</p>
+          <div style="font-weight:800;">Marco Käppeli</div>
+          <div style="color:#00FFFF; font-size:0.9rem;">CEO, Käppeli Treuhand AG</div>
+        </div>
+        <div style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
+          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐ 5/5</div>
+          <p style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">„Lead-Quote um 40% gesteigert. Der KI-Chatbot arbeitet 24/7 – das wäre ohne unmöglich."</p>
+          <div style="font-weight:800;">Sandra Bühler</div>
+          <div style="color:#00FFFF; font-size:0.9rem;">GF, Bühler Immobilien</div>
+        </div>
+        <div style="background:rgba(0,255,255,0.08); border:2px solid rgba(0,255,255,0.25); border-radius:16px; padding:2rem;">
+          <div style="margin-bottom:1rem;">⭐⭐⭐⭐⭐ 5/5</div>
+          <p style="color:#B0B0B0; margin-bottom:1rem; font-style:italic;">„Ausfallzeiten um 23% reduziert. CHF 200K+ jährlich gespart. KI ist nicht Zukunft – es ist JETZT."</p>
+          <div style="font-weight:800;">Thomas Petermann</div>
+          <div style="color:#00FFFF; font-size:0.9rem;">Betriebsleiter, Petermann Industrie</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking CTA -->
+    <section class="booking-section" id="booking-section">
+      <div class="booking-icon">📞</div>
+      <h2 class="booking-title">Lassen Sie uns starten</h2>
+      <p class="booking-subtitle">Buchen Sie jetzt einen kostenlosen 30-Minuten Discovery Call. Unser Team präsentiert Ihnen einen konkreten Umsetzungsplan.</p>
+
+      <!-- Step Indicator -->
+      <div class="booking-step-indicator" style="justify-content:center;">
+        <div class="step-dot active" id="step-1">1</div>
+        <div class="step-dot" id="step-2">2</div>
+        <div class="step-dot" id="step-3">3</div>
+      </div>
+
+      <div class="booking-grid">
+        <!-- Calendly Widget -->
+        <div class="calendar-widget">
+          <div class="calendar-title">🗓️ Termin buchen</div>
+          <div class="calendly-embed">
+            <iframe src="https://calendly.com/info-ki-netic/30min" width="100%" height="400" frameborder="0"></iframe>
+          </div>
+        </div>
+
+        <!-- Lead Form -->
+        <div class="lead-form">
+          <form id="lead-form" onsubmit="submitLead(event)">
+            <div class="form-group">
+              <label class="form-label">Vor- & Nachname *</label>
+              <input type="text" name="name" class="form-input" required placeholder="Max Mustermann" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">E-Mail *</label>
+              <input type="email" name="email" class="form-input" required placeholder="max@mustermann.ch" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Telefon</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+41 79 123 45 67" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Unternehmen *</label>
+              <input type="text" name="company" class="form-input" required placeholder="Ihr Unternehmen" />
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+              <span>Jetzt Termin bestätigen</span>
+              <span>→</span>
+            </button>
+            <p style="font-size:0.8rem; color:#808080; margin-top:1rem; text-align:center;">✓ Bestätigung per E-Mail • ✓ iCal-Kalender • ✓ Direkter Zoom-Link</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional CTA -->
+    <section style="text-align:center; margin:4rem 0; padding:3rem 0; border-top:1px solid rgba(0,255,255,0.2);">
+      <h3 style="font-size:2rem; font-weight:900; margin-bottom:1.5rem;">Mehr Informationen?</h3>
+      <div class="button-group">
+        <button class="btn-primary" onclick="downloadDashboard()">📥 Dashboard als PDF</button>
+        <a href="mailto:info@ki-netic.ch" class="btn-secondary">📧 E-Mail senden</a>
+        <button class="btn-secondary" onclick="window.print()">🖨️ Drucken</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">© 2025 KI.NETIC | KI-Beratung für Schweizer KMU | info@ki-netic.ch | +41 31 333 00 01</p>
+  </footer>
+
+  <script>
+    // Load assessment data from sessionStorage
+    let assessmentData = JSON.parse(sessionStorage.getItem('assessmentData') || '{}');
+
+    function renderDashboard() {
+      if (!assessmentData || !assessmentData.score) {
+        console.error('Keine Assessment-Daten gefunden');
+        return;
+      }
+
+      const { score, level, color, savings, roiMonths, implCost, weeklyHours, co2Saved, branchData, pains } = assessmentData;
+
+      // Update header
+      document.getElementById('dashboard-meta').textContent = `Branche: ${assessmentData.branchLabel || '–'} | Score: ${score}/100`;
+
+      // Update metrics
+      document.getElementById('metric-score').textContent = `${score}/100`;
+      document.getElementById('metric-score').style.color = color;
+      document.getElementById('metric-level').textContent = level;
+
+      document.getElementById('metric-savings').textContent = `CHF ${savings.toLocaleString('de-CH')}`;
+      document.getElementById('metric-monthly').textContent = `~CHF ${Math.round(savings/12).toLocaleString('de-CH')} / Monat`;
+
+      document.getElementById('metric-roi').textContent = `${roiMonths} Monate`;
+      document.getElementById('metric-impl').textContent = `Implementierung: CHF ${implCost.toLocaleString('de-CH')}`;
+
+      document.getElementById('metric-hours').textContent = `${weeklyHours.toLocaleString('de-CH')} Std/Woche`;
+      document.getElementById('metric-co2').textContent = `${(co2Saved / 1000).toFixed(1)} t/Jahr`;
+      document.getElementById('metric-confidence').textContent = `${Math.min(98, 60 + pains.length * 8)}%`;
+
+      renderCharts(savings, pains);
+      renderRoadmap(assessmentData.branchData);
+      renderSolutions(assessmentData);
+      renderDateSelector();
+    }
+
+    function renderCharts(savings, pains) {
+      // ROI Curve (simple SVG)
+      const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      const costs = months.map((m, i) => {
+        const implCost = assessmentData.implCost;
+        if (i === 0) return implCost;
+        return implCost - (savings / 12 * i);
+      });
+      const minCost = Math.min(...costs);
+      const maxCost = Math.max(...costs);
+      const padding = 40;
+      const width = 400;
+      const height = 250;
+      const pointWidth = (width - 2 * padding) / 12;
+      const pointHeight = (height - 2 * padding);
+
+      let pathData = `M ${padding} ${height - padding + ((costs[0] - minCost) / (maxCost - minCost)) * pointHeight}`;
+      for (let i = 1; i < costs.length; i++) {
+        const x = padding + i * pointWidth;
+        const y = height - padding + ((costs[i] - minCost) / (maxCost - minCost)) * pointHeight;
+        pathData += ` L ${x} ${y}`;
+      }
+
+      const roiChart = document.getElementById('roi-chart');
+      roiChart.innerHTML = `
+        <svg viewBox="0 0 ${width} ${height}" style="width:100%; height:100%;">
+          <defs>
+            <linearGradient id="roiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#00FF88;stop-opacity:0.4" />
+              <stop offset="100%" style="stop-color:#00FFFF;stop-opacity:0" />
+            </linearGradient>
+          </defs>
+          <path d="${pathData}" stroke="#00FFFF" stroke-width="3" fill="none" />
+          <path d="${pathData} L ${width - padding} ${height - padding} L ${padding} ${height - padding}" fill="url(#roiGrad)" />
+          ${months.map((m, i) => {
+            const x = padding + i * pointWidth;
+            const y = height - padding + ((costs[i] - minCost) / (maxCost - minCost)) * pointHeight;
+            return `<circle cx="${x}" cy="${y}" r="4" fill="#00FF88" />
+                    <text x="${x}" y="${height - padding + 25}" text-anchor="middle" font-size="11" fill="#9cc">${m}m</text>`;
+          }).join('')}
+          <text x="${width/2}" y="20" text-anchor="middle" font-size="13" fill="#B0B0B0" font-weight="700">Investition vs. Einsparung</text>
+        </svg>
+      `;
+
+      // Breakdown Pie (simple doughnut)
+      const breakdown = [
+        { label: 'Backoffice', value: 45, color: '#00FFFF' },
+        { label: 'Vertrieb', value: 30, color: '#00FF88' },
+        { label: 'Service', value: 25, color: '#FF88FF' }
+      ];
+
+      const breakdownChart = document.getElementById('breakdown-chart');
+      let pieHtml = `<svg viewBox="0 0 200 200" style="width:100%; height:100%;">`;
+      let angle = 0;
+      breakdown.forEach(item => {
+        const sliceAngle = (item.value / 100) * 360;
+        const x1 = 100 + 80 * Math.cos((angle - 90) * Math.PI / 180);
+        const y1 = 100 + 80 * Math.sin((angle - 90) * Math.PI / 180);
+        const x2 = 100 + 80 * Math.cos((angle + sliceAngle - 90) * Math.PI / 180);
+        const y2 = 100 + 80 * Math.sin((angle + sliceAngle - 90) * Math.PI / 180);
+        const largeArc = sliceAngle > 180 ? 1 : 0;
+        const path = `M 100 100 L ${x1} ${y1} A 80 80 0 ${largeArc} 1 ${x2} ${y2} Z`;
+        pieHtml += `<path d="${path}" fill="${item.color}" stroke="#0a0a0f" stroke-width="2" />`;
+        angle += sliceAngle;
+      });
+      pieHtml += `<circle cx="100" cy="100" r="50" fill="#0a0a0f" />`;
+      breakdown.forEach((item, i) => {
+        pieHtml += `<tspan x="100" y="${130 + i * 15}" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">${item.label} ${item.value}%</tspan>`;
+      });
+      pieHtml += `</svg>`;
+      breakdownChart.innerHTML = pieHtml;
+    }
+
+    function renderRoadmap(branchData) {
+      const phases = [
+        { num: '1', label: 'Woche 1-2', title: 'Quick Audit', text: 'Scope, Daten-Check, KPI-Base' },
+        { num: '2', label: 'Woche 3-6', title: 'Build & Test', text: 'MVP mit echten Daten' },
+        { num: '3', label: 'Woche 7-12', title: 'Rollout', text: 'Go-Live & Training' }
+      ];
+
+      const timeline = document.getElementById('roadmap-timeline');
+      timeline.innerHTML = phases.map(p => `
+        <div class="timeline-item" style="animation: slideUp ${0.6 + (phases.indexOf(p) * 0.2)}s ease-out;">
+          <div class="timeline-num">${p.num}</div>
+          <div class="timeline-label">${p.label}</div>
+          <strong style="display:block; margin-bottom:0.5rem;">${p.title}</strong>
+          <div class="timeline-text">${p.text}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderSolutions(data) {
+      const { pains, branchData } = data;
+      const grid = document.getElementById('solutions-grid');
+      
+      let solutions = [];
+      if (branchData && branchData.solutions) {
+        pains.slice(0, 3).forEach(p => {
+          if (branchData.solutions[p]) {
+            solutions.push(...branchData.solutions[p].slice(0, 1).map(s => ({ ...s, pain: p })));
+          }
+        });
+      }
+
+      if (solutions.length === 0) {
+        solutions = [
+          { name: 'KI-Strategie-Sprint', impact: 'Basis für alle Use-Cases', effort: '2 Wochen', cost: 15000, pain: 'Allgemein' }
+        ];
+      }
+
+      grid.innerHTML = solutions.slice(0, 4).map((sol, i) => `
+        <div class="solution-item" style="animation: slideUp ${0.6 + (i * 0.15)}s ease-out;">
+          <div style="margin-bottom:0.8rem;">
+            <span class="solution-check">✓</span>
+            <span class="solution-name">${sol.name}</span>
+          </div>
+          <div class="solution-impact">${sol.impact}</div>
+          <div class="solution-tags">
+            <span class="tag">Aufwand: ${sol.effort}</span>
+            <span class="tag">CHF ${sol.cost ? sol.cost.toLocaleString('de-CH') : '–'}</span>
+            <span class="tag">DSG-konform</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderDateSelector() {
+      const today = new Date();
+      const dates = [];
+      for (let i = 1; i <= 14; i++) {
+        const d = new Date(today);
+        d.setDate(d.getDate() + i);
+        if (d.getDay() !== 0 && d.getDay() !== 6) { // Skip weekends
+          dates.push(d);
+        }
+      }
+
+      const selector = document.getElementById('date-selector');
+      selector.innerHTML = `<div class="calendar-dates">${dates.slice(0, 9).map((d, i) => `
+        <button type="button" class="date-btn ${i === 0 ? 'selected' : ''}" onclick="selectDate(this, '${d.toISOString().split('T')[0]}')">
+          ${d.getDate()} ${['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'][d.getMonth()]}
+        </button>
+      `).join('')}</div>`;
+    }
+
+    function selectDate(btn, date) {
+      document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('selected-date-val').innerText = date;
+    }
+
+    function submitLead(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const date = document.querySelector('.date-btn.selected')?.innerText || 'TBD';
+      const time = document.getElementById('time-selector').value;
+
+      // Send to Formspree with booking info
+      fetch('https://formspree.io/f/xanyzvrl', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          company: formData.get('company'),
+          ...assessmentData,
+          _subject: `KI Discovery Call Booking: ${formData.get('name')}`,
+          _redirectTo: 'https://ki-netic.ch/booking-confirmed'
+        })
+      }).then(() => {
+        alert('✓ Termin gebucht! Bestätigung kommt per E-Mail.');
+        window.location.href = 'index.html';
+      }).catch(err => {
+        alert('Es gab ein Problem. Bitte versuchen Sie es später erneut.');
+        console.error(err);
+      });
+    }
+
+    function downloadDashboard() {
+      window.print();
+    }
+
+    // Scenario Sliders - Live ROI Recalculation
+    function updateScenarios() {
+      const bot = parseInt(document.getElementById('bot-slider').value);
+      const tempo = parseInt(document.getElementById('tempo-slider').value);
+      const depth = parseInt(document.getElementById('depth-slider').value);
+
+      // Update slider labels
+      document.getElementById('bot-val').textContent = bot + '%';
+      document.getElementById('tempo-val').textContent = ['Schnell (2W)', 'Standard (6W)', 'Phased (12W)'][tempo - 1];
+      document.getElementById('depth-val').textContent = ['Oberflächlich', 'Standard', 'Tiefintegration'][depth - 1];
+
+      // Recalculate metrics based on sliders
+      const botFactor = bot / 60; // baseline is 60%
+      const tempoFactor = [1.3, 1.0, 0.7][tempo - 1]; // faster = more expensive, but higher ROI
+      const depthFactor = [0.6, 1.0, 1.4][depth - 1]; // deeper integration = more expensive but higher savings
+
+      const newSavings = Math.round(assessmentData.savings * botFactor * depthFactor);
+      const newHours = Math.round(assessmentData.weeklyHours * botFactor * depthFactor);
+      const newCost = Math.round(assessmentData.implCost * tempoFactor * depthFactor);
+      const newROI = newCost > 0 ? Math.round(newCost / (newSavings / 12)) : 0;
+      const newCO2 = Math.round(assessmentData.co2Saved * botFactor * depthFactor);
+
+      // Animate metric updates
+      document.getElementById('metric-savings').textContent = `CHF ${newSavings.toLocaleString('de-CH')}`;
+      document.getElementById('metric-monthly').textContent = `~CHF ${Math.round(newSavings/12).toLocaleString('de-CH')} / Monat`;
+      document.getElementById('metric-roi').textContent = `${newROI} Monate`;
+      document.getElementById('metric-impl').textContent = `Implementierung: CHF ${newCost.toLocaleString('de-CH')}`;
+      document.getElementById('metric-hours').textContent = `${newHours} Std/Woche`;
+      document.getElementById('metric-co2').textContent = `${(newCO2 / 1000).toFixed(1)} t/Jahr`;
+
+      // Pulse animation on update
+      document.querySelectorAll('.metric-value').forEach(m => {
+        m.style.animation = 'none';
+        setTimeout(() => { m.style.animation = 'pulse 0.6s ease-out'; }, 10);
+      });
+
+      // Update charts with new values
+      renderCharts(newSavings, assessmentData.pains);
+    }
+
+    // Download Scenario Comparison
+    function downloadScenario() {
+      const bot = document.getElementById('bot-slider').value;
+      const tempo = document.getElementById('tempo-slider').value;
+      const depth = document.getElementById('depth-slider').value;
+      const scenarios = `
+KI-Szenario-Vergleich
+======================
+
+Aktuelle Konfiguration:
+- Bot-Abdeckung: ${bot}%
+- Implementierungs-Tempo: ${['Schnell (2 Wochen)', 'Standard (6 Wochen)', 'Phased (12 Wochen)'][parseInt(tempo) - 1]}
+- Integrations-Tiefe: ${['Oberflächlich', 'Standard', 'Tiefintegration'][parseInt(depth) - 1]}
+
+Projizierte Metriken:
+- Einsparung/Jahr: CHF ${document.getElementById('metric-savings').textContent}
+- ROI-Amortisation: ${document.getElementById('metric-roi').textContent}
+- Freigesetzte Zeit: ${document.getElementById('metric-hours').textContent}
+- CO₂ Einsparung: ${document.getElementById('metric-co2').textContent}
+
+Generiert: ${new Date().toLocaleDateString('de-CH')}
+KI.NETIC – KI-Beratung für Schweizer KMU
+      `;
+      const blob = new Blob([scenarios], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `KI-Szenario-${new Date().toISOString().split('T')[0]}.txt`;
+      a.click();
+    }
+
+    // Reset Scenario to Defaults
+    function resetScenario() {
+      document.getElementById('bot-slider').value = '60';
+      document.getElementById('tempo-slider').value = '2';
+      document.getElementById('depth-slider').value = '2';
+      updateScenarios();
+    }
+
+    // Progress Bar - Update on Scroll
+    function updateProgressBar() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById('progress-bar').style.width = scrollPercent + '%';
+    }
+
+    // Booking Step Indicator - Update on Interaction
+    function updateStepIndicator(step) {
+      document.querySelectorAll('.step-dot').forEach((dot, i) => {
+        if (i < step) {
+          dot.classList.add('completed');
+          dot.classList.remove('active');
+        } else if (i === step - 1) {
+          dot.classList.add('active');
+          dot.classList.remove('completed');
+        } else {
+          dot.classList.remove('active', 'completed');
+        }
+      });
+    }
+
+    // Smooth scroll helper
+    function smoothScroll(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Scroll listeners
+    window.addEventListener('scroll', updateProgressBar);
+
+    // Lead form date selection tracking
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('date-btn')) {
+        updateStepIndicator(2); // Step 2: Date selected
+      }
+    });
+
+    // Lead form input tracking
+    document.addEventListener('input', (e) => {
+      const form = document.getElementById('lead-form');
+      if (form && form.contains(e.target)) {
+        const formData = new FormData(form);
+        const isComplete = formData.get('name') && formData.get('email') && formData.get('company');
+        if (isComplete) {
+          updateStepIndicator(3); // Step 3: Form complete
+        }
+      }
+    });
+
+    // Pre-fill Calendly URL with name/email if available
+    function initCalendly() {
+      const name = assessmentData.name || '';
+      const email = assessmentData.email || '';
+      const calendlyUrl = `https://calendly.com/info-ki-netic/30min?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+      const iframe = document.querySelector('.calendly-embed iframe');
+      if (iframe) {
+        iframe.src = calendlyUrl;
+      }
+    }
+
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {
+      renderDashboard();
+      updateProgressBar();
+      updateStepIndicator(1); // Step 1 active on load
+      initCalendly();
+    });
+  </script>
+</body>
+</html>

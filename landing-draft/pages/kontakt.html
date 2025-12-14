@@ -1,0 +1,180 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt — KI.NETIC</title>
+  <meta name="description" content="Kontaktieren Sie KI.NETIC. Kostenlosen Ersttermin buchen." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Kontakt — KI.NETIC" />
+  <meta property="og:description" content="Kontaktieren Sie KI.NETIC. Kostenlosen Ersttermin buchen." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ki-netic.ch/pages/kontakt.html" />
+  <meta property="og:site_name" content="KI.NETIC" />
+    <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kontakt — KI.NETIC" />
+  <meta name="twitter:description" content="Kontaktieren Sie KI.NETIC. Kostenlosen Ersttermin buchen." />
+    <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0000000000');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <nav class="main-nav" id="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="dienstleistungen.html">Dienstleistungen</a>
+        <a href="branchen.html">Branchen</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="ueber-uns.html">Über Uns</a>
+        <a href="blog.html">Blog</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <button id="cta-primary" class="btn btn-glow">Kostenlosen Ersttermin sichern</button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Neural Network Background -->
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Kontakt</h1>
+          <p class="sub">Haben Sie Fragen? Wir antworten innerhalb von 2 Stunden.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt Section - Redesigned -->
+    <section class="container" style="margin: 3rem 0 4rem 0;">
+      <!-- Contact Info Cards - Horizontal Row -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+        <!-- Email Card -->
+        <div style="padding: 2rem; background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,255,255,0.04)); border: 1px solid rgba(0,255,136,0.3); border-radius: 16px; transition: all 0.3s ease;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
+          <h3 style="color: #00FF88; margin: 0 0 0.75rem 0; font-size: 1.1rem; font-weight: 600;">Email</h3>
+          <a href="mailto:info@ki-netic.ch" style="color: #00FFFF; text-decoration: none; font-size: 1rem; transition: all 0.3s ease; word-break: break-all;">info@ki-netic.ch</a>
+        </div>
+
+        <!-- Telefon Card -->
+        <div style="padding: 2rem; background: linear-gradient(135deg, rgba(0,255,255,0.08), rgba(139,92,246,0.04)); border: 1px solid rgba(0,255,255,0.3); border-radius: 16px; transition: all 0.3s ease;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📞</div>
+          <h3 style="color: #00FFFF; margin: 0 0 0.75rem 0; font-size: 1.1rem; font-weight: 600;">Telefon</h3>
+          <a href="tel:+41313300001" style="color: #00FFFF; text-decoration: none; font-size: 1rem; transition: all 0.3s ease;">+41 31 333 00 01</a>
+        </div>
+
+        <!-- Adresse Card -->
+        <div style="padding: 2rem; background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(255,215,0,0.04)); border: 1px solid rgba(139,92,246,0.3); border-radius: 16px; transition: all 0.3s ease;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
+          <h3 style="color: #8B5CF6; margin: 0 0 0.75rem 0; font-size: 1.1rem; font-weight: 600;">Adresse</h3>
+          <div style="color: #CCCCCC; font-size: 0.95rem; line-height: 1.6;">
+            KI.NETIC<br/>Bahnhofstrasse 1<br/>8001 Zürich<br/>Schweiz
+          </div>
+        </div>
+      </div>
+
+      <!-- Geschäftszeiten Info -->
+      <div style="padding: 2rem; background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(0,255,136,0.04)); border: 1px solid rgba(255,215,0,0.3); border-radius: 16px; margin-bottom: 4rem; text-align: center;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem; display: inline-block;">🕐</div>
+        <h3 style="color: #FFD700; margin: 0 0 0.75rem 0; font-size: 1.2rem; font-weight: 600;">Geschäftszeiten</h3>
+        <p style="color: #CCCCCC; margin: 0; font-size: 1rem;">
+          <strong>Mo–Fr:</strong> 08:00 – 18:00<br/>
+          <strong>Sa–So:</strong> Nur Notfälle
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 1rem; font-size: 2rem;">Senden Sie uns eine Nachricht</h2>
+        <p id="contact-status" style="text-align: center; color: #00FF88; margin-bottom: 1.5rem; display: none;">Danke! Wir haben Ihre Nachricht erhalten.</p>
+        <form action="https://formspree.io/f/xanyzvrl" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem; background: linear-gradient(135deg, rgba(0,255,255,0.06), rgba(0,255,136,0.02)); padding: 2.5rem; border-radius: 20px; border: 1px solid rgba(0,255,255,0.2); box-shadow: 0 0 40px rgba(0,255,255,0.08);">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div>
+            <label style="display: block; color: #00FFFF; margin-bottom: 0.75rem; font-size: 0.95rem; font-weight: 600;">Ihr Name *</label>
+            <input type="text" name="name" placeholder="Max Mustermann" required style="width: 100%; padding: 0.95rem 1.2rem; border-radius: 12px; border: 1px solid rgba(0,255,255,0.3); background: rgba(15,15,18,0.8); color: #FFFFFF; font-size: 1rem; transition: all 0.3s ease; min-height: 44px;" />
+          </div>
+
+          <div>
+            <label style="display: block; color: #00FFFF; margin-bottom: 0.75rem; font-size: 0.95rem; font-weight: 600;">E-Mail Adresse *</label>
+            <input type="email" name="email" placeholder="max@firma.ch" required style="width: 100%; padding: 0.95rem 1.2rem; border-radius: 12px; border: 1px solid rgba(0,255,255,0.3); background: rgba(15,15,18,0.8); color: #FFFFFF; font-size: 1rem; transition: all 0.3s ease; min-height: 44px;" />
+          </div>
+
+          <div>
+            <label style="display: block; color: #AAAAAA; margin-bottom: 0.75rem; font-size: 0.95rem; font-weight: 600;">Telefon (optional)</label>
+            <input type="tel" name="phone" placeholder="+41 31 333 00 01" style="width: 100%; padding: 0.95rem 1.2rem; border-radius: 12px; border: 1px solid rgba(0,255,255,0.2); background: rgba(15,15,18,0.8); color: #FFFFFF; font-size: 1rem; transition: all 0.3s ease; min-height: 44px;" />
+          </div>
+
+          <div>
+            <label style="display: block; color: #00FFFF; margin-bottom: 0.75rem; font-size: 0.95rem; font-weight: 600;">Ihre Nachricht *</label>
+            <textarea name="message" placeholder="Beschreiben Sie Ihr Anliegen oder Ihr Projekt..." rows="6" required style="width: 100%; padding: 0.95rem 1.2rem; border-radius: 12px; border: 1px solid rgba(0,255,255,0.3); background: rgba(15,15,18,0.8); color: #FFFFFF; font-size: 1rem; font-family: inherit; resize: vertical; transition: all 0.3s ease; min-height: 140px;"></textarea>
+          </div>
+
+          <div style="display: flex; align-items: flex-start; gap: 0.65rem; color: #AAAAAA; font-size: 0.9rem; line-height: 1.4;">
+            <input type="checkbox" name="consent" required style="margin-top: 0.2rem; min-width: 18px; min-height: 18px; accent-color: #00FFFF;">
+            <label>Ich stimme der Verarbeitung meiner Daten laut <a href="datenschutz.html" style="color: #00FFFF;">Datenschutz</a> zu.</label>
+          </div>
+
+          <input type="hidden" name="_subject" value="Neue Kontaktanfrage - KI.NETIC" />
+          <input type="hidden" name="_next" value="https://ki-netic.ch/pages/kontakt.html?success=true" />
+          <input type="hidden" name="_replyto" value="info@ki-netic.ch" />
+          
+          <button type="submit" style="padding: 1rem 2.5rem; background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0F0F12; border: none; border-radius: 12px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 40px rgba(0,255,255,0.3); margin-top: 0.5rem; min-height: 48px; display: flex; align-items: center; justify-content: center;">
+            ✉️ Nachricht senden
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Termin buchen Section -->
+    <section class="container" style="margin: 6rem 0;">
+      <div style="text-align: center; padding: 4rem 3rem; background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(0,255,136,0.1) 100%); border: 2px solid rgba(255,215,0,0.3); border-radius: 20px; box-shadow: 0 0 60px rgba(255,215,0,0.15); position: relative;">
+        <div style="font-size: 4rem; margin-bottom: 1rem; filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));">📅</div>
+        <h2 style="color: #FFFFFF; margin-bottom: 1rem; font-size: 2.2rem;">Kostenlosen Ersttermin buchen</h2>
+        <p style="color: #AAAAAA; margin-bottom: 2.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Nehmen Sie jetzt einen Termin an. <strong style="color: #FFD700;">Kostenlos. Unverbindlich. 30 Minuten.</strong></p>
+        <button style="padding: 1.2rem 3rem; background: linear-gradient(135deg, #FFD700, #00FF88); color: #0F0F12; border: none; border-radius: 12px; font-weight: 700; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 40px rgba(255,215,0,0.4);">
+          📆 Calendly-Termin buchen
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+      <div class="footer-contact">
+        <span>Email: info@ki-netic.ch</span><span>Telefon: +41 31 333 00 01</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/cookie-consent.js"></script>
+  <script>
+    // Zeigt Erfolgsstatus nach Redirect (?success=true)
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('success') === 'true') {
+        const status = document.getElementById('contact-status');
+        if (status) status.style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>

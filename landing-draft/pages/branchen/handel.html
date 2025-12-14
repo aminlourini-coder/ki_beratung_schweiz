@@ -1,0 +1,195 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Handel & E-Commerce — KI.NETIC</title>
+  <meta name="description" content="KI für Retail: Personalisierte Empfehlungen, Bestandsverwaltung, Kundenprognosen." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Handel & E-Commerce — KI.NETIC" />
+  <meta property="og:description" content="KI für Retail: Personalisierte Empfehlungen, Bestandsverwaltung, Kundenprognosen." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ki-netic.ch/pages/branchen/handel.html" />
+  <meta property="og:site_name" content="KI.NETIC" />
+    <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Handel & E-Commerce — KI.NETIC" />
+  <meta name="twitter:description" content="KI für Retail: Personalisierte Empfehlungen, Bestandsverwaltung, Kundenprognosen." />
+    <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0000000000');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../index.html" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <nav class="main-nav" id="main-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../dienstleistungen.html">Dienstleistungen</a>
+        <a href="../branchen.html">Branchen</a>
+        <a href="../projekte.html">Projekte</a>
+        <a href="../ueber-uns.html">Über Uns</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../kontakt.html">Kontakt</a>
+      </nav>
+      <button id="cta-primary" class="btn btn-glow">Kostenlosen Ersttermin sichern</button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Neural Network Background -->
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+
+    <section class="hero hero--overlay">
+      <picture>
+        <source srcset="../../assets/images/branchen-handel.webp" type="image/webp">
+        <img class="hero-bg" src="../../assets/images/branchen-handel.png" alt="Handel Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
+      </picture>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>🛒 Handel & E-Commerce — Smarte Verkäufe mit KI.</h1>
+          <p class="sub">Personalisierte Empfehlungen, Bestandsprognosen, Churn-Prävention.</p>
+          <div class="cta-cluster">
+            <button id="open-assessment" class="btn btn-primary">Potenzial jetzt prüfen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Herausforderungen Section -->
+    <section class="container" style="margin: 4rem 0;">
+      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF;">Herausforderungen im Handel</h2>
+      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem;">Diese Probleme kennen Sie aus Ihrem Alltag:</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(255,107,53,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #FF6B35; border-radius: 16px; box-shadow: 0 0 30px rgba(255,107,53,0.15), 0 0 60px rgba(255,107,53,0.03) inset; position: relative;">
+          <div style="font-size: 2.5rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 12px rgba(255,107,53,0.4));">📉</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.5rem;">Ineffiziente Bestandsverwaltung</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Über- oder Unterbestände führen zu Kapitalverlust und verpassten Verkäufen.</p>
+        </div>
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(255,107,53,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #FF6B35; border-radius: 16px; box-shadow: 0 0 30px rgba(255,107,53,0.15), 0 0 60px rgba(255,107,53,0.03) inset; position: relative;">
+          <div style="font-size: 2.5rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 12px rgba(255,107,53,0.4));">🎯</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.5rem;">Mangelnde Personalisierung</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Kunden erwarten individuelle Empfehlungen, aber manuelle Segmentierung ist unmöglich bei tausenden Kunden.</p>
+        </div>
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(255,107,53,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #FF6B35; border-radius: 16px; box-shadow: 0 0 30px rgba(255,107,53,0.15), 0 0 60px rgba(255,107,53,0.03) inset; position: relative;">
+          <div style="font-size: 2.5rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 12px rgba(255,107,53,0.4));">💸</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.5rem;">Preisoptimierung komplex</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Dynamische Preisanpassung nach Nachfrage, Wettbewerb und Lagerbestand ist manuell nicht machbar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lösungen Section -->
+    <section class="container" style="margin: 4rem 0;">
+      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF;">KI-Lösungen für Ihren Handel</h2>
+      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem;">Automatisierung und Intelligenz für maximalen Umsatz:</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #00FF88; border-radius: 16px; box-shadow: 0 0 30px rgba(0,255,136,0.15), 0 0 60px rgba(0,255,136,0.03) inset; position: relative;">
+          <div style="font-size: 2rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));">📦</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.4rem;">Smart Inventory Management</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">KI prognostiziert Nachfrage und optimiert Lagerbestände automatisch. Reduziert Kapitalkosten um bis zu 35%.</p>
+        </div>
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #00FF88; border-radius: 16px; box-shadow: 0 0 30px rgba(0,255,136,0.15), 0 0 60px rgba(0,255,136,0.03) inset; position: relative;">
+          <div style="font-size: 2rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));">🎯</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.4rem;">Personalisierungs-Engine</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">KI analysiert Kundenverhalten und erstellt individuelle Produktempfehlungen in Echtzeit. Steigert Conversion um durchschnittlich 18%.</p>
+        </div>
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #00FF88; border-radius: 16px; box-shadow: 0 0 30px rgba(0,255,136,0.15), 0 0 60px rgba(0,255,136,0.03) inset; position: relative;">
+          <div style="font-size: 2rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));">💰</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.4rem;">Dynamic Pricing AI</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Automatische Preisanpassung basierend auf Nachfrage, Wettbewerb und Lagerbestand. Maximiert Marge und Absatz gleichzeitig.</p>
+        </div>
+        <div style="padding: 3rem 2.5rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.7) 100%); border: 2px solid #00FF88; border-radius: 16px; box-shadow: 0 0 30px rgba(0,255,136,0.15), 0 0 60px rgba(0,255,136,0.03) inset; position: relative;">
+          <div style="font-size: 2rem; margin-bottom: 1.5rem; display: block; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));">🔄</div>
+          <h3 style="margin-bottom: 1rem; color: #FFFFFF; font-size: 1.4rem;">Churn Prevention System</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">KI identifiziert abwanderungsgefährdete Kunden und triggert automatische Retention-Massnahmen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="container" style="margin: 4rem 0;">
+      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF;">Erfolgsbeispiel: Schweizer E-Commerce Händler</h2>
+      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem;">Messbare Resultate nach 4 Monaten:</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div style="text-align: center; padding: 2rem; border-left: 4px solid #00FF88; background: rgba(0,255,136,0.05); border-radius: 8px;">
+          <div style="font-size: 3.5rem; font-weight: 700; color: #00FF88; margin-bottom: 0.5rem;">CHF 50K</div>
+          <div style="color: #CCCCCC; font-size: 1.1rem;">Zusätzlicher Monatsumsatz</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; border-left: 4px solid #00FFFF; background: rgba(0,255,255,0.05); border-radius: 8px;">
+          <div style="font-size: 3.5rem; font-weight: 700; color: #00FFFF; margin-bottom: 0.5rem;">85%</div>
+          <div style="color: #CCCCCC; font-size: 1.1rem;">Verbesserung Lagergenauigkeit</div>
+        </div>
+        <div style="text-align: center; padding: 2rem; border-left: 4px solid #FF6B35; background: rgba(255,107,53,0.05); border-radius: 8px;">
+          <div style="font-size: 3.5rem; font-weight: 700; color: #FF6B35; margin-bottom: 0.5rem;">+40%</div>
+          <div style="color: #CCCCCC; font-size: 1.1rem;">Steigerung Average Order Value</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="container" style="margin: 4rem 0 6rem 0;">
+      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF;">Ihr Weg zur KI-Integration</h2>
+      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem;">Schnelle Implementierung in 3 Schritten:</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem;">
+        <div style="padding: 2rem; background: linear-gradient(135deg, rgba(0,255,255,0.08) 0%, rgba(0,255,255,0.02) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px;">
+          <div style="display: inline-block; width: 40px; height: 40px; background: #00FFFF; color: #0F0F12; border-radius: 50%; text-align: center; line-height: 40px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">1</div>
+          <h3 style="color: #FFFFFF; margin-bottom: 0.75rem; font-size: 1.3rem;">System-Integration</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Anbindung Ihrer E-Commerce Plattform und ERP-Systeme. Dauer: 2-3 Wochen.</p>
+        </div>
+        <div style="padding: 2rem; background: linear-gradient(135deg, rgba(0,255,255,0.08) 0%, rgba(0,255,255,0.02) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px;">
+          <div style="display: inline-block; width: 40px; height: 40px; background: #00FFFF; color: #0F0F12; border-radius: 50%; text-align: center; line-height: 40px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">2</div>
+          <h3 style="color: #FFFFFF; margin-bottom: 0.75rem; font-size: 1.3rem;">KI-Training & Testing</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Modelltraining mit Ihren historischen Daten. A/B-Tests mit ausgewählten Kundensegmenten.</p>
+        </div>
+        <div style="padding: 2rem; background: linear-gradient(135deg, rgba(0,255,136,0.08) 0%, rgba(0,255,136,0.02) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px;">
+          <div style="display: inline-block; width: 40px; height: 40px; background: #00FF88; color: #0F0F12; border-radius: 50%; text-align: center; line-height: 40px; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">3</div>
+          <h3 style="color: #FFFFFF; margin-bottom: 0.75rem; font-size: 1.3rem;">Rollout & Optimierung</h3>
+          <p style="color: #CCCCCC; line-height: 1.6;">Schrittweise Live-Schaltung. Kontinuierliche Performance-Überwachung und Feintuning.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="../impressum.html">Impressum</a>
+        <a href="../datenschutz.html">Datenschutz</a>
+        <a href="../agb.html">AGB</a>
+      </div>
+      <div class="footer-contact"><span>Email: info@ki-netic.ch</span><span>Telefon: +41 31 333 00 01</span></div>
+      <div class="footer-note">2025: Kein KI-Einsatz = Verzicht auf Profit</div>
+    </div>
+  </footer>
+
+  <div id="assessment-modal" class="modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close" id="assessment-close">✕</button>
+      <div class="modal-content">
+        <h2>KI-Potenzialprüfung</h2>
+        <form id="assessment-form" novalidate>
+          <div class="step" data-step="1">
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <div class="step-actions">
+              <button type="submit" class="btn btn-primary">Senden</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/script.js"></script>
+  <script src="../../js/cookie-consent.js"></script>
+</body>
+</html>

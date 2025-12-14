@@ -1,536 +1,1172 @@
-﻿<!doctype html>
-<html lang="de">
+<!doctype html>
+<html lang="de-CH">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KI.NETIC — 2025: Kein KI-Einsatz = Verzicht auf Profit</title>
-  <meta name="description" content="Wir transformieren Schweizer KMUs mit praktischen, DSG-konformen KI-Lösungen. Kosten senken. Daten monetarisieren. Zukunft sichern." />
-  <meta property="og:title" content="KI.NETIC — Transformation für Schweizer KMUs" />
-  <meta property="og:description" content="Wir transformieren Schweizer KMUs mit praktischen, DSG-konformen KI-Lösungen. Kostenlos testen mit unserem 3-Minuten KI-Potenzial-Audit." />
+  <title>KI-Beratung Schweiz: CHF 45'000-180'000 sparen | KMU Automatisierung</title>
+  <meta name="description" content="Gratis KI-Potenzial-Audit für Schweizer KMU. Sparen Sie CHF 45'000-180'000/Jahr mit DSG-konformer KI-Automatisierung. Swiss Made, ISO 27001, 6-12 Monate ROI." />
+  <meta name="keywords" content="KI Beratung Schweiz, KI KMU Schweiz, KI Automatisierung, DSG konform, Swiss KI, Prozessautomatisierung, CHF sparen, ROI" />
+  <link rel="canonical" href="https://aminlourini-coder.github.io/ki-beratung-landingpage/" />
+  <meta property="og:title" content="KI-Automatisierung für CH-KMU | CHF 180K sparen" />
+  <meta property="og:description" content="Gratis Audit für Schweizer KMU. DSG-konform, Swiss Made, messbare Resultate." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ki-netic.ch/" />
-  <meta property="og:image" content="https://ki-schweiz.ch/assets/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KI.NETIC" />
-  <meta name="twitter:description" content="KI-Lösungen für Schweizer KMUs — 2025: Kein KI-Einsatz = Verzicht auf Profit" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-0000000000');
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0a0a0f;
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Background */
+    .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%); overflow: hidden; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(60px); mix-blend-mode: screen; }
+    .blob-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,255,255,0.25), transparent 70%); top: -10%; right: -5%; animation: float 25s ease-in-out infinite; }
+    .blob-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(0,255,136,0.15), transparent 70%); top: 30%; left: -10%; animation: float 30s ease-in-out infinite reverse; }
+    @keyframes float { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,-30px); } }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+    @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes glow { 0%,100% { filter: drop-shadow(0 0 12px rgba(0,255,255,0.4)); } 50% { filter: drop-shadow(0 0 30px rgba(0,255,255,0.8)); } }
+
+    /* Header */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,15,20,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,255,255,0.2); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .logo { font-size: 1.8rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.02em; transition: all 0.3s; }
+    .logo:hover { transform: scale(1.05); }
+    .logo-dot { color: #00FFFF; font-weight: 900; animation: glow 2.5s ease-in-out infinite; }
+    .cta-header { background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(0,255,136,0.1)); color: #00FFFF; border: 2px solid rgba(0,255,255,0.5); padding: 0.85rem 1.8rem; border-radius: 50px; font-weight: 700; text-decoration: none; transition: all 0.3s; font-size: 0.9rem; }
+    .cta-header:hover { background: linear-gradient(135deg, rgba(0,255,255,0.4), rgba(0,255,136,0.2)); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,255,255,0.3); }
+
+    /* Hero */
+    .hero { padding: 160px 0 100px; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 4rem; align-items: center; }
+    .hero-text { animation: slideUp 0.8s ease-out; }
+    .badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.5rem; background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,255,255,0.1)); color: #00FF88; border: 2px solid rgba(0,255,136,0.5); border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: 0.5px; }
+    h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+    h1 span { background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 25px rgba(0,255,136,0.5)); }
+    .subtitle { font-size: 1.25rem; color: #C0C0C0; margin-bottom: 2.5rem; line-height: 1.75; max-width: 580px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.4rem 3rem; background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0a0a0f; font-weight: 900; font-size: 1.05rem; border: none; border-radius: 16px; cursor: pointer; text-decoration: none; transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 20px 50px rgba(0,255,255,0.4); }
+    .btn-primary:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 30px 70px rgba(0,255,255,0.6); }
+    .trust { display: flex; gap: 1.2rem; margin-top: 1.8rem; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.2rem; background: rgba(0,255,255,0.08); border: 1px solid rgba(0,255,255,0.3); border-radius: 10px; color: #00FFFF; font-size: 0.85rem; font-weight: 600; }
+
+    /* Stats Card */
+    .stats { background: linear-gradient(135deg, rgba(0,255,255,0.15), rgba(0,255,136,0.08)); border: 2px solid rgba(0,255,255,0.4); border-radius: 24px; padding: 2.5rem; box-shadow: 0 30px 80px rgba(0,255,255,0.3); backdrop-filter: blur(20px); transition: all 0.5s; animation: slideUp 1s ease-out 0.3s backwards; }
+    .stats:hover { transform: translateY(-8px) rotateX(-3deg); box-shadow: 0 40px 100px rgba(0,255,255,0.4); }
+    .stat { text-align: center; margin-bottom: 2rem; }
+    .stat:last-child { margin-bottom: 0; }
+    .stat-value { font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.4rem; filter: drop-shadow(0 0 15px rgba(0,255,136,0.4)); }
+    .stat-label { font-size: 0.9rem; color: #A0A0A0; font-weight: 600; }
+
+    /* Section */
+    .section { padding: 6rem 0; position: relative; z-index: 2; }
+    .section-title { font-size: 3.2rem; font-weight: 900; text-align: center; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .section-title span { background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-subtitle { text-align: center; color: #A0A0A0; font-size: 1.1rem; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    /* Benefits */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .card { background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(0,255,136,0.05)); border: 2px solid rgba(0,255,255,0.25); border-radius: 20px; padding: 2.5rem; text-align: center; transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1); animation: slideUp 0.8s ease-out; animation-fill-mode: both; cursor: pointer; }
+    .card:nth-child(1) { animation-delay: 0.15s; }
+    .card:nth-child(2) { animation-delay: 0.3s; }
+    .card:nth-child(3) { animation-delay: 0.45s; }
+    .card:nth-child(4) { animation-delay: 0.6s; }
+    .card:hover { transform: translateY(-12px) scale(1.02); border-color: rgba(0,255,255,0.6); box-shadow: 0 35px 80px rgba(0,255,255,0.3); background: linear-gradient(135deg, rgba(0,255,255,0.18), rgba(0,255,136,0.1)); }
+    .icon { font-size: 3.5rem; margin-bottom: 1.5rem; filter: drop-shadow(0 0 20px rgba(0,255,136,0.5)); transition: all 0.4s; display: inline-block; }
+    .card:hover .icon { transform: scale(1.15) rotateY(180deg); }
+    .card-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
+    .card-text { color: #B0B0B0; line-height: 1.75; }
+
+    /* CTA Box */
+    .cta-box { background: linear-gradient(135deg, rgba(0,255,136,0.2), rgba(0,255,255,0.2)); border: 3px solid rgba(0,255,136,0.5); border-radius: 28px; padding: 5rem 3.5rem; text-align: center; margin: 6rem 0; box-shadow: 0 30px 90px rgba(0,255,136,0.25); position: relative; overflow: hidden; }
+    .cta-icon { font-size: 5rem; margin-bottom: 1.5rem; filter: drop-shadow(0 0 40px rgba(0,255,136,0.6)); animation: float 3s ease-in-out infinite; }
+    .cta-box h2 { font-size: 3rem; font-weight: 900; margin-bottom: 1.2rem; }
+    .cta-box p { color: #B0B0B0; font-size: 1.15rem; margin-bottom: 2.5rem; max-width: 650px; margin-left: auto; margin-right: auto; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem; }
+    .step { text-align: center; animation: slideUp 0.8s ease-out; animation-fill-mode: both; }
+    .step:nth-child(1) { animation-delay: 0.15s; }
+    .step:nth-child(2) { animation-delay: 0.3s; }
+    .step:nth-child(3) { animation-delay: 0.45s; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 90px; height: 90px; background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0a0a0f; font-size: 2.5rem; font-weight: 900; border-radius: 50%; margin-bottom: 2rem; box-shadow: 0 25px 60px rgba(0,255,255,0.4); transition: all 0.5s; }
+    .step:hover .step-num { transform: scale(1.1) rotateY(360deg); box-shadow: 0 35px 90px rgba(0,255,255,0.6); }
+    .step-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+    .step-text { color: #B0B0B0; line-height: 1.75; }
+
+    /* Testimonials */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+    .testimonial { background: linear-gradient(135deg, rgba(0,255,255,0.12), rgba(0,255,136,0.06)); border: 2px solid rgba(0,255,255,0.3); border-radius: 20px; padding: 3rem; transition: all 0.5s; animation: slideUp 0.8s ease-out; animation-fill-mode: both; }
+    .testimonial:nth-child(1) { animation-delay: 0.15s; }
+    .testimonial:nth-child(2) { animation-delay: 0.3s; }
+    .testimonial:nth-child(3) { animation-delay: 0.45s; }
+    .testimonial:hover { transform: translateY(-10px) rotateX(-4deg); box-shadow: 0 30px 70px rgba(0,255,255,0.3); }
+    .t-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.75rem; }
+    .avatar { width: 65px; height: 65px; background: linear-gradient(135deg, #00FFFF, #00FF88); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 900; color: #0a0a0f; box-shadow: 0 12px 30px rgba(0,255,255,0.4); transition: all 0.4s; }
+    .testimonial:hover .avatar { transform: scale(1.08) rotateZ(360deg); }
+    .t-author { font-weight: 800; font-size: 1.05rem; margin-bottom: 0.2rem; }
+    .t-company { color: #00FFFF; font-size: 0.85rem; font-weight: 700; }
+    .t-text { color: #B0B0B0; line-height: 1.85; margin-bottom: 1.5rem; }
+    .t-rating { color: #00FF88; font-weight: 800; font-size: 0.9rem; }
+
+    /* Form */
+    .form-wrapper { max-width: 650px; margin: 0 auto; background: linear-gradient(135deg, rgba(0,255,255,0.15), rgba(15,15,20,0.98)); border: 3px solid rgba(0,255,255,0.4); border-radius: 28px; padding: 3.5rem; box-shadow: 0 40px 110px rgba(0,255,255,0.3); backdrop-filter: blur(20px); }
+    .form-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 1.2rem; text-align: center; }
+    .form-group { margin-bottom: 1.75rem; }
+    .form-label { display: block; color: #00FFFF; font-weight: 700; margin-bottom: 0.7rem; font-size: 0.9rem; letter-spacing: 0.3px; }
+    .form-input, .form-textarea { width: 100%; padding: 1.1rem 1.4rem; background: rgba(0,255,255,0.08); border: 2px solid rgba(0,255,255,0.3); border-radius: 12px; color: #fff; font-size: 0.95rem; font-family: inherit; transition: all 0.3s; }
+    .form-input::placeholder, .form-textarea::placeholder { color: #707070; }
+    .form-input:focus, .form-textarea:focus { outline: none; border-color: rgba(0,255,255,0.7); background: rgba(0,255,255,0.12); box-shadow: 0 0 30px rgba(0,255,255,0.25); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-btn { width: 100%; padding: 1.3rem; font-size: 1.05rem; margin-top: 0.8rem; margin-bottom: 1.2rem; }
+    .form-note { text-align: center; color: #808080; font-size: 0.85rem; font-weight: 600; }
+
+    /* Footer */
+    .footer { background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9)); border-top: 2px solid rgba(0,255,255,0.2); padding: 3.5rem 0 2rem; margin-top: 6rem; }
+    .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-links { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .footer-links a { color: #808080; text-decoration: none; transition: color 0.3s; font-weight: 600; }
+    .footer-links a:hover { color: #00FFFF; }
+    .footer-bottom { text-align: center; color: #505050; font-size: 0.9rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); font-weight: 600; }
+
+    /* Modal Assessment */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; overflow-y: auto; }
+    .modal-content { background: linear-gradient(135deg, rgba(15,15,25,0.98), rgba(10,10,15,0.98)); border: 3px solid rgba(0,255,255,0.4); border-radius: 28px; padding: 3.5rem; max-width: 700px; width: 100%; box-shadow: 0 50px 150px rgba(0,255,255,0.4); position: relative; animation: slideUp 0.5s ease-out; }
+    .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 1.8rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: rgba(255,0,0,0.3); transform: rotate(90deg); }
+    .modal-title { font-size: 2rem; font-weight: 900; margin-bottom: 0.8rem; text-align: center; }
+    .modal-subtitle { text-align: center; color: #A0A0A0; font-size: 0.95rem; margin-bottom: 2.5rem; }
+    .progress-bar { width: 100%; height: 6px; background: rgba(0,255,255,0.2); border-radius: 10px; margin-bottom: 3rem; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #00FF88, #00FFFF); transition: width 0.4s; border-radius: 10px; }
+    .step-container { display: none; }
+    .step-container.active { display: block; animation: slideUp 0.5s ease-out; }
+    .step-label { font-size: 1.1rem; font-weight: 700; color: #00FFFF; margin-bottom: 1.5rem; display: block; }
+    .radio-group { display: grid; gap: 1rem; }
+    .radio-option { background: rgba(0,255,255,0.08); border: 2px solid rgba(0,255,255,0.25); padding: 1.2rem 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 1rem; }
+    .radio-option:hover { background: rgba(0,255,255,0.15); border-color: rgba(0,255,255,0.5); }
+    .radio-option input[type="radio"] { width: 20px; height: 20px; accent-color: #00FFFF; }
+    .checkbox-group { display: grid; gap: 0.8rem; }
+    .checkbox-option { background: rgba(0,255,255,0.08); border: 2px solid rgba(0,255,255,0.25); padding: 1rem 1.3rem; border-radius: 10px; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.8rem; }
+    .checkbox-option:hover { background: rgba(0,255,255,0.15); }
+    .checkbox-option input[type="checkbox"]:checked { accent-color: #00FF88; }
+    .modal-actions { display: flex; gap: 1rem; margin-top: 2.5rem; }
+    .btn-modal { flex: 1; padding: 1.1rem; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; }
+    .btn-back { background: rgba(255,255,255,0.1); color: #fff; }
+    .btn-back:hover { background: rgba(255,255,255,0.2); }
+    .btn-next { background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0a0a0f; }
+    .btn-next:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,255,255,0.4); }
+    .result-box { text-align: center; }
+    .result-score { font-size: 5rem; font-weight: 900; background: linear-gradient(135deg, #00FF88, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(0,255,136,0.6)); }
+    .result-text { color: #B0B0B0; margin-bottom: 2rem; line-height: 1.75; }
+    .result-savings { font-size: 2.5rem; font-weight: 900; color: #00FF88; margin: 1.5rem 0; filter: drop-shadow(0 0 20px rgba(0,255,136,0.5)); }
+    .result-roi { color: #A0A0A0; font-size: 0.9rem; margin-bottom: 2rem; }
+    .result-recommendations { text-align: left; background: rgba(0,255,255,0.08); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; }
+    .result-recommendations h4 { color: #00FFFF; margin-bottom: 1rem; font-size: 1.1rem; }
+    .result-recommendations ul { list-style: none; padding: 0; }
+    .result-recommendations li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: #C0C0C0; }
+    .result-recommendations li::before { content: '✓'; position: absolute; left: 0; color: #00FF88; font-weight: 900; }
+
+    /* Dashboard */
+    .dashboard { display: grid; gap: 1.5rem; text-align: left; }
+    .dashboard-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .dashboard-title { font-size: 1.8rem; font-weight: 900; }
+    .level-badge { padding: 0.6rem 1rem; border-radius: 999px; font-weight: 800; border: 2px solid rgba(0,255,255,0.4); background: rgba(0,255,255,0.08); }
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+    .metric-card { background: rgba(0,255,255,0.08); border: 1px solid rgba(0,255,255,0.3); border-radius: 14px; padding: 1.1rem; }
+    .metric-label { color: #9cc; font-size: 0.9rem; font-weight: 700; }
+    .metric-value { font-size: 1.6rem; font-weight: 900; margin-top: 0.35rem; }
+    .metric-sub { color: #9cc; font-size: 0.85rem; margin-top: 0.35rem; }
+    .panel { background: rgba(0,0,0,0.4); border: 1px solid rgba(0,255,255,0.2); border-radius: 16px; padding: 1.2rem; box-shadow: 0 15px 40px rgba(0,255,255,0.15); }
+    .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; font-weight: 800; font-size: 1.1rem; }
+    .breakdown-row { margin-bottom: 0.9rem; }
+    .breakdown-top { display: flex; justify-content: space-between; font-weight: 700; color: #C0C0C0; }
+    .breakdown-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; margin-top: 0.45rem; }
+    .breakdown-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #00FFFF, #00FF88); }
+    .solutions { display: grid; gap: 0.8rem; }
+    .solution-card { border: 1px solid rgba(0,255,255,0.2); border-radius: 14px; padding: 1rem; background: rgba(0,255,255,0.05); }
+    .solution-title { font-weight: 800; margin-bottom: 0.3rem; }
+    .solution-outcome { color: #C0C0C0; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.4rem; }
+    .tag { background: rgba(0,255,255,0.12); border: 1px solid rgba(0,255,255,0.3); color: #00FFFF; padding: 0.25rem 0.6rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+    .roadmap { display: grid; gap: 0.8rem; }
+    .roadmap-step { border-left: 3px solid rgba(0,255,255,0.5); padding-left: 0.9rem; }
+    .roadmap-title { font-weight: 800; margin-bottom: 0.2rem; }
+    .roadmap-meta { color: #9cc; font-size: 0.85rem; margin-bottom: 0.4rem; }
+    .roadmap-step ul { padding-left: 1.1rem; color: #C0C0C0; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: space-between; align-items: center; margin-top: 0.6rem; }
+    .cta-row small { color: #9cc; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      h1 { font-size: 2.8rem; }
+      .subtitle { font-size: 1.1rem; }
+      .section-title { font-size: 2.4rem; }
+      .grid, .testimonials { grid-template-columns: 1fr; }
+      .cta-box { padding: 3.5rem 2rem; }
+      .form-wrapper { padding: 2.5rem 1.5rem; }
+      .modal-content { padding: 2.5rem 1.5rem; }
+      .btn-primary { padding: 1.2rem 2.2rem; font-size: 0.95rem; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
-      <nav class="main-nav" aria-label="Hauptnavigation" id="main-nav">
-        <a href="index.html">Home</a>
-        <a href="pages/dienstleistungen.html">Dienstleistungen</a>
-        <a href="pages/branchen.html">Branchen</a>
-        <a href="pages/projekte.html">Projekte</a>
-        <a href="pages/ueber-uns.html">Über Uns</a>
-        <a href="pages/blog.html">Blog</a>
-        <a href="pages/kontakt.html">Kontakt</a>
-      </nav>
-      <button id="cta-primary" class="btn btn-glow">Kostenlosen Ersttermin sichern</button>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
-        <span class="hamburger"></span>
-      </button>
+  <div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <button class="cta-header" onclick="openAssessment()">Gratis Audit →</button>
     </div>
   </header>
 
-  <main id="home">
-    <!-- Neural Network Background -->
-    <canvas id="neural-canvas" aria-hidden="true"></canvas>
-
-    <section class="hero hero--overlay">
-      <picture>
-        <source srcset="assets/images/Strategische Planung & Vision (Neural Network).webp" type="image/webp">
-        <img class="hero-bg" src="assets/images/Strategische Planung & Vision (Neural Network).png" alt="Hero Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
-      </picture>
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Ihre Prozesse sind 2025 noch nicht KI-gesteuert? Höchste Zeit.</h1>
-          <p class="sub">Wir transformieren Schweizer KMUs branchenunabhängig – und entwickeln massgeschneiderte KI- und Softwarelösungen, die exakt zu Ihrem Betrieb passen.</p>
-          <div class="cta-cluster">
-            <button id="open-assessment" class="btn btn-primary">Sofortiger KI-Potenzial-Audit (3 Min.)</button>
-            <a href="pages/projekte.html" class="btn btn-secondary">Erfolgsgeschichten ansehen</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="code-bg" aria-hidden="true">
-            <pre>// Neural Network aktiv
-// KI-Analysen: lädt...
-> Pipeline: [████████░░] 84%</pre>
-          </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="badge">⚡ Swiss KI für KMU</div>
+        <h1>CHF <span>45'000–180'000</span> pro Jahr einsparen</h1>
+        <p class="subtitle">Gratis KI-Potenzial-Audit für Schweizer KMU. DSG-konform, Swiss Made, messbare Resultate in 6–12 Monaten.</p>
+        <button class="btn-primary" onclick="openAssessment()">
+          <span>🎯 Jetzt Potenzial berechnen</span>
+          <span>→</span>
+        </button>
+        <div class="trust">
+          <div class="trust-item">✓ 120+ CH-KMU</div>
+          <div class="trust-item">✓ DSG & ISO 27001</div>
+          <div class="trust-item">✓ 6-12 Monate ROI</div>
         </div>
       </div>
-    </section>
-
-    <section class="trust-bar">
-      <div class="container trust-inner">
-        <div class="trust-logos">
-          <span class="logo-pill">✓ DSG-konform</span>
-          <span class="logo-pill">✓ ISO 27001 zertifiziert</span>
-          <span class="logo-pill">✓ Swiss Made</span>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">CHF 180K</div>
+          <div class="stat-label">Ø Einsparung/Jahr</div>
         </div>
-        <div class="trust-claim">Schweizer Sicherheit. Enterprise-Ready.</div>
-      </div>
-    </section>
-
-    <section class="values container">
-      <div class="cards">
-        <article class="card">
-          <h3>Ineffizienz stoppen</h3>
-          <p>Kosten reduzieren durch Automatisierung.</p>
-        </article>
-        <article class="card">
-          <h3>Daten monetarisieren</h3>
-          <p>Wachstum durch intelligente Analysen.</p>
-        </article>
-        <article class="card">
-          <h3>Zukunft sichern</h3>
-          <p>Wettbewerbsvorsprung durch KI-First-Strategie.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ROI-Kalkulator Section -->
-    <section class="container" style="margin: 6rem 0;">
-      <div style="text-align: center; padding: 4rem 3rem; background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,255,255,0.1) 100%); border: 2px solid rgba(0,255,136,0.3); border-radius: 20px; box-shadow: 0 0 60px rgba(0,255,136,0.15);">
-        <div style="font-size: 4rem; margin-bottom: 1rem; filter: drop-shadow(0 0 20px rgba(0,255,136,0.5));">$</div>
-        <h2 style="color: #FFFFFF; margin-bottom: 1rem; font-size: 2.5rem;">Wie viel können Sie einsparen?</h2>
-        <p style="color: #AAAAAA; margin-bottom: 2.5rem; font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">KMU in der Schweiz sparen durchschnittlich <strong style="color: #00FF88;">CHF 45.000 pro Jahr</strong> durch KI-Automatisierung.</p>
-        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-          <button id="open-assessment" class="btn btn-primary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem;">◆ 3-Minuten Potenzial-Check</button>
-          <a href="pages/projekte.html" class="btn btn-secondary" style="padding: 1.2rem 2.5rem; font-size: 1.1rem;">📊 Erfolgsgeschichten ansehen</a>
+        <div class="stat">
+          <div class="stat-value">87%</div>
+          <div class="stat-label">Zeitersparnis</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Swiss Safe</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Branchen Section -->
-    <section id="branchen" class="industries container" style="margin: 6rem 0;">
-      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF; font-size: 2.5rem;">Branchen-Expertise</h2>
-      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem; font-size: 1.1rem;">Von Buchhaltung bis Energie – KI-Lösungen für jede Branche</p>
-      <div class="grid grid-3" style="gap: 1.5rem;">
-        <a class="tile" href="pages/branchen/buchhaltung.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(0,255,136,0.4));">📊</span>
-          <strong style="color: #00FF88; font-size: 1.1rem;">Buchhaltung & Treuhand</strong>
-        </a>
-        <a class="tile" href="pages/branchen/immobilien.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,255,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));">🏗️</span>
-          <strong style="color: #00FFFF; font-size: 1.1rem;">Immobilien & Bau</strong>
-        </a>
-        <a class="tile" href="pages/branchen/handwerk.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(139,92,246,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(139,92,246,0.4));">🔌</span>
-          <strong style="color: #8B5CF6; font-size: 1.1rem;">Handwerk & Elektrik</strong>
-        </a>
-        <a class="tile" href="pages/branchen/versicherung.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(0,255,136,0.4));">🛡️</span>
-          <strong style="color: #00FF88; font-size: 1.1rem;">Versicherung</strong>
-        </a>
-        <a class="tile" href="pages/branchen/finanzen.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,255,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));">🏦</span>
-          <strong style="color: #00FFFF; font-size: 1.1rem;">Finanzen & Banking</strong>
-        </a>
-        <a class="tile" href="pages/branchen/industrie.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(255,215,0,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(255,215,0,0.4));">🏭</span>
-          <strong style="color: #FFD700; font-size: 1.1rem;">Industrie & Fertigung</strong>
-        </a>
-        <a class="tile" href="pages/branchen/handel.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(0,255,136,0.4));">🛒</span>
-          <strong style="color: #00FF88; font-size: 1.1rem;">Handel & E-Commerce</strong>
-        </a>
-        <a class="tile" href="pages/branchen/gesundheit.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,255,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(0,255,255,0.4));">🩺</span>
-          <strong style="color: #00FFFF; font-size: 1.1rem;">Gesundheitswesen</strong>
-        </a>
-        <a class="tile" href="pages/branchen/energie.html" style="padding: 2rem; background: radial-gradient(circle at top, rgba(139,92,246,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; text-decoration: none; transition: all 0.3s ease; display: flex; align-items: center; gap: 1rem;">
-          <span style="font-size: 2.5rem; filter: drop-shadow(0 0 8px rgba(139,92,246,0.4));">⚡</span>
-          <strong style="color: #8B5CF6; font-size: 1.1rem;">Energie & Utilities</strong>
-        </a>
-      </div>
-    </section>
-
-    <!-- Schnelle Erfolge Section -->
-    <section class="container" style="margin: 6rem 0;">
-      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF; font-size: 2.5rem;">Schnelle Erfolge garantiert</h2>
-      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem; font-size: 1.1rem;">Diese KI-Lösungen zeigen bereits nach 2-4 Wochen messbare Resultate</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        <div style="padding: 2.5rem 2rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 16px; text-align: center; position: relative; overflow: hidden;">
-          <picture>
-            <source srcset="assets/images/Natural Language Processing (Dokumentenanalyse).webp" type="image/webp">
-            <img class="card-bg" src="assets/images/Natural Language Processing (Dokumentenanalyse).png" alt="Document Processing Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
-          </picture>
-          <div style="position: relative; z-index: 1;">
-          <div style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,255,136,0.4));">📄</div>
-          <h3 style="color: #00FF88; margin-bottom: 0.75rem; font-size: 1.3rem;">Belegverarbeitung</h3>
-          <p style="color: #CCCCCC; line-height: 1.6; font-size: 0.95rem;">Automatische Extraktion & Kategorisierung. <strong style="color: #00FF88;">87% Zeitersparnis</strong></p>
-          </div>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Warum <span>KI-Automatisierung</span>?</h2>
+      <p class="section-subtitle">Messbare Erfolge für Schweizer KMU</p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3 class="card-title">87% Zeitersparnis</h3>
+          <p class="card-text">Automatisierte Belegverarbeitung, Reporting, Kundenanfragen. Fokus auf Wertschöpfung.</p>
         </div>
-        <div style="padding: 2.5rem 2rem; background: radial-gradient(circle at top, rgba(0,255,255,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 16px; text-align: center; position: relative; overflow: hidden;">
-          <picture>
-            <source srcset="assets/images/Kundenservice (Chatbots).webp" type="image/webp">
-            <img class="card-bg" src="assets/images/Kundenservice (Chatbots).png" alt="Customer Service AI Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
-          </picture>
-          <div style="position: relative; z-index: 1;">
-          <div style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(0,255,255,0.4));">💬</div>
-          <h3 style="color: #00FFFF; margin-bottom: 0.75rem; font-size: 1.3rem;">Kundenanfragen</h3>
-          <p style="color: #CCCCCC; line-height: 1.6; font-size: 0.95rem;">24/7 KI-Chatbot. <strong style="color: #00FFFF;">70% weniger Support-Aufwand</strong></p>
-          </div>
+        <div class="card">
+          <div class="icon">💰</div>
+          <h3 class="card-title">CHF 45K–180K/Jahr</h3>
+          <p class="card-text">Durchschnittliche Einsparung. ROI in 6–12 Monaten. Transparent berechnet.</p>
         </div>
-        <div style="padding: 2.5rem 2rem; background: radial-gradient(circle at top, rgba(139,92,246,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(139,92,246,0.2); border-radius: 16px; text-align: center; position: relative; overflow: hidden;">
-          <picture>
-            <source srcset="assets/images/Vertrieb (Datenanalyse).webp" type="image/webp">
-            <img class="card-bg" src="assets/images/Vertrieb (Datenanalyse).png" alt="Data Analysis Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
-          </picture>
-          <div style="position: relative; z-index: 1;">
-          <div style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(139,92,246,0.4));">📊</div>
-          <h3 style="color: #8B5CF6; margin-bottom: 0.75rem; font-size: 1.3rem;">Reporting</h3>
-          <p style="color: #CCCCCC; line-height: 1.6; font-size: 0.95rem;">Auto-Reports aus Rohdaten. <strong style="color: #8B5CF6;">5x schneller</strong> als Excel</p>
-          </div>
+        <div class="card">
+          <div class="icon">🔒</div>
+          <h3 class="card-title">100% Swiss Safe</h3>
+          <p class="card-text">DSG-konform, ISO 27001, CH-Server. Ihre Daten bleiben in der Schweiz.</p>
         </div>
-        <div style="padding: 2.5rem 2rem; background: radial-gradient(circle at top, rgba(255,215,0,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 16px; text-align: center; position: relative; overflow: hidden;">
-          <picture>
-            <source srcset="assets/images/KI in der Industrie  Industrie 4.0.webp" type="image/webp">
-            <img class="card-bg" src="assets/images/KI in der Industrie  Industrie 4.0.png" alt="Industry 4.0 Hintergrund" loading="lazy" decoding="async" aria-hidden="true" fetchpriority="low">
-          </picture>
-          <div style="position: relative; z-index: 1;">
-          <div style="font-size: 3rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(255,215,0,0.4));">🔍</div>
-          <h3 style="color: #FFD700; margin-bottom: 0.75rem; font-size: 1.3rem;">Datenanalyse</h3>
-          <p style="color: #CCCCCC; line-height: 1.6; font-size: 0.95rem;">Predictive Insights. <strong style="color: #FFD700;">Umsatz +15-25%</strong> möglich</p>
-          </div>
+        <div class="card">
+          <div class="icon">🎯</div>
+          <h3 class="card-title">Massgeschneidert</h3>
+          <p class="card-text">Keine Standard-Software. Exakt auf Ihre Branche & Prozesse abgestimmt.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ Section -->
-    <section class="container" style="margin: 6rem 0;">
-      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF; font-size: 2.5rem;">Häufig gestellte Fragen</h2>
-      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem; font-size: 1.1rem;">Antworten auf die wichtigsten Fragen zu unseren KI-Lösungen</p>
-      <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
-        
-        <details style="background: radial-gradient(circle at top, rgba(0,255,255,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #00FFFF; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">💡</span>
-            Wie schnell sehen wir Ergebnisse?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Die meisten unserer Quick-Win-Lösungen (Belegverarbeitung, Chatbots) zeigen bereits nach 2-4 Wochen messbare Resultate. Komplexere Projekte wie Predictive Analytics benötigen 2-3 Monate.</p>
-        </details>
+  <section class="container">
+    <div class="cta-box">
+      <div class="cta-icon">💎</div>
+      <h2>Wie viel kann Ihr KMU einsparen?</h2>
+      <p>Schweizer KMU sparen durchschnittlich <strong>CHF 45'000 bis 180'000 pro Jahr</strong> mit KI-Automatisierung.</p>
+      <button class="btn-primary" onclick="openAssessment()">
+        <span>◆ 3-Minuten Potenzial-Check</span>
+        <span>→</span>
+      </button>
+    </div>
+  </section>
 
-        <details style="background: radial-gradient(circle at top, rgba(0,255,136,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #00FF88; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">$</span>
-            Was kostet eine KI-Implementierung?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Unsere Preise beginnen bei CHF 8'000 für einfache Automatisierungen. Der ROI liegt typischerweise bei 300-500% nach 12 Monaten. Wir bieten auch Erfolgsbasierte Modelle an.</p>
-        </details>
-
-        <details style="background: radial-gradient(circle at top, rgba(139,92,246,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #8B5CF6; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">🔒</span>
-            Ist unsere Datensicherheit gewährleistet?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Ja, absolut. Alle Lösungen sind DSG-konform und werden auf Schweizer Servern gehostet. Wir arbeiten mit ISO 27001-zertifizierten Cloud-Partnern und bieten auch On-Premise-Lösungen an.</p>
-        </details>
-
-        <details style="background: radial-gradient(circle at top, rgba(255,215,0,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #FFD700; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">👥</span>
-            Brauchen wir internes KI-Know-how?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Nein. Wir übernehmen die komplette Implementierung, Schulung und Wartung. Ihre Mitarbeiter lernen die Bedienung in 1-2 Tagen. Laufender Support ist inklusive.</p>
-        </details>
-
-        <details style="background: radial-gradient(circle at top, rgba(0,255,255,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #00FFFF; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">⚙️</span>
-            Funktioniert KI mit unserer bestehenden Software?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Ja. Unsere Lösungen integrieren sich mit den gängigsten ERP-, CRM- und Buchhaltungssystemen (SAP, Abacus, Sage, Bexio, etc.). Bei Bedarf entwickeln wir Custom-Schnittstellen.</p>
-        </details>
-
-        <details style="background: radial-gradient(circle at top, rgba(0,255,136,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #00FF88; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">📊</span>
-            Wie messen wir den Erfolg?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Wir definieren gemeinsam KPIs (z.B. Zeitersparnis, Fehlerrate, Umsatzsteigerung) und tracken diese monatlich. Sie erhalten detaillierte Reports mit ROI-Berechnung.</p>
-        </details>
-
-        <details style="background: radial-gradient(circle at top, rgba(139,92,246,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #8B5CF6; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">▲</span>
-            Was passiert nach der Implementierung?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Sie erhalten 6 Monate kostenlosen Support & Updates. Danach bieten wir flexible Wartungsverträge ab CHF 500/Monat an. Wir optimieren das System kontinuierlich.</p>
-        </details>
-
-        <details style="background: radial-gradient(circle at top, rgba(255,215,0,0.06) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; padding: 1.5rem 2rem; cursor: pointer;">
-          <summary style="color: #FFD700; font-size: 1.1rem; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 1rem;">
-            <span style="font-size: 1.5rem;">◆</span>
-            Für welche Unternehmensgrösse ist KI sinnvoll?
-          </summary>
-          <p style="color: #CCCCCC; margin-top: 1rem; line-height: 1.8; padding-left: 2.5rem;">Bereits ab 5 Mitarbeitenden lohnt sich KI. Besonders KMUs mit 10-100 Mitarbeitenden profitieren überproportional, da sie prozentual mehr Zeit gewinnen als Grosskonzerne.</p>
-        </details>
-
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">3 Schritte zum <span>KI-Erfolg</span></h2>
+      <p class="section-subtitle">Von der Analyse zur produktiven Lösung</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3 class="step-title">Gratis Audit</h3>
+          <p class="step-text">Wir analysieren Ihre Prozesse und zeigen Ihnen das volle Potenzial. 30–60 Min.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3 class="step-title">Custom Lösung</h3>
+          <p class="step-text">Entwicklung einer KI-Lösung, die perfekt passt. Transparent kalkuliert.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3 class="step-title">Launch & Support</h3>
+          <p class="step-text">Implementierung, Schulung, 6 Monate kostenloser Support. Erfolge ab Tag 1.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section class="container" style="margin: 6rem 0;">
-      <h2 style="text-align: center; margin-bottom: 1rem; color: #FFFFFF; font-size: 2.5rem;">Was unsere Kunden sagen</h2>
-      <p style="text-align: center; color: #AAAAAA; margin-bottom: 3rem; font-size: 1.1rem;">Echte Erfolgsgeschichten von Unternehmen, die ihre Prozesse mit KI transformiert haben</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        
-        <div style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,255,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,255,0.2); border-radius: 16px;">
-          <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #00FFFF 0%, #00FF88 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; color: #0F0F12;">MK</div>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Was <span>Kunden sagen</span></h2>
+      <p class="section-subtitle">Echte Erfolgsgeschichten aus der Schweiz</p>
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="t-header">
+            <div class="avatar">MK</div>
             <div>
-              <h4 style="color: #FFFFFF; margin: 0; font-size: 1rem;">Marco Käppeli</h4>
-              <p style="color: #00FFFF; margin: 0.25rem 0 0 0; font-size: 0.9rem;">CEO, Käppeli AG (Buchhaltung)</p>
+              <div class="t-author">Marco Käppeli</div>
+              <div class="t-company">CEO, Käppeli Treuhand AG</div>
             </div>
           </div>
-          <p style="color: #CCCCCC; line-height: 1.8; font-size: 0.95rem; margin: 0;">"Nach 2 Wochen Implementierung sparen wir 15 Stunden pro Woche bei der Belegverarbeitung. Das ist nicht nur Zeit, das ist Geld. Die KI-Lösung lernt ständig dazu—genial."</p>
-          <div style="margin-top: 1rem; color: #00FFFF; font-size: 0.85rem;">⭐⭐⭐⭐⭐ 5/5 Sternen</div>
+          <p class="t-text">"15 Stunden pro Woche gespart nach 2 Wochen. Die KI lernt ständig dazu – absolut genial."</p>
+          <div class="t-rating">⭐⭐⭐⭐⭐ 5/5</div>
         </div>
-
-        <div style="padding: 2rem; background: radial-gradient(circle at top, rgba(255,215,0,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(255,215,0,0.2); border-radius: 16px;">
-          <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #FFD700 0%, #FF6B35 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; color: #0F0F12;">SB</div>
+        <div class="testimonial">
+          <div class="t-header">
+            <div class="avatar">SB</div>
             <div>
-              <h4 style="color: #FFFFFF; margin: 0; font-size: 1rem;">Sandra Bühler</h4>
-              <p style="color: #FFD700; margin: 0.25rem 0 0 0; font-size: 0.9rem;">Geschäftsführerin, Bühler Immobilien</p>
+              <div class="t-author">Sandra Bühler</div>
+              <div class="t-company">GF, Bühler Immobilien</div>
             </div>
           </div>
-          <p style="color: #CCCCCC; line-height: 1.8; font-size: 0.95rem; margin: 0;">"Wir nutzen jetzt KI-Chatbots für Immobilien-Anfragen. Die Quote für qualifizierte Leads ist um 40% gestiegen. Das hätten wir ohne KI nie erreicht."</p>
-          <div style="margin-top: 1rem; color: #FFD700; font-size: 0.85rem;">⭐⭐⭐⭐⭐ 5/5 Sternen</div>
+          <p class="t-text">"Lead-Quote um 40% gesteigert. Der KI-Chatbot arbeitet 24/7 – das wäre ohne unmöglich."</p>
+          <div class="t-rating">⭐⭐⭐⭐⭐ 5/5</div>
         </div>
-
-        <div style="padding: 2rem; background: radial-gradient(circle at top, rgba(0,255,136,0.08) 0%, rgba(15,15,18,0.9) 100%); border: 1px solid rgba(0,255,136,0.2); border-radius: 16px;">
-          <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #00FF88 0%, #00FFFF 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; color: #0F0F12;">TP</div>
+        <div class="testimonial">
+          <div class="t-header">
+            <div class="avatar">TP</div>
             <div>
-              <h4 style="color: #FFFFFF; margin: 0; font-size: 1rem;">Thomas Petermann</h4>
-              <p style="color: #00FF88; margin: 0.25rem 0 0 0; font-size: 0.9rem;">Betriebsleiter, Petermann AG (Industrie)</p>
+              <div class="t-author">Thomas Petermann</div>
+              <div class="t-company">Betriebsleiter, Petermann Industrie</div>
             </div>
           </div>
-          <p style="color: #CCCCCC; line-height: 1.8; font-size: 0.95rem; margin: 0;">"Predictive Analytics haben unsere Ausfallzeiten um 23% reduziert. Das erspart uns jährlich über CHF 200'000. KI ist nicht Zukunft—es ist jetzt."</p>
-          <div style="margin-top: 1rem; color: #00FF88; font-size: 0.85rem;">⭐⭐⭐⭐⭐ 5/5 Sternen</div>
+          <p class="t-text">"Ausfallzeiten um 23% reduziert. CHF 200K+ jährlich gespart. KI ist nicht Zukunft – es ist JETZT."</p>
+          <div class="t-rating">⭐⭐⭐⭐⭐ 5/5</div>
         </div>
-
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Newsletter Section -->
-    <section class="container" style="margin: 6rem 0;">
-      <div style="background: radial-gradient(circle at center, rgba(0,255,255,0.12) 0%, rgba(15,15,18,0.95) 100%); border: 2px solid rgba(0,255,255,0.3); border-radius: 20px; padding: 4rem 3rem; text-align: center; box-shadow: 0 0 50px rgba(0,255,255,0.15);">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">📬</div>
-        <h2 style="color: #FFFFFF; margin-bottom: 1rem; font-size: 2.2rem;">Bleiben Sie am Puls der KI-Innovation</h2>
-        <p style="color: #AAAAAA; margin-bottom: 2.5rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Monatliche Insights, Best Practices und exklusive KI-Use-Cases direkt in Ihr Postfach. Keine Spam-Garantie.</p>
-        
-        <form action="https://formspree.io/f/xanyzvrl" method="POST" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
-          <input type="hidden" name="_subject" value="Newsletter-Anmeldung - KI.NETIC" />
-          <input type="hidden" name="type" value="newsletter" />
-          
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <input type="email" name="email" placeholder="ihre.email@firma.ch" required style="flex: 1; min-width: 250px; padding: 1.2rem 1.5rem; border-radius: 12px; border: 2px solid rgba(0,255,255,0.3); background: rgba(15,15,18,0.8); color: #FFFFFF; font-size: 1rem;" />
-            <button type="submit" style="padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #00FFFF, #00FF88); color: #0F0F12; border: none; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 30px rgba(0,255,255,0.4); white-space: nowrap;">Newsletter abonnieren</button>
+  <section id="kontakt" class="section">
+    <div class="container">
+      <div class="form-wrapper">
+        <h2 class="form-title">Gratis KI-Potenzial-Audit</h2>
+        <form action="https://formspree.io/f/xanyzvrl" method="POST">
+          <input type="hidden" name="_subject" value="KI-Beratung CH: Neue Lead" />
+          <div class="form-group">
+            <label class="form-label">Ihr Name *</label>
+            <input type="text" name="name" class="form-input" required placeholder="Max Mustermann" />
           </div>
-          
-          <p style="color: #808080; font-size: 0.85rem; margin-top: 0.5rem;">
-            ✓ Jederzeit abmeldbar &nbsp;•&nbsp; ✓ Maximal 1 E-Mail pro Monat &nbsp;•&nbsp; ✓ Keine Weitergabe an Dritte
-          </p>
+          <div class="form-group">
+            <label class="form-label">Unternehmen *</label>
+            <input type="text" name="company" class="form-input" required placeholder="Mustermann AG" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-Mail *</label>
+            <input type="email" name="email" class="form-input" required placeholder="max@mustermann.ch" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telefon (optional)</label>
+            <input type="tel" name="phone" class="form-input" placeholder="+41 79 123 45 67" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ihre größte Herausforderung</label>
+            <textarea name="message" class="form-textarea" placeholder="Was kostet Sie die meiste Zeit?"></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-btn">◆ Jetzt Audit anfordern</button>
+          <p class="form-note">✓ Antwort innerhalb 24h • ✓ Keine Verpflichtung • ✓ DSG-konform</p>
         </form>
+      </div>
+    </div>
+  </section>
 
-        <div style="margin-top: 2.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; color: #AAAAAA; font-size: 0.9rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: #00FFFF; font-size: 1.2rem;">✓</span>
-            Praxis-Tipps
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: #00FF88; font-size: 1.2rem;">✓</span>
-            Case Studies
-          </div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: #FFD700; font-size: 1.2rem;">✓</span>
-            Exklusive Webinare
-          </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+        <div>
+          <div style="color:#808080;font-weight:700;">📧 info@ki-netic.ch</div>
+          <div style="color:#808080;font-weight:700;">📞 +41 31 333 00 01</div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-links">
-        <a href="pages/impressum.html">Impressum</a>
-        <a href="pages/datenschutz.html">Datenschutz</a>
-        <a href="pages/agb.html">AGB</a>
-        <a href="pages/blog-archiv.html">Blog-Archiv</a>
-      </div>
-      <div class="footer-contact">
-        <span>Email: info@ki-netic.ch</span>
-        <span>Telefon: +41 31 333 00 01</span>
-      </div>
-      <div class="footer-note">2025: Kein KI-Einsatz = Verzicht auf Profit</div>
+      <div class="footer-bottom">© 2025 KI.NETIC | KI-Beratung für Schweizer KMU</div>
     </div>
   </footer>
 
   <!-- Assessment Modal -->
-  <div id="assessment-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="assessment-title">
-    <div class="modal-dialog">
-      <button class="modal-close" id="assessment-close" aria-label="Schliessen">✕</button>
-      <div class="modal-content">
-        <h2 id="assessment-title">▲ KI-Potenzial erkunden</h2>
-        <p style="color: #AAAAAA; text-align: center; margin-bottom: 2rem;">Finde heraus, wie KI dein Unternehmen transformieren kann (2-3 Min.)</p>
+  <div id="assessment-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeAssessment()">×</button>
+      <h2 class="modal-title">KI-Potenzial berechnen</h2>
+      <p class="modal-subtitle">3 Minuten zu Ihrem individuellen Ergebnis</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress" style="width:0%"></div>
+      </div>
 
-        <!-- Progress Bar -->
-        <div style="background: rgba(0,255,255,0.1); height: 4px; border-radius: 2px; margin-bottom: 2rem; overflow: hidden;">
-          <div id="progress-bar" style="background: linear-gradient(90deg, #00FFFF, #00FF88); height: 100%; width: 33%; transition: width 0.3s ease;"></div>
+      <form id="assessment-form">
+        <!-- Step 1: Branche -->
+        <div class="step-container active" data-step="1">
+          <label class="step-label">1. In welcher Branche sind Sie tätig?</label>
+          <div class="radio-group" id="branch-options">
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Buchhaltung" required onchange="onBranchChange()" />
+              <span>Buchhaltung & Treuhand</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Immobilien" onchange="onBranchChange()" />
+              <span>Immobilien & Verwaltung</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Handwerk" onchange="onBranchChange()" />
+              <span>Handwerk & Bau</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Versicherung" onchange="onBranchChange()" />
+              <span>Versicherung & Finanzen</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Industrie" onchange="onBranchChange()" />
+              <span>Industrie & Produktion</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Handel" onchange="onBranchChange()" />
+              <span>Handel & E-Commerce</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="branche" value="Gesundheit" onchange="onBranchChange()" />
+              <span>Gesundheit & Pflege</span>
+            </label>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-modal btn-next" onclick="nextStep()">Weiter →</button>
+          </div>
         </div>
 
-        <form id="assessment-form" novalidate>
-          <!-- Step 1: Branche -->
-          <div class="step" data-step="1">
-            <h3 style="color: #00FFFF; margin-bottom: 1.5rem; font-size: 1.2rem;">Schritt 1: In welcher Branche bist du tätig?</h3>
-            <div class="radios" id="branche-list" style="gap: 0.75rem;">
-              <label style="padding: 1rem; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Buchhaltung" required style="margin-right: 0.75rem;"> Buchhaltung & Treuhand
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Immobilien" style="margin-right: 0.75rem;"> Immobilien & Bau
-              </label>
-              <label style="padding: 1rem; background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Handwerk" style="margin-right: 0.75rem;"> Handwerk & Elektrik
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Versicherung" style="margin-right: 0.75rem;"> Versicherung
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Finanzen" style="margin-right: 0.75rem;"> Finanzen & Banking
-              </label>
-              <label style="padding: 1rem; background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Industrie" style="margin-right: 0.75rem;"> Industrie & Fertigung
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Handel" style="margin-right: 0.75rem;"> Handel & E-Commerce
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Gesundheit" style="margin-right: 0.75rem;"> Gesundheitswesen
-              </label>
-              <label style="padding: 1rem; background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Energie" style="margin-right: 0.75rem;"> Energie & Utilities
-              </label>
-              <label style="padding: 1rem; background: rgba(200,200,200,0.05); border: 1px solid rgba(200,200,200,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="branche" value="Sonstiges" style="margin-right: 0.75rem;"> Sonstiges
-              </label>
+        <!-- Step 2: Branchen-spezifische Fragen -->
+        <div class="step-container" data-step="2">
+          <label class="step-label" id="step2-label">Fragen zur Ihrer Situation</label>
+          <div id="step2-questions"></div>
+          <div class="modal-actions">
+            <button type="button" class="btn-modal btn-back" onclick="prevStep()">← Zurück</button>
+            <button type="button" class="btn-modal btn-next" onclick="nextStep()">Weiter →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Herausforderungen & Pain Points -->
+        <div class="step-container" data-step="3">
+          <label class="step-label" id="step3-label">3. Welche Herausforderungen haben Sie? (mehrere möglich)</label>
+          <div class="checkbox-group" id="step3-pains"></div>
+          <div class="modal-actions">
+            <button type="button" class="btn-modal btn-back" onclick="prevStep()">← Zurück</button>
+            <button type="button" class="btn-modal btn-next" onclick="nextStep()">Weiter →</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Kontakt -->
+        <div class="step-container" data-step="4">
+          <label class="step-label">4. Ihre Kontaktdaten für das Ergebnis</label>
+          <div class="form-group">
+            <label class="form-label">Vor- & Nachname *</label>
+            <input type="text" name="name" class="form-input" required placeholder="Max Mustermann" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">E-Mail *</label>
+            <input type="email" name="email" class="form-input" required placeholder="max@mustermann.ch" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Unternehmen</label>
+            <input type="text" name="company" class="form-input" placeholder="Ihr Unternehmen" />
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn-modal btn-back" onclick="prevStep()">← Zurück</button>
+            <button type="submit" class="btn-modal btn-next">Ergebnis berechnen →</button>
+          </div>
+        </div>
+
+        <!-- Step 5: Ergebnis -->
+        <div class="step-container" data-step="5">
+          <div class="dashboard">
+            <div class="dashboard-head">
+              <div>
+                <div class="metric-label">Individuelles Ergebnis</div>
+                <div class="dashboard-title">Ihr KI-Dashboard für <span id="dashboard-branch">Ihr KMU</span></div>
+                <div class="metric-sub" id="dashboard-note">Basierend auf Ihren Angaben</div>
+              </div>
+              <div class="level-badge" id="level-badge">KI-Potenzial</div>
             </div>
-            <div class="step-actions">
-              <button type="button" class="btn btn-primary" data-action="next" style="width: 100%;">Weiter →</button>
+
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="metric-label">KI-Score</div>
+                <div class="metric-value" id="metric-score">85/100</div>
+                <div class="metric-sub" id="metric-level">Sehr hoch</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Einsparung/Jahr</div>
+                <div class="metric-value" id="metric-savings">CHF 120'000</div>
+                <div class="metric-sub" id="metric-monthly">~CHF 10'000 / Monat</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Amortisation</div>
+                <div class="metric-value" id="metric-roi">7.2 Monate</div>
+                <div class="metric-sub" id="metric-impl">inkl. Implementierung</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Startbereit in</div>
+                <div class="metric-value" id="metric-start">21 Tagen</div>
+                <div class="metric-sub">Kickoff & Pilot</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Umsetzungs-Sicherheit</div>
+                <div class="metric-value" id="metric-confidence">94%</div>
+                <div class="metric-sub">Erfahrung aus 120+ Projekten</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Freigesetzte Zeit</div>
+                <div class="metric-value" id="metric-hours">120 Std/Woche</div>
+                <div class="metric-sub">für Fach- & Kundenarbeit</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">CO₂-Einsparung</div>
+                <div class="metric-value" id="metric-co2">1.8 t/Jahr</div>
+                <div class="metric-sub">weniger Papier & Fahrten</div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <span>Einsparungs-Heatmap</span>
+                <span class="metric-sub">Aufteilung nach Use-Cases</span>
+              </div>
+              <div id="savings-breakdown"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <span>Top KI-Lösungen</span>
+                <span class="metric-sub">auf Basis Ihrer Pain-Points</span>
+              </div>
+              <div class="solutions" id="solutions-list"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <span>90-Tage-Roadmap</span>
+                <span class="metric-sub">Von Quick Wins zu Rollout</span>
+              </div>
+              <div class="roadmap" id="roadmap-list"></div>
+            </div>
+
+            <div class="cta-row">
+              <div style="display:flex; flex-wrap:wrap; gap:0.6rem; align-items:center;">
+                <button type="button" class="btn-primary" onclick="window.location.href='#kontakt'; closeAssessment();">Beratung buchen →</button>
+                <a id="cta-email" class="btn-primary" style="display:inline-flex; align-items:center; justify-content:center;" href="#">Dashboard per E-Mail</a>
+                <button type="button" class="btn-primary" style="background: linear-gradient(135deg, #111, #1d1d2a); color:#00FFFF; border:1px solid rgba(0,255,255,0.4);" onclick="exportDashboard()">PDF exportieren</button>
+              </div>
+              <small id="cta-note">Wir senden Ihnen das Dashboard als PDF & Plan.</small>
             </div>
           </div>
-
-          <!-- Step 2: Unternehmensgrösse -->
-          <div class="step" data-step="2" hidden>
-            <h3 style="color: #00FFFF; margin-bottom: 1.5rem; font-size: 1.2rem;">Schritt 2: Wie gross ist dein Team?</h3>
-            <div class="radios" style="gap: 0.75rem;">
-              <label style="padding: 1rem; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="company_size" value="micro" required style="margin-right: 0.75rem;"> ▲ 1-5 Mitarbeitende (Startup)
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="company_size" value="small" style="margin-right: 0.75rem;"> 📍 6-20 Mitarbeitende (Klein)
-              </label>
-              <label style="padding: 1rem; background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="company_size" value="medium" style="margin-right: 0.75rem;"> 🏢 21-100 Mitarbeitende (Mittel)
-              </label>
-              <label style="padding: 1rem; background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="radio" name="company_size" value="large" style="margin-right: 0.75rem;"> 🏭 100+ Mitarbeitende (Gross)
-              </label>
-            </div>
-            <div class="step-actions">
-              <button type="button" class="btn btn-ghost" data-action="back" style="flex: 1;">← Zurück</button>
-              <button type="button" class="btn btn-primary" data-action="next" style="flex: 1;">Weiter →</button>
-            </div>
-          </div>
-
-          <!-- Step 3: Schmerzpunkte & Budget -->
-          <div class="step" data-step="3" hidden>
-            <h3 style="color: #00FFFF; margin-bottom: 1rem; font-size: 1.2rem;">Schritt 3: Deine Herausforderungen</h3>
-            <p style="color: #AAAAAA; margin-bottom: 1.5rem;">Wähle bis zu 3 aus</p>
-            <div class="checkboxes" style="gap: 0.75rem;">
-              <label style="padding: 1rem; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="checkbox" name="pain" value="Belegverarbeitung" style="margin-right: 0.75rem;"> 📄 Belegverarbeitung (Rechnungen, Belege)
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="checkbox" name="pain" value="Kundenanfragen" style="margin-right: 0.75rem;"> 💬 Kundenanfragen (Support, Chat)
-              </label>
-              <label style="padding: 1rem; background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="checkbox" name="pain" value="Datenanalyse" style="margin-right: 0.75rem;"> 📊 Datenanalyse & Insights
-              </label>
-              <label style="padding: 1rem; background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="checkbox" name="pain" value="Angebotserstellung" style="margin-right: 0.75rem;"> 📝 Angebotserstellung
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="checkbox" name="pain" value="Prozess-Dokumentation" style="margin-right: 0.75rem;"> 📋 Prozess-Dokumentation
-              </label>
-              <label style="padding: 1rem; background: rgba(0,255,255,0.05); border: 1px solid rgba(0,255,255,0.2); border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <input type="checkbox" name="pain" value="Datenstrategie" style="margin-right: 0.75rem;"> ◆ Datenstrategie & Governance
-              </label>
-            </div>
-
-            <h3 style="color: #00FFFF; margin: 2rem 0 1rem; font-size: 1.2rem;">Deine Kontaktdaten</h3>
-            <div class="contact-fields">
-              <input type="text" name="name" placeholder="Vorname & Name" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(0,255,255,0.2); background: rgba(0,255,255,0.05); color: #FFF; font-size: 0.95rem;" />
-              <input type="email" name="email" placeholder="Email" required style="padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(0,255,255,0.2); background: rgba(0,255,255,0.05); color: #FFF; font-size: 0.95rem;" />
-              <input type="tel" name="phone" placeholder="Telefon (optional)" style="padding: 0.75rem; border-radius: 8px; border: 1px solid rgba(0,255,255,0.2); background: rgba(0,255,255,0.05); color: #FFF; font-size: 0.95rem;" />
-            </div>
-
-            <div class="step-actions">
-              <button type="button" class="btn btn-ghost" data-action="back" style="flex: 1;">← Zurück</button>
-              <button type="submit" class="btn btn-primary" style="flex: 1;">Ergebnis generieren ◆</button>
-            </div>
-          </div>
-
-          <!-- Step 4: Results -->
-          <div class="step result-step" data-step="4" hidden>
-            <h3 style="color: #00FFFF; margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;">Dein KI-Potenzial Score</h3>
-            
-            <div style="background: linear-gradient(135deg, rgba(0,255,255,0.1) 0%, rgba(0,255,136,0.1) 100%); border: 2px solid rgba(0,255,255,0.3); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 2rem;">
-              <div id="result-score" class="result-score" style="font-size: 3.5rem; color: #00FFFF; font-weight: 700; margin-bottom: 1rem;">--</div>
-              <p style="color: #AAAAAA; font-size: 0.95rem; margin-bottom: 1.5rem;">Score basierend auf deinen Antworten</p>
-              <div id="result-summary" class="result-summary" style="color: #CCCCCC; font-size: 1rem; line-height: 1.6; margin-bottom: 1rem;"></div>
-            </div>
-
-            <div style="background: rgba(0,255,136,0.08); border-left: 4px solid #00FF88; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
-              <p style="color: #00FF88; font-weight: 600; margin-bottom: 0.5rem;">$ Geschätztes Sparpotenzial pro Jahr:</p>
-              <div id="result-savings" style="font-size: 2rem; color: #00FF88; font-weight: 700;">CHF --</div>
-            </div>
-
-            <div style="background: rgba(139,92,246,0.08); border-left: 4px solid #8B5CF6; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
-              <p style="color: #8B5CF6; font-weight: 600; margin-bottom: 0.75rem;">◆ Top-Empfehlungen für dein Unternehmen:</p>
-              <ul id="result-recommendations" style="color: #CCCCCC; margin: 0; padding-left: 1.5rem;"></ul>
-            </div>
-
-            <div class="final-actions">
-              <button id="book-meet" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; margin-bottom: 1rem;">📅 Kostenlosen Ersttermin buchen</button>
-              <button id="close-result" class="btn btn-ghost" style="width: 100%;">Zurück zur Website</button>
-            </div>
-          </div>
-
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
 
-  <script src="js/script.js"></script>
-  <script src="js/assessment.js"></script>
-  <script src="js/form-validation.js"></script>
-  <script src="js/cookie-consent.js"></script>
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+    let selectedBranch = null;
+
+    function onBranchChange() {
+      const selected = document.querySelector('input[name="branche"]:checked');
+      if (selected) {
+        selectedBranch = selected.value;
+        renderStep2Questions();
+        renderStep3Pains();
+      }
+    }
+
+    function renderStep2Questions() {
+      if (!selectedBranch || !industryData[selectedBranch]) return;
+      const data = industryData[selectedBranch];
+      const container = document.getElementById('step2-questions');
+      container.innerHTML = '';
+      
+      data.questions.forEach((q, idx) => {
+        const div = document.createElement('div');
+        div.className = 'form-group';
+        
+        if (q.type === 'slider') {
+          div.innerHTML = `
+            <label class="form-label">${q.label}</label>
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <input type="range" name="${q.varName}" min="${q.min}" max="${q.max}" value="${q.default}" style="flex:1;" class="form-input" />
+              <span style="font-weight:700; min-width:60px;" id="val-${q.varName}">${q.default} ${q.unit}</span>
+            </div>
+          `;
+          const slider = div.querySelector('input[type="range"]');
+          slider.addEventListener('input', (e) => {
+            document.getElementById(`val-${q.varName}`).textContent = e.target.value + ' ' + q.unit;
+          });
+        } else if (q.type === 'text') {
+          div.innerHTML = `
+            <label class="form-label">${q.label}</label>
+            <input type="text" name="${q.varName}" class="form-input" placeholder="${q.label}" />
+          `;
+        }
+        
+        container.appendChild(div);
+      });
+    }
+
+    function renderStep3Pains() {
+      if (!selectedBranch || !industryData[selectedBranch]) return;
+      const data = industryData[selectedBranch];
+      const container = document.getElementById('step3-pains');
+      container.innerHTML = '';
+      
+      Object.keys(data.painPoints).forEach(pain => {
+        const label = document.createElement('label');
+        label.className = 'checkbox-option';
+        label.innerHTML = `
+          <input type="checkbox" name="pain" value="${pain}" />
+          <span>${pain}</span>
+        `;
+        container.appendChild(label);
+      });
+    }
+
+    function openAssessment() {
+      document.getElementById('assessment-modal').style.display = 'flex';
+      updateProgress();
+    }
+
+    function closeAssessment() {
+      document.getElementById('assessment-modal').style.display = 'none';
+      document.getElementById('assessment-form').reset();
+      currentStep = 1;
+      showStep(1);
+      updateProgress();
+    }
+
+    function showStep(step) {
+      document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+      document.querySelector(`.step-container[data-step="${step}"]`).classList.add('active');
+      currentStep = step;
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const percent = ((currentStep - 1) / totalSteps) * 100;
+      document.getElementById('progress').style.width = percent + '%';
+    }
+
+    function nextStep() {
+      const currentContainer = document.querySelector(`.step-container[data-step="${currentStep}"]`);
+      const required = currentContainer.querySelectorAll('[required]');
+      let valid = true;
+
+      // Check Step 1: Branche muss gewählt sein
+      if (currentStep === 1) {
+        valid = !!selectedBranch;
+        if (!valid) {
+          alert('Bitte wählen Sie eine Branche aus.');
+          return;
+        }
+      }
+
+      // Check Step 2: Branchen-Fragen
+      if (currentStep === 2) {
+        valid = true;
+        // Alle Slider müssen einen Wert haben
+      }
+
+      // Check Step 3: Mind. eine Pain Point ausgewählt?
+      if (currentStep === 3) {
+        const checkedPains = currentContainer.querySelectorAll('input[type="checkbox"]:checked');
+        valid = checkedPains.length > 0;
+        if (!valid) {
+          alert('Bitte wählen Sie mindestens eine Herausforderung aus.');
+          return;
+        }
+      }
+
+      // Check Step 4: Name & Email
+      if (currentStep === 4) {
+        required.forEach(input => {
+          if (!input.value.trim()) {
+            valid = false;
+          }
+        });
+        if (!valid) {
+          alert('Bitte füllen Sie alle Pflichtfelder aus.');
+          return;
+        }
+      }
+
+      if (currentStep < totalSteps) {
+        showStep(currentStep + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        showStep(currentStep - 1);
+      }
+    }
+
+    function buildBreakdown(savings, pains) {
+      let backoffice = 40, sales = 30, service = 30;
+      if (pains.includes('Belegverarbeitung')) backoffice += 12;
+      if (pains.includes('Angebotserstellung')) sales += 8;
+      if (pains.includes('Kundenanfragen')) service += 10;
+      if (pains.includes('Datenanalyse')) backoffice += 6;
+      const total = backoffice + sales + service;
+      return [
+        { label: 'Backoffice & Compliance', value: Math.round((backoffice / total) * 100) },
+        { label: 'Vertrieb & Angebote', value: Math.round((sales / total) * 100) },
+        { label: 'Service & Support', value: 100 - (Math.round((backoffice / total) * 100) + Math.round((sales / total) * 100)) }
+      ];
+    }
+
+    function renderBreakdown(savings, pains) {
+      const breakdown = buildBreakdown(savings, pains);
+      const wrap = document.getElementById('savings-breakdown');
+      wrap.innerHTML = '';
+      breakdown.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'breakdown-row';
+        const amount = Math.round((item.value / 100) * savings);
+        row.innerHTML = `
+          <div class="breakdown-top"><span>${item.label}</span><span>${item.value}%</span></div>
+          <div class="breakdown-bar"><div class="breakdown-fill" style="width:${item.value}%"></div></div>
+          <div class="metric-sub">~CHF ${amount.toLocaleString('de-CH')}</div>
+        `;
+        wrap.appendChild(row);
+      });
+    }
+
+    function renderSolutions(pains) {
+      if (!selectedBranch || !industryData[selectedBranch]) return;
+      const branchData = industryData[selectedBranch];
+      const list = document.getElementById('solutions-list');
+      list.innerHTML = '';
+      
+      const selectedSolutions = new Set();
+      pains.slice(0, 3).forEach(p => {
+        if (branchData.solutions && branchData.solutions[p]) {
+          branchData.solutions[p].forEach(sol => {
+            selectedSolutions.add(JSON.stringify({ pain: p, ...sol }));
+          });
+        }
+      });
+
+      if (selectedSolutions.size === 0) {
+        // Fallback: Alle Lösungen dieser Branche
+        Object.keys(branchData.solutions || {}).forEach(key => {
+          branchData.solutions[key].slice(0, 1).forEach(sol => {
+            selectedSolutions.add(JSON.stringify({ pain: key, ...sol }));
+          });
+        });
+      }
+
+      Array.from(selectedSolutions).slice(0, 4).forEach(solJson => {
+        const sol = JSON.parse(solJson);
+        const card = document.createElement('div');
+        card.className = 'solution-card';
+        card.innerHTML = `
+          <div class="solution-title">${sol.name}</div>
+          <div class="solution-outcome">${sol.impact}</div>
+          <div class="tags">
+            <span class="tag">Aufwand: ${sol.effort}</span>
+            <span class="tag">Kosten: CHF ${sol.cost.toLocaleString('de-CH')}</span>
+            <span class="tag">DSG-konform</span>
+          </div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    function renderRoadmap(primarySolution) {
+      const wrap = document.getElementById('roadmap-list');
+      wrap.innerHTML = '';
+      const phases = [
+        { title: 'Woche 1-2: Quick Audit', meta: 'Scope, Daten-Check, KPI-Base', items: ['Workshop (2h) mit Fachbereich', 'Datenzugriff & Security-Check (DSG)', `Pilot-Use-Case: ${primarySolution}`] },
+        { title: 'Woche 3-6: Build & Test', meta: 'Prototyp + UAT', items: ['MVP mit echten Daten', 'Schulung Fachteam, Feedback-Schleife', 'Tracking: Zeit- und Kostenersparnis live'] },
+        { title: 'Woche 7-12: Rollout & Erfolg', meta: 'Go-Live + Training', items: ['Produktiver Rollout, Monitoring', 'Playbooks & Dokumentation', 'Finales ROI-Review mit Einsparungsplan'] }
+      ];
+
+      phases.forEach(phase => {
+        const row = document.createElement('div');
+        row.className = 'roadmap-step';
+        row.innerHTML = `
+          <div class="roadmap-title">${phase.title}</div>
+          <div class="roadmap-meta">${phase.meta}</div>
+          <ul>${phase.items.map(i => `<li>${i}</li>`).join('')}</ul>
+        `;
+        wrap.appendChild(row);
+      });
+    }
+
+    function exportDashboard() {
+      const dashboard = document.querySelector('.step-container[data-step="5"] .dashboard');
+      if (!dashboard) return;
+      const win = window.open('', '_blank');
+      const styles = `body{font-family:Inter,-apple-system,sans-serif;background:#0a0a0f;color:#fff;padding:20px;} .panel{background:rgba(0,0,0,0.4);border:1px solid rgba(0,255,255,0.2);border-radius:16px;padding:12px;} .metric-card{background:rgba(0,255,255,0.08);border:1px solid rgba(0,255,255,0.3);border-radius:14px;padding:12px;margin-bottom:10px;} .metric-label{color:#9cc;font-size:0.9rem;font-weight:700;} .metric-value{font-size:1.5rem;font-weight:900;margin-top:4px;} .metric-sub{color:#9cc;font-size:0.85rem;margin-top:4px;} .panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:800;font-size:1.05rem;} .solution-card{border:1px solid rgba(0,255,255,0.2);border-radius:14px;padding:10px;background:rgba(0,255,255,0.05);margin-bottom:8px;} .tag{background:rgba(0,255,255,0.12);border:1px solid rgba(0,255,255,0.3);color:#00FFFF;padding:3px 8px;border-radius:999px;font-size:0.8rem;font-weight:700;display:inline-block;margin-right:6px;margin-top:4px;} .roadmap-step{border-left:3px solid rgba(0,255,255,0.5);padding-left:10px;margin-bottom:10px;}`;
+      win.document.write(`<!doctype html><html><head><title>KI Dashboard</title><style>${styles}</style></head><body>${dashboard.outerHTML}</body></html>`);
+      win.document.close();
+      win.focus();
+      setTimeout(() => { win.print(); win.close(); }, 250);
+    }
+
+    // ===== BRANCHENDATENMODELL (Das Baby!) =====
+    const industryData = {
+      'Buchhaltung': {
+        label: 'Buchhaltung & Treuhand',
+        hourlyRate: 140,
+        implCost: 35000,
+        painPoints: {
+          'Belegverarbeitung': { weight: 3.5, hoursPerWeek: 8, impact: 'OCR + RPA: 85-90% Zeitersparnis' },
+          'Kundenanfragen': { weight: 2.0, hoursPerWeek: 3, impact: '24/7 Chatbot, -40% Anrufe' },
+          'Datenanalyse': { weight: 2.2, hoursPerWeek: 5, impact: 'Echtzeit-Dashboards statt Reporting' },
+          'Angebotserstellung': { weight: 1.5, hoursPerWeek: 3, impact: 'Offerten-Templating mit GenAI' },
+          'Compliance & Dokumentation': { weight: 2.8, hoursPerWeek: 6, impact: 'Automatische DSG-konforme Archivierung' }
+        },
+        questions: [
+          { label: 'Beleginput pro Monat:', type: 'slider', min: 100, max: 5000, default: 800, unit: 'Belege', varName: 'docVolume' },
+          { label: 'Aktuelle Bearbeitungszeit/Beleg:', type: 'slider', min: 2, max: 15, default: 5, unit: 'Min', varName: 'docTime' },
+          { label: 'Fehlerquote beim Erfassen:', type: 'slider', min: 1, max: 15, default: 5, unit: '%', varName: 'errorRate' },
+          { label: 'Kundenanfragen pro Woche:', type: 'slider', min: 5, max: 200, default: 40, unit: 'Anfragen', varName: 'inquiries' }
+        ],
+        solutions: {
+          'Belegverarbeitung': [
+            { name: 'Quick Win', effort: 'Woche 1-2', cost: 8000, impact: '-60% Zeit', dsg: true },
+            { name: 'Standard OCR+RPA', effort: 'Woche 2-4', cost: 18000, impact: '-85% Zeit', dsg: true },
+            { name: 'Advanced mit Workflow', effort: 'Woche 4-6', cost: 28000, impact: '-90% Zeit + Audit-Trail', dsg: true }
+          ],
+          'Kundenanfragen': [
+            { name: 'Chatbot Basis', effort: 'Woche 1-2', cost: 6000, impact: '-30% Tickets', dsg: true },
+            { name: 'Chatbot + Ticketing', effort: 'Woche 2-3', cost: 14000, impact: '-45% Tickets', dsg: true }
+          ]
+        }
+      },
+      'Immobilien': {
+        label: 'Immobilien & Verwaltung',
+        hourlyRate: 120,
+        implCost: 32000,
+        painPoints: {
+          'Kundenanfragen': { weight: 3.0, hoursPerWeek: 6, impact: '24/7 Lead-Response, +40% Conversion' },
+          'Belegverarbeitung': { weight: 2.2, hoursPerWeek: 4, impact: 'Makler-Unterlagen auto-erfassen' },
+          'Datenanalyse': { weight: 2.5, hoursPerWeek: 5, impact: 'Marktanalyse & Preismodelle live' },
+          'Angebotserstellung': { weight: 2.0, hoursPerWeek: 3, impact: 'Objektbeschreibungen auto-gen' }
+        },
+        questions: [
+          { label: 'Anfragen pro Woche:', type: 'slider', min: 10, max: 500, default: 80, unit: 'Anfragen', varName: 'inquiries' },
+          { label: 'Durchschn. Response-Zeit heute:', type: 'slider', min: 1, max: 48, default: 12, unit: 'Stunden', varName: 'responseTime' },
+          { label: 'Aktive Objekte:', type: 'slider', min: 10, max: 1000, default: 120, unit: 'Objekte', varName: 'activeObjects' },
+          { label: 'Conversion-Rate (aktuell):', type: 'slider', min: 1, max: 25, default: 5, unit: '%', varName: 'conversionRate' }
+        ],
+        solutions: {
+          'Kundenanfragen': [
+            { name: 'Lead-Chatbot', effort: 'Woche 1-2', cost: 10000, impact: '+25% Leads, 24/7', dsg: true },
+            { name: 'Bot + CRM-Sync', effort: 'Woche 3-4', cost: 16000, impact: '+40% Leads, Auto-Follow-up', dsg: true }
+          ],
+          'Datenanalyse': [
+            { name: 'Markt-Dashboard', effort: 'Woche 2-3', cost: 12000, impact: 'Echtzeitpreise & Trends', dsg: true }
+          ]
+        }
+      },
+      'Handwerk': {
+        label: 'Handwerk & Bau',
+        hourlyRate: 85,
+        implCost: 28000,
+        painPoints: {
+          'Kundenanfragen': { weight: 2.8, hoursPerWeek: 5, impact: 'Terminanfragen 24/7 automatisiert' },
+          'Angebotserstellung': { weight: 2.5, hoursPerWeek: 6, impact: 'Kalkulation + Offerte in 10 Min' },
+          'Belegverarbeitung': { weight: 1.8, hoursPerWeek: 3, impact: 'Rechnungen, Material-Belege auto' },
+          'Datenanalyse': { weight: 1.5, hoursPerWeek: 2, impact: 'Projekt-Tracking & Gewinn-Analyse' }
+        },
+        questions: [
+          { label: 'Projekte pro Monat:', type: 'slider', min: 5, max: 100, default: 20, unit: 'Projekte', varName: 'projects' },
+          { label: 'Zeit für Angebote pro Projekt:', type: 'slider', min: 30, max: 240, default: 90, unit: 'Min', varName: 'quoteTime' },
+          { label: 'Fehler in Kalkulationen:', type: 'slider', min: 1, max: 20, default: 8, unit: '%', varName: 'errorRate' },
+          { label: 'Terminanfragen pro Woche:', type: 'slider', min: 10, max: 200, default: 50, unit: 'Anfragen', varName: 'bookingRequests' }
+        ],
+        solutions: {
+          'Angebotserstellung': [
+            { name: 'Kalkulator-Bot', effort: 'Woche 1-2', cost: 9000, impact: '-70% Zeit, -80% Fehler', dsg: true },
+            { name: 'Full Offer-Engine', effort: 'Woche 3-4', cost: 18000, impact: '-85% Zeit, PDF-Auto', dsg: true }
+          ],
+          'Kundenanfragen': [
+            { name: 'Termin-Bot', effort: 'Woche 1-2', cost: 7000, impact: 'Auto-Sync mit Kalender', dsg: true }
+          ]
+        }
+      },
+      'Versicherung': {
+        label: 'Versicherung & Finanzen',
+        hourlyRate: 145,
+        implCost: 45000,
+        painPoints: {
+          'Kundenanfragen': { weight: 3.2, hoursPerWeek: 7, impact: 'First-Level-Support 24/7, -50% Tickets' },
+          'Belegverarbeitung': { weight: 2.5, hoursPerWeek: 5, impact: 'Schadenmeldungen auto-eingeben' },
+          'Datenanalyse': { weight: 2.8, hoursPerWeek: 6, impact: 'Risk-Scoring & Compliance-Checks auto' },
+          'Compliance & Dokumentation': { weight: 3.0, hoursPerWeek: 7, impact: 'BaFin/DSG-konforme Audit-Trails' }
+        },
+        questions: [
+          { label: 'Kundenanfragen pro Woche:', type: 'slider', min: 50, max: 1000, default: 200, unit: 'Anfragen', varName: 'inquiries' },
+          { label: 'Durchschn. Bearbeitungszeit:', type: 'slider', min: 5, max: 60, default: 15, unit: 'Min', varName: 'handlingTime' },
+          { label: 'Schadenmeldungen pro Monat:', type: 'slider', min: 20, max: 500, default: 100, unit: 'Meldungen', varName: 'claims' },
+          { label: 'Compliance-Checks pro Transaction:', type: 'slider', min: 5, max: 30, default: 10, unit: 'Min', varName: 'complianceTime' }
+        ],
+        solutions: {
+          'Kundenanfragen': [
+            { name: 'Support-Chatbot', effort: 'Woche 2-3', cost: 14000, impact: '-40% Tickets, 24/7', dsg: true },
+            { name: 'Bot + Case-Routing', effort: 'Woche 3-5', cost: 22000, impact: '-55% Zeit, Smart-Routing', dsg: true }
+          ],
+          'Compliance & Dokumentation': [
+            { name: 'Compliance-Engine', effort: 'Woche 4-6', cost: 35000, impact: 'Auto-Audit, Zero-Error', dsg: true }
+          ]
+        }
+      },
+      'Industrie': {
+        label: 'Industrie & Produktion',
+        hourlyRate: 110,
+        implCost: 42000,
+        painPoints: {
+          'Datenanalyse': { weight: 3.2, hoursPerWeek: 8, impact: 'Predictive Maintenance, -23% Ausfallzeit' },
+          'Belegverarbeitung': { weight: 2.2, hoursPerWeek: 4, impact: 'Lieferscheine, QS-Berichte auto' },
+          'Kundenanfragen': { weight: 1.8, hoursPerWeek: 3, impact: 'Status-Anfragen auto-beantwortet' },
+          'Angebotserstellung': { weight: 1.6, hoursPerWeek: 2, impact: 'Kostenvoranschläge auto-generiert' }
+        },
+        questions: [
+          { label: 'Produktionschargen pro Monat:', type: 'slider', min: 10, max: 500, default: 100, unit: 'Chargen', varName: 'batches' },
+          { label: 'Ungeplante Ausfallzeiten/Monat:', type: 'slider', min: 1, max: 100, default: 15, unit: 'Stunden', varName: 'downtime' },
+          { label: 'QS-Berichte pro Woche:', type: 'slider', min: 5, max: 50, default: 15, unit: 'Berichte', varName: 'qsReports' },
+          { label: 'Durchschn. Zykluszeit pro Bericht:', type: 'slider', min: 15, max: 120, default: 45, unit: 'Min', varName: 'cycleTime' }
+        ],
+        solutions: {
+          'Datenanalyse': [
+            { name: 'Predictive Analytics', effort: 'Woche 3-4', cost: 20000, impact: '-20% Ausfallzeit, ROI 4 M.', dsg: true },
+            { name: 'Full MES-Integration', effort: 'Woche 5-8', cost: 40000, impact: '-25% Ausfall, Real-Time', dsg: true }
+          ],
+          'Belegverarbeitung': [
+            { name: 'QS-Automation', effort: 'Woche 2-3', cost: 12000, impact: '-80% Report-Zeit', dsg: true }
+          ]
+        }
+      },
+      'Handel': {
+        label: 'Handel & E-Commerce',
+        hourlyRate: 95,
+        implCost: 30000,
+        painPoints: {
+          'Kundenanfragen': { weight: 3.0, hoursPerWeek: 6, impact: '24/7 Support, -45% Tickets' },
+          'Datenanalyse': { weight: 2.5, hoursPerWeek: 5, impact: 'Demand-Forecasting, Lageroptimierung' },
+          'Belegverarbeitung': { weight: 1.8, hoursPerWeek: 3, impact: 'Returns, Rechnungen, Shipping auto' },
+          'Angebotserstellung': { weight: 1.5, hoursPerWeek: 2, impact: 'Product-Descriptions, Upsell-Vorschläge auto' }
+        },
+        questions: [
+          { label: 'Orders pro Woche:', type: 'slider', min: 50, max: 2000, default: 300, unit: 'Orders', varName: 'orders' },
+          { label: 'Support-Anfragen pro Woche:', type: 'slider', min: 20, max: 500, default: 100, unit: 'Anfragen', varName: 'inquiries' },
+          { label: 'Return-Bearbeitungszeit:', type: 'slider', min: 10, max: 60, default: 20, unit: 'Min', varName: 'returnTime' },
+          { label: 'Fehler in Fulfillment:', type: 'slider', min: 0.5, max: 5, default: 1.5, unit: '%', varName: 'errorRate' }
+        ],
+        solutions: {
+          'Kundenanfragen': [
+            { name: 'E-Commerce Chatbot', effort: 'Woche 1-2', cost: 9000, impact: '-40% Tickets, 24/7', dsg: true },
+            { name: 'Bot + Return-Engine', effort: 'Woche 2-3', cost: 15000, impact: '-60% Return-Zeit', dsg: true }
+          ],
+          'Datenanalyse': [
+            { name: 'Demand Forecasting', effort: 'Woche 3-4', cost: 14000, impact: '-15% Overstock', dsg: true }
+          ]
+        }
+      },
+      'Gesundheit': {
+        label: 'Gesundheit & Pflege',
+        hourlyRate: 100,
+        implCost: 28000,
+        painPoints: {
+          'Kundenanfragen': { weight: 2.8, hoursPerWeek: 6, impact: 'Termin-Anfragen 24/7, -35% Anrufe' },
+          'Belegverarbeitung': { weight: 2.5, hoursPerWeek: 5, impact: 'Rechnungen, Abrechnungen auto' },
+          'Datenanalyse': { weight: 2.0, hoursPerWeek: 4, impact: 'Patient-Dashboards, Trends-Analyse' },
+          'Compliance & Dokumentation': { weight: 2.2, hoursPerWeek: 5, impact: 'GDPR/DSG-konforme Dokumentation' }
+        },
+        questions: [
+          { label: 'Anfragen pro Woche:', type: 'slider', min: 20, max: 300, default: 60, unit: 'Anfragen', varName: 'inquiries' },
+          { label: 'Termin-Buchungen pro Monat:', type: 'slider', min: 50, max: 500, default: 200, unit: 'Termine', varName: 'bookings' },
+          { label: 'Patienten in aktiver Behandlung:', type: 'slider', min: 100, max: 5000, default: 500, unit: 'Patienten', varName: 'patients' },
+          { label: 'Zeit für Abrechnungen pro Rechnung:', type: 'slider', min: 10, max: 60, default: 25, unit: 'Min', varName: 'billingTime' }
+        ],
+        solutions: {
+          'Kundenanfragen': [
+            { name: 'Termin-Chatbot (GDPR)', effort: 'Woche 1-2', cost: 10000, impact: 'GDPR-konform, 24/7', dsg: true },
+            { name: 'Bot + Patient-Portal', effort: 'Woche 3-4', cost: 18000, impact: 'Self-Service, -50% Anrufe', dsg: true }
+          ],
+          'Compliance & Dokumentation': [
+            { name: 'GDPR Compliance-Suite', effort: 'Woche 3-5', cost: 16000, impact: 'Zero Audit Risk', dsg: true }
+          ]
+        }
+      }
+    };
+
+    document.getElementById('assessment-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(e.target);
+      const branche = selectedBranch;
+      const pains = formData.getAll('pain');
+      
+      if (!industryData[branche]) {
+        alert('Ungültige Branche.');
+        return;
+      }
+
+      const branchData = industryData[branche];
+      const hourlyRate = branchData.hourlyRate;
+      const implCost = branchData.implCost;
+      
+      // Sammle alle Slider-Werte
+      let totalHoursSaved = 0;
+      branchData.questions.forEach(q => {
+        if (q.type === 'slider' && q.varName) {
+          const val = parseFloat(formData.get(q.varName)) || q.default;
+          // Einfache Heuristik: Slider-Wert × Pain-Weight des dominanten Pain Points
+          const primaryPain = pains[0];
+          if (primaryPain && branchData.painPoints[primaryPain]) {
+            totalHoursSaved += (val * branchData.painPoints[primaryPain].weight) / 100;
+          }
+        }
+      });
+
+      // Fallback wenn keine Slider berechnet wurden
+      if (totalHoursSaved === 0) {
+        pains.forEach(p => {
+          if (branchData.painPoints[p]) {
+            totalHoursSaved += branchData.painPoints[p].weight;
+          }
+        });
+      }
+
+      totalHoursSaved = Math.min(totalHoursSaved, 15);
+      const sizeMap = { micro: 1.5, small: 10, medium: 40, large: 140 };
+      const sizeVal = formData.get('size') || 'small';
+      const employees = sizeMap[sizeVal] || 10;
+
+      const savings = Math.max(
+        Math.round((employees * totalHoursSaved * 48 * hourlyRate * 0.75) / 1000) * 1000, 
+        5000
+      );
+      const weeklyHours = Math.max(4, Math.round(employees * totalHoursSaved));
+      const co2SavedKg = Math.round(weeklyHours * 52 * 0.35);
+      
+      let score = 45 + (pains.length * 12);
+      if (sizeVal === 'medium') score += 8;
+      if (sizeVal === 'large') score += 20;
+      score = Math.min(score, 95);
+
+      const roiMonths = Math.round((implCost / (savings / 12)) * 10) / 10;
+
+      let level = 'Moderat', color = '#8B5CF6';
+      if (score >= 85) { level = 'KRITISCH'; color = '#00FF88'; }
+      else if (score >= 70) { level = 'SEHR HOCH'; color = '#00FFFF'; }
+      else if (score >= 55) { level = 'HOCH'; color = '#FFB347'; }
+
+      document.getElementById('dashboard-branch').textContent = branchData.label;
+      document.getElementById('dashboard-note').textContent = `Branche: ${branchData.label} | Team: ${sizeVal}`;
+      document.getElementById('level-badge').textContent = `KI-Potenzial: ${level}`;
+      document.getElementById('level-badge').style.borderColor = color;
+      document.getElementById('metric-score').textContent = `${score}/100`;
+      document.getElementById('metric-score').style.color = color;
+      document.getElementById('metric-level').textContent = level;
+      document.getElementById('metric-savings').textContent = 'CHF ' + savings.toLocaleString('de-CH');
+      document.getElementById('metric-monthly').textContent = '~CHF ' + Math.round(savings / 12).toLocaleString('de-CH') + ' / Monat';
+      document.getElementById('metric-roi').textContent = `${roiMonths} Monate`;
+      document.getElementById('metric-impl').textContent = `Implementierung: CHF ${implCost.toLocaleString('de-CH')}`;
+      document.getElementById('metric-start').textContent = score >= 80 ? '14 Tage' : '21 Tage';
+      document.getElementById('metric-confidence').textContent = `${Math.min(98, 60 + pains.length * 8)}%`;
+      document.getElementById('metric-hours').textContent = `${weeklyHours.toLocaleString('de-CH')} Std/Woche`;
+      document.getElementById('metric-co2').textContent = `${(co2SavedKg / 1000).toFixed(1)} t/Jahr`;
+
+      // Save to sessionStorage für Dashboard-Seite
+      const assessmentData = {
+        score, level, color, savings, roiMonths, implCost, weeklyHours, co2Saved: co2SavedKg,
+        branche, branchData, sizeVal, pains,
+        branchLabel: branchData.label,
+        name: formData.get('name'),
+        email: formData.get('email'),
+        company: formData.get('company')
+      };
+      sessionStorage.setItem('assessmentData', JSON.stringify(assessmentData));
+
+      // Redirect to dashboard
+      window.location.href = 'dashboard.html';
+    });
+
+    // Mouse tracking
+    document.addEventListener('mousemove', (e) => {
+      const card = document.querySelector('.stats');
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotateX = (y / rect.height) * 8;
+      const rotateY = -(x / rect.width) * 8;
+      card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+  <!-- Schema.org SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "KI.NETIC - KI-Beratung Schweiz",
+    "description": "KI-Automatisierung für Schweizer KMU. CHF 45'000-180'000 Einsparung pro Jahr. DSG-konform, Swiss Made.",
+    "url": "https://aminlourini-coder.github.io/ki-beratung-landingpage/",
+    "telephone": "+41313330001",
+    "email": "info@ki-netic.ch",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CH"
+    },
+    "areaServed": "CH",
+    "priceRange": "CHF 25000-50000"
+  }
+  </script>
 </body>
 </html>

@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sparen Sie bis CHF 180'000/Jahr mit KI | Gratis Audit | KI.NETIC</title>
+  <meta name="description" content="Erfahren Sie in 3 Minuten, wie viel CHF Ihr CH-KMU mit KI-Automatisierung sparen kann. Kostenloses Audit + Erstberatung. DSG-konform. Swiss Made." />
+  <meta property="og:title" content="Wie viel kann Ihr KMU mit KI sparen? | KI.NETIC" />
+  <meta property="og:description" content="Gratis KI-Potenzial-Audit in 3 Min. Massgeschneiderte Lösung für Schweizer KMU. Jetzt starten!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aminlourini-coder.github.io/ki-beratung-landingpage/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* === RESET & BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0F0F12;
+      color: #FFFFFF;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    
+    /* === ANIMATIONS === */
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
+    }
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4)); }
+      50% { filter: drop-shadow(0 0 30px rgba(0, 255, 255, 0.8)); }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* === HEADER === */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15, 15, 18, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+      animation: slideDown 0.5s ease-out;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-decoration: none;
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      transition: all 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo-dot {
+      color: #00FFFF;
+      font-weight: 900;
+      animation: glow 2s ease-in-out infinite;
+    }
+    .btn-header {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 255, 255, 0.05));
+      color: #00FFFF;
+      border: 1.5px solid rgba(0, 255, 255, 0.4);
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-size: 0.95rem;
+    }
+    .btn-header:hover {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.25), rgba(0, 255, 255, 0.15));
+      border-color: rgba(0, 255, 255, 0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: 0;
+    }
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00FFFF 0%, #00FF88 100%);
+      color: #0F0F12;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.5);
+    }
+    .btn-primary:active {
+      transform: translateY(-1px);
+    }
+    .btn-lg {
+      padding: 1.4rem 3rem;
+      font-size: 1.15rem;
+      border-radius: 18px;
+    }
+
+    /* === HERO === */
+    .hero {
+      padding: 160px 0 100px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.1), transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 136, 0.08), transparent 50%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.08), transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      animation: float 20s ease-in-out infinite;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.05), transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      animation: float 25s ease-in-out infinite reverse;
+    }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text {
+      animation: fadeIn 0.8s ease-out;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 255, 255, 0.05));
+      color: #00FFFF;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      letter-spacing: 0.5px;
+      animation: slideInUp 0.6s ease-out;
+    }
+    .hero-tag::before {
+      content: '✓';
+      font-weight: 900;
+    }
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+      animation: slideInUp 0.8s ease-out 0.15s backwards;
+      letter-spacing: -0.03em;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #00FF88, #00FFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
+      filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.5));
+    }
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: #C0C0C0;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      animation: slideInUp 1s ease-out 0.25s backwards;
+      font-weight: 400;
+    }
+    .hero-subtitle strong {
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: slideInUp 1.2s ease-out 0.35s backwards;
+    }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #A0A0A0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+    .hero-trust svg {
+      animation: float 3s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .stats-card {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.12) 0%, rgba(0, 255, 136, 0.08) 100%);
+      border: 2px solid rgba(0, 255, 255, 0.25);
+      border-radius: 24px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+      animation: slideInUp 1.4s ease-out 0.4s backwards;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .stats-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.15), transparent);
+      border-radius: 50%;
+      animation: float 15s ease-in-out infinite;
+      z-index: 0;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item:last-child { border-bottom: none; }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #00FFFF;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4));
+    }
+    .stat-label {
+      font-size: 0.95rem;
+      color: #A0A0A0;
+      font-weight: 600;
+    }
+
+    /* === TRUST BAR === */
+    .trust-bar {
+      padding: 2.5rem 0;
+      background: linear-gradient(90deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 136, 0.05));
+      border-top: 1px solid rgba(0, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+      animation: fadeIn 1s ease-out 0.5s backwards;
+    }
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #B0B0B0;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .trust-item svg {
+      filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+      flex-shrink: 0;
+    }
+
+    /* === SECTIONS === */
+    .section {
+      padding: 7rem 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      animation: slideInUp 0.8s ease-out;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #A0A0A0;
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: slideInUp 1s ease-out 0.1s backwards;
+      font-weight: 400;
+    }
+
+    /* === BENEFITS GRID === */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+    .benefit-card {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.08) 0%, rgba(0, 255, 136, 0.04) 100%);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+    .benefit-card:nth-child(1) { animation-delay: 0.2s; }
+    .benefit-card:nth-child(2) { animation-delay: 0.35s; }
+    .benefit-card:nth-child(3) { animation-delay: 0.5s; }
+    .benefit-card:nth-child(4) { animation-delay: 0.65s; }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+      border-radius: 50%;
+      transition: all 0.6s ease;
+      z-index: 0;
+    }
+    .benefit-card:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 255, 255, 0.5);
+      box-shadow: 0 25px 50px rgba(0, 255, 255, 0.2);
+    }
+    .benefit-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.4));
+      position: relative;
+      z-index: 1;
+      animation: float 3s ease-in-out infinite;
+    }
+    .benefit-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #00FFFF;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.01em;
+    }
+    .benefit-text {
+      color: #B0B0B0;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+      font-weight: 400;
+    }
+
+    /* === CTA SECTION === */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.15) 0%, rgba(0, 255, 255, 0.15) 100%);
+      border: 2px solid rgba(0, 255, 136, 0.4);
+      border-radius: 28px;
+      padding: 5.5rem 4rem;
+      text-align: center;
+      margin: 6rem 0;
+      box-shadow: 0 25px 80px rgba(0, 255, 136, 0.25);
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 1s ease-out 0.2s backwards;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 255, 255, 0.1), transparent);
+      border-radius: 50%;
+      animation: float 20s ease-in-out infinite;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      right: -50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.1), transparent);
+      border-radius: 50%;
+      animation: float 25s ease-in-out infinite reverse;
+    }
+    .cta-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.5));
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.02em;
+    }
+
+    /* === STEPS === */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      margin-top: 5rem;
+    }
+    .step-card {
+      text-align: center;
+      position: relative;
+      animation: slideInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+    .step-card:nth-child(1) { animation-delay: 0.2s; }
+    .step-card:nth-child(2) { animation-delay: 0.35s; }
+    .step-card:nth-child(3) { animation-delay: 0.5s; }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #00FFFF, #00FF88);
+      color: #0F0F12;
+      font-size: 2.2rem;
+      font-weight: 900;
+      border-radius: 50%;
+      margin-bottom: 2rem;
+      box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .step-number::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 4s ease-in-out infinite;
+    }
+    .step-number span {
+      position: relative;
+      z-index: 1;
+    }
+    .step-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+    .step-text {
+      color: #B0B0B0;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* === TESTIMONIALS === */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+    .testimonial-card {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.08) 0%, rgba(0, 255, 136, 0.04) 100%);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      transition: all 0.4s ease;
+      animation: slideInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+    .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+    .testimonial-card:nth-child(2) { animation-delay: 0.35s; }
+    .testimonial-card:nth-child(3) { animation-delay: 0.5s; }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 255, 0.5);
+      box-shadow: 0 20px 50px rgba(0, 255, 255, 0.15);
+    }
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .testimonial-avatar {
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #00FFFF, #00FF88);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #0F0F12;
+      flex-shrink: 0;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    }
+    .testimonial-author {
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+    .testimonial-company {
+      color: #00FFFF;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .testimonial-text {
+      color: #B0B0B0;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+    .testimonial-rating {
+      color: #00FF88;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* === FAQ === */
+    .faq-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    details {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 255, 255, 0.02));
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 2rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      animation: slideInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+    details:nth-child(1) { animation-delay: 0.1s; }
+    details:nth-child(2) { animation-delay: 0.2s; }
+    details:nth-child(3) { animation-delay: 0.3s; }
+    details:nth-child(4) { animation-delay: 0.4s; }
+    details:nth-child(5) { animation-delay: 0.5s; }
+    details:nth-child(6) { animation-delay: 0.6s; }
+    details:hover {
+      border-color: rgba(0, 255, 255, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15);
+    }
+    details[open] {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 255, 255, 0.08));
+      border-color: rgba(0, 255, 255, 0.4);
+    }
+    summary {
+      color: #00FFFF;
+      font-size: 1.2rem;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      cursor: pointer;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary span {
+      flex-shrink: 0;
+      font-size: 1.5rem;
+    }
+    details p {
+      color: #B0B0B0;
+      margin-top: 1.5rem;
+      line-height: 1.8;
+      padding-left: 3rem;
+      font-weight: 400;
+    }
+
+    /* === FORM === */
+    .form-section {
+      max-width: 650px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.12) 0%, rgba(15, 15, 18, 0.98) 100%);
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 30px 80px rgba(0, 255, 255, 0.25);
+      animation: slideInUp 1s ease-out 0.2s backwards;
+    }
+    .form-group {
+      margin-bottom: 1.75rem;
+    }
+    .form-label {
+      display: block;
+      color: #00FFFF;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 1.1rem 1.4rem;
+      background: rgba(0, 255, 255, 0.06);
+      border: 1.5px solid rgba(0, 255, 255, 0.25);
+      border-radius: 12px;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.35s ease;
+    }
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: #707070;
+    }
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: rgba(0, 255, 255, 0.7);
+      background: rgba(0, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    .form-btn {
+      width: 100%;
+      padding: 1.3rem;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .form-note {
+      text-align: center;
+      color: #808080;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+      border-top: 1px solid rgba(0, 255, 255, 0.15);
+      padding: 3.5rem 0 2rem;
+      margin-top: 6rem;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: #808080;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+    .footer-links a:hover {
+      color: #00FFFF;
+    }
+    .footer-note {
+      text-align: center;
+      color: #505050;
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-weight: 500;
+    }
+
+    /* === MODAL === */
+    .modal {
+      overflow-y: auto;
+      padding: 1rem;
+    }
+    .modal-content {
+      max-width: 750px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .step {
+      animation: slideInUp 0.5s ease-out;
+    }
+
+    /* === MOBILE === */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .btn-lg {
+        padding: 1.1rem 2rem;
+        font-size: 1rem;
+      }
+      .benefits-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-section {
+        padding: 3rem 2rem;
+      }
+      .form-section {
+        padding: 2.5rem 1.75rem;
+      }
+      .trust-items {
+        gap: 1.5rem;
+      }
+      details {
+        padding: 1.5rem;
+      }
+      .stats-card {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <a href="#kontakt" class="btn-header">Jetzt Termin vereinbaren</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="hero-tag">Schweizer KMU aufgepasst</span>
+        <h1>Sparen Sie bis zu <span class="highlight">CHF 180'000</span> pro Jahr – mit KI-Automatisierung</h1>
+        <p class="hero-subtitle">Erfahren Sie in nur 3 Minuten, wie viel <strong>Ihr</strong> Unternehmen einsparen kann. Kostenlos, unverbindlich, DSG-konform.</p>
+        <div class="hero-cta">
+          <a href="#audit" class="btn btn-primary btn-lg">
+            <span>🎯 Kostenloses Potenzial-Audit starten</span>
+            <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </a>
+          <p class="hero-trust">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="#00FF88"><path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg>
+            Bereits <strong>120+ Schweizer KMU</strong> vertrauen uns
+          </p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="stats-card">
+          <div class="stat-item">
+            <span class="stat-number">CHF 180'000</span>
+            <span class="stat-label">Ø Einsparung/Jahr</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">6-12 Monate</span>
+            <span class="stat-label">ROI-Zeitraum</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100% Swiss</span>
+            <span class="stat-label">DSG-konform</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#00FF88"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          <span>DSG & DSGVO konform</span>
+        </div>
+        <div class="trust-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#00FF88"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4" stroke="#0F0F12" stroke-width="2" fill="none"/></svg>
+          <span>ISO 27001 zertifiziert</span>
+        </div>
+        <div class="trust-item">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#00FF88"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2m0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+          <span>Swiss Hosting & Support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Warum KMU auf KI-Automation setzen</h2>
+      <p class="section-subtitle">Messbare Resultate in Wochen, nicht Jahren</p>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3 class="benefit-title">87% Zeitersparnis</h3>
+          <p class="benefit-text">Automatisierte Belegverarbeitung, Reporting und Kundenanfragen. Ihre Mitarbeiter fokussieren sich auf wertschöpfende Tätigkeiten.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3 class="benefit-title">CHF 45'000–180'000/Jahr</h3>
+          <p class="benefit-text">Durchschnittliche Einsparung unserer Kunden. ROI bereits nach 6–12 Monaten. Garantiert messbar.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🔒</div>
+          <h3 class="benefit-title">100% Schweizer Sicherheit</h3>
+          <p class="benefit-text">DSG-konforme Lösungen auf CH-Servern. ISO 27001 zertifiziert. Ihre Daten bleiben in der Schweiz.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🎯</div>
+          <h3 class="benefit-title">Massgeschneidert für Sie</h3>
+          <p class="benefit-text">Keine Standard-Software. Jede Lösung wird auf Ihre Branche und Prozesse exakt zugeschnitten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Audit -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-section">
+        <div class="cta-icon">💎</div>
+        <h2>Wie viel können Sie einsparen?</h2>
+        <p style="color: #B0B0B0; font-size: 1.2rem; margin: 1.5rem 0 3rem; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400;">
+          KMU in der Schweiz sparen durchschnittlich <strong style="color: #FFFFFF;">CHF 45'000 bis 180'000 pro Jahr</strong> durch KI-Automatisierung.
+        </p>
+        <a href="#audit" class="btn btn-primary btn-lg">◆ 3-Minuten Potenzial-Check jetzt starten</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">So funktioniert's</h2>
+      <p class="section-subtitle">Von der Analyse zur produktiven KI-Lösung in 3 einfachen Schritten</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number"><span>1</span></div>
+          <h3 class="step-title">Gratis Potenzial-Audit</h3>
+          <p class="step-text">Wir analysieren Ihre Prozesse und identifizieren die größten Einspar-Potenziale. Dauer: 30–60 Min. (online oder vor Ort).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number"><span>2</span></div>
+          <h3 class="step-title">Massgeschneiderte Lösung</h3>
+          <p class="step-text">Basierend auf dem Audit entwickeln wir eine KI-Lösung, die exakt zu Ihrem Unternehmen passt. Transparent kalkuliert.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number"><span>3</span></div>
+          <h3 class="step-title">Implementierung & Support</h3>
+          <p class="step-text">Wir setzen die Lösung um, schulen Ihr Team und begleiten Sie 6 Monate kostenlos. Messbare Erfolge ab Tag 1.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Was unsere Kunden sagen</h2>
+      <p class="section-subtitle">Echte Erfolgsgeschichten von Schweizer KMU</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">MK</div>
+            <div>
+              <div class="testimonial-author">Marco Käppeli</div>
+              <div class="testimonial-company">CEO, Käppeli Treuhand AG</div>
+            </div>
+          </div>
+          <p class="testimonial-text">"Nach 2 Wochen Implementierung sparen wir 15 Stunden pro Woche bei der Belegverarbeitung. Das ist nicht nur Zeit, das ist Geld. Die KI-Lösung lernt ständig dazu—genial."</p>
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐ 5/5</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">SB</div>
+            <div>
+              <div class="testimonial-author">Sandra Bühler</div>
+              <div class="testimonial-company">Geschäftsführerin, Bühler Immobilien</div>
+            </div>
+          </div>
+          <p class="testimonial-text">"Wir nutzen jetzt KI-Chatbots für Immobilien-Anfragen. Die Quote für qualifizierte Leads ist um 40% gestiegen. Das hätten wir ohne KI nie erreicht."</p>
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐ 5/5</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">TP</div>
+            <div>
+              <div class="testimonial-author">Thomas Petermann</div>
+              <div class="testimonial-company">Betriebsleiter, Petermann Industrie AG</div>
+            </div>
+          </div>
+          <p class="testimonial-text">"Predictive Analytics haben unsere Ausfallzeiten um 23% reduziert. Das erspart uns jährlich über CHF 200'000. KI ist nicht Zukunft—es ist jetzt."</p>
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐ 5/5</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Häufig gestellte Fragen</h2>
+      <p class="section-subtitle">Antworten auf die wichtigsten Fragen zu unseren KI-Lösungen</p>
+      <div class="faq-grid">
+        <details>
+          <summary><span>💡</span> Wie schnell sehen wir Ergebnisse?</summary>
+          <p>Die meisten unserer Quick-Win-Lösungen (Belegverarbeitung, Chatbots) zeigen bereits nach 2–4 Wochen messbare Resultate. Komplexere Projekte wie Predictive Analytics benötigen 2–3 Monate.</p>
+        </details>
+        <details>
+          <summary><span>💰</span> Was kostet eine KI-Implementierung?</summary>
+          <p>Unsere Preise beginnen bei CHF 8'000 für einfache Automatisierungen. Der ROI liegt typischerweise bei 300–500% nach 12 Monaten. Wir bieten auch erfolgsbasierte Modelle an.</p>
+        </details>
+        <details>
+          <summary><span>🔒</span> Ist unsere Datensicherheit gewährleistet?</summary>
+          <p>Ja, absolut. Alle Lösungen sind DSG-konform und werden auf Schweizer Servern gehostet. Wir arbeiten mit ISO 27001-zertifizierten Cloud-Partnern und bieten auch On-Premise-Lösungen an.</p>
+        </details>
+        <details>
+          <summary><span>👥</span> Brauchen wir internes KI-Know-how?</summary>
+          <p>Nein. Wir übernehmen die komplette Implementierung, Schulung und Wartung. Ihre Mitarbeiter lernen die Bedienung in 1–2 Tagen. Laufender Support ist inklusive.</p>
+        </details>
+        <details>
+          <summary><span>⚙️</span> Funktioniert KI mit unserer bestehenden Software?</summary>
+          <p>Ja. Unsere Lösungen integrieren sich mit den gängigsten ERP-, CRM- und Buchhaltungssystemen (SAP, Abacus, Sage, Bexio, etc.). Bei Bedarf entwickeln wir Custom-Schnittstellen.</p>
+        </details>
+        <details>
+          <summary><span>📊</span> Wie messen wir den Erfolg?</summary>
+          <p>Wir definieren gemeinsam KPIs (z.B. Zeitersparnis, Fehlerrate, Umsatzsteigerung) und tracken diese monatlich. Sie erhalten detaillierte Reports mit ROI-Berechnung.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="kontakt" class="section">
+    <div class="container">
+      <h2 class="section-title">Starten Sie jetzt Ihr KI-Potenzial-Audit</h2>
+      <p class="section-subtitle">Kostenlos & unverbindlich. Antwort innerhalb von 24 Stunden.</p>
+      <div class="form-section">
+        <form action="https://formspree.io/f/xanyzvrl" method="POST">
+          <input type="hidden" name="_subject" value="Neue Kontaktanfrage - KI.NETIC Landing" />
+          <input type="hidden" name="type" value="lead" />
+          
+          <div class="form-group">
+            <label class="form-label">Vorname & Name *</label>
+            <input type="text" name="name" class="form-input" required placeholder="Max Mustermann" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Firmenname *</label>
+            <input type="text" name="company" class="form-input" required placeholder="Mustermann AG" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">E-Mail *</label>
+            <input type="email" name="email" class="form-input" required placeholder="max@mustermann.ch" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Telefon (optional)</label>
+            <input type="tel" name="phone" class="form-input" placeholder="+41 79 123 45 67" />
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Ihre größte Herausforderung (optional)</label>
+            <textarea name="message" class="form-textarea" placeholder="z.B. Belegverarbeitung dauert zu lange, Kundenanfragen überfordern uns, etc."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary form-btn">
+            Kostenloses Audit anfordern ◆
+          </button>
+          
+          <p class="form-note">
+            ✓ Antwort innerhalb 24h &nbsp;•&nbsp; ✓ Keine Verpflichtung &nbsp;•&nbsp; ✓ DSG-konform
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+        <div style="color: #808080;">
+          <div style="font-weight: 500;">E-Mail: info@ki-netic.ch</div>
+          <div style="font-weight: 500;">Tel: +41 31 333 00 01</div>
+        </div>
+      </div>
+      <div class="footer-note">
+        © 2025 KI.NETIC | Massgeschneiderte KI-Lösungen für Schweizer KMU
+      </div>
+    </div>
+  </footer>
+
+  <!-- Assessment Modal (aus altem HTML einbinden) -->
+  <script src="js/assessment-landing.js"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0000000000');
+  </script>
+</body>
+</html>

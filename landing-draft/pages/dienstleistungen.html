@@ -1,0 +1,284 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dienstleistungen — KI.NETIC</title>
+  <meta name="description" content="Unsere KI-Dienstleistungen: IDP, Automatisierung, Datenanalyse, Custom Models, Consulting." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta property="og:title" content="Dienstleistungen — KI.NETIC" />
+  <meta property="og:description" content="Unsere KI-Dienstleistungen: IDP, Automatisierung, Datenanalyse, Custom Models, Consulting." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ki-netic.ch/pages/dienstleistungen.html" />
+  <meta property="og:site_name" content="KI.NETIC" />
+    <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dienstleistungen — KI.NETIC" />
+  <meta name="twitter:description" content="Unsere KI-Dienstleistungen: IDP, Automatisierung, Datenanalyse, Custom Models, Consulting." />
+    <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0000000000"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0000000000');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">KI<span class="logo-dot">.</span>NETIC</a>
+      <nav class="main-nav" id="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="dienstleistungen.html">Dienstleistungen</a>
+        <a href="branchen.html">Branchen</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="ueber-uns.html">Über Uns</a>
+        <a href="blog.html">Blog</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+      <button id="cta-primary" class="btn btn-glow">Kostenlosen Ersttermin sichern</button>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Neural Network Background -->
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Unsere KI-Dienstleistungen.</h1>
+          <p class="sub">Von intelligentem Dokumenten-Processing bis zu Custom AI-Modellen — alles aus einer Hand.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin: 4rem 0;">
+      <h2 style="text-align: center; margin-bottom: 4rem;">Was wir anbieten</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">📄</span>
+            <h3>Intelligent Document Processing (IDP)</h3>
+          </div>
+          <p>Automatisierte Belegverarbeitung, OCR, Datenextraktion mit 99%+ Genauigkeit. Sparen Sie 10–15h/Woche pro FTE.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">⚙️</span>
+            <h3>Prozessautomatisierung</h3>
+          </div>
+          <p>Robotic Process Automation (RPA) für repetitive Workflows. Integration mit Bestehenden Systemen (SAP, Navision, etc.).</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">📊</span>
+            <h3>Datenanalyse & Predictive Analytics</h3>
+          </div>
+          <p>Daten in Insights verwandeln. Forecast, Anomalieerkennung, Kundenverhalten-Modelle.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">💬</span>
+            <h3>AI-Chatbots & Kundensupport</h3>
+          </div>
+          <p>24/7 Kundenservice mit KI. Multi-Language Support, Integration mit CRM/Ticketing.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">🎯</span>
+            <h3>Custom AI-Modelle</h3>
+          </div>
+          <p>Massgeschneiderte Lösungen für Ihre spezifischen Anforderungen. Training, Deployment, Monitoring.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">🛠️</span>
+            <h3>Individuelle Softwareentwicklung</h3>
+          </div>
+          <p>Von Fachprozess-Analyse bis Rollout: Wir bauen schlanke, integrierte Lösungen, die genau zu Ihrem Betrieb und Ihren Systemen passen.</p>
+        </div>
+
+        <div class="service-item">
+          <div class="service-header">
+            <span class="service-icon">🔒</span>
+            <h3>Compliance & Datenschutz</h3>
+          </div>
+          <p>100% DSG-konform. DSGVO-zertifiziert. Daten bleiben in CH/EU. Audits & Dokumentation inklusive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin: 4rem 0;">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Unser Prozess</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Analyse</h3>
+            <p>Wir verstehen Ihre Prozesse, Pain Points und Ziele. Kostenloses Audit.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Design</h3>
+            <p>Massgeschneiderte AI-Roadmap. Scope, Timeline, Budget.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-connector"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Implementierung</h3>
+            <p>Schnelle Deployment in 2–4 Wochen. Agile Sprints mit Feedback-Loops.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-item-last">
+          <div class="timeline-marker">
+            <div class="timeline-dot">4</div>
+          </div>
+          <div class="timeline-content">
+            <h3>Training & Support</h3>
+            <p>Schulung für Ihre Teams. 24/7 Support & kontinuierliche Optimierung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="margin: 4rem 0;">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Technologie-Stack</h2>
+      <p style="text-align: center; margin-bottom: 3rem; color: var(--text-secondary);">Wir arbeiten mit den besten Plattformen:</p>
+      <div class="tech-list">
+        <div class="tech-item">
+          <h3>Google AI / Gemini</h3>
+          <p>Multimodal LLM, Gemini API für Custom Workflows.</p>
+        </div>
+        <div class="tech-item">
+          <h3>Anthropic Claude</h3>
+          <p>Long-Context, Code-Generation, Reasoning.</p>
+        </div>
+        <div class="tech-item">
+          <h3>OpenAI / ChatGPT</h3>
+          <p>GPT-4 Fine-Tuning, Vision API, Custom GPTs.</p>
+        </div>
+        <div class="tech-item">
+          <h3>AWS SageMaker</h3>
+          <p>ML Ops, Deployment, Scaling.</p>
+        </div>
+        <div class="tech-item">
+          <h3>Supabase / PostgreSQL</h3>
+          <p>Datenbank, VectorDB für RAG.</p>
+        </div>
+        <div class="tech-item">
+          <h3>Zapier / Make</h3>
+          <p>No-Code Integrationen, Workflow Automation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+      <div class="footer-contact">
+        <span>Email: info@ki-netic.ch</span>
+        <span>Telefon: +41 31 333 00 01</span>
+      </div>
+      <div class="footer-note">2025: Kein KI-Einsatz = Verzicht auf Profit</div>
+    </div>
+  </footer>
+
+  <div id="assessment-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="assessment-title">
+    <div class="modal-dialog">
+      <button class="modal-close" id="assessment-close" aria-label="Schliessen">✕</button>
+      <div class="modal-content">
+        <h2 id="assessment-title">KI-Potenzialprüfung (3 Schritte)</h2>
+        <form id="assessment-form" novalidate>
+          <div class="step" data-step="1">
+            <h3>1. Branche</h3>
+            <div class="radios" id="branche-list">
+              <label><input type="radio" name="branche" value="Buchhaltung" required>Buchhaltung</label>
+              <label><input type="radio" name="branche" value="Immobilien">Immobilien</label>
+              <label><input type="radio" name="branche" value="Handwerk">Handwerk</label>
+              <label><input type="radio" name="branche" value="Versicherung">Versicherung</label>
+              <label><input type="radio" name="branche" value="Finanzen">Finanzen</label>
+              <label><input type="radio" name="branche" value="Industrie">Industrie</label>
+              <label><input type="radio" name="branche" value="Handel">Handel</label>
+              <label><input type="radio" name="branche" value="Gesundheit">Gesundheit</label>
+              <label><input type="radio" name="branche" value="Energie">Energie</label>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-secondary" data-action="next">Weiter</button>
+            </div>
+          </div>
+          <div class="step" data-step="2" hidden>
+            <h3>2. Unternehmensgrösse</h3>
+            <select name="company_size" required>
+              <option value="">Wähle...</option>
+              <option value="1-10">1-10 Mitarbeitende</option>
+              <option value="11-50">11-50 Mitarbeitende</option>
+              <option value="50+">50+ Mitarbeitende</option>
+            </select>
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost" data-action="back">Zurück</button>
+              <button type="button" class="btn btn-secondary" data-action="next">Weiter</button>
+            </div>
+          </div>
+          <div class="step" data-step="3" hidden>
+            <h3>3. Kontakt</h3>
+            <div class="contact-fields">
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost" data-action="back">Zurück</button>
+              <button type="submit" class="btn btn-primary">Senden</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+      <div class="footer-contact"><span>Email: info@ki-netic.ch</span><span>Telefon: +41 31 333 00 01</span></div>
+      <div class="footer-note">2025: Kein KI-Einsatz = Verzicht auf Profit</div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/assessment.js"></script>
+  <script src="../js/cookie-consent.js"></script>
+</body>
+</html>
